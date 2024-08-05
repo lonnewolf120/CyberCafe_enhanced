@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="05D70F31-4A9F-006C-6BB1-DCF560AB8E12" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="TOKENS">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>TOKENS</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_ID" id="29DE2C35-7E3F-2501-36A8-9E068A1A0CDC">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>TOKENS</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B37E6B6F-CE1E-899A-E5B5-623827B3B779" referredColumn="D065C3EF-4508-5FC6-1A3E-37802F46A2C9"/>
+</associations>
+</Column>
+<Column name="TOKEN" id="82EF9886-2CBB-A651-6AF3-05333E9A8131">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>TOKENS</sourceObjSchema>
+<sourceObjName>TOKEN</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_AT" id="EAA4F784-48EB-E42F-9E53-DA844F76853F">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>TOKENS</sourceObjSchema>
+<sourceObjName>CREATED_AT</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXPIRES_AT" id="1FD16B27-AD83-61B9-46AE-575F8D9A1814">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>TOKENS</sourceObjSchema>
+<sourceObjName>EXPIRES_AT</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1FDB7E21-FCF5-5B39-4F5D-A07C3C48F1FD" name="FK_TOKENS_USERID">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29DE2C35-7E3F-2501-36A8-9E068A1A0CDC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

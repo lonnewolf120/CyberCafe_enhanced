@@ -1,0 +1,160 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A3219934-D001-5D41-3466-39958C25E06C" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="CONTEST">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>CONTEST</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CONTESTID" id="5D2A757A-849D-9137-5DB4-00EE5E4C8A70">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CONTEST</sourceObjSchema>
+<sourceObjName>CONTESTID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTESTNAME" id="BAA83F3A-3E5F-7CC4-3236-503BCFF1FDE4">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CONTEST</sourceObjSchema>
+<sourceObjName>CONTESTNAME</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTESTDESC" id="0E4264B8-B982-8401-BEE6-A77BC51200C9">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CONTEST</sourceObjSchema>
+<sourceObjName>CONTESTDESC</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 BYTE</dataTypeSize>
+<ownDataTypeParameters>150 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTESTTYPE" id="75A9BE99-B49A-B251-4BE7-1E5342D30DD0">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CONTEST</sourceObjSchema>
+<sourceObjName>CONTESTTYPE</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STARTTIME" id="296AC5AB-ED62-5420-3A06-7BEC9E071A4E">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CONTEST</sourceObjSchema>
+<sourceObjName>STARTTIME</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENDTIME" id="75AA2E59-F955-2DEB-634A-2B1915C34D61">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CONTEST</sourceObjSchema>
+<sourceObjName>ENDTIME</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="7399B41D-C60E-20B6-3025-557768E9DA0A">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CONTEST</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTALPARTICIPANT" id="541D7018-F8ED-E2E8-E77E-62656AB1AE33">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CONTEST</sourceObjSchema>
+<sourceObjName>TOTALPARTICIPANT</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTALSOLVES" id="ED8034DE-0C12-A6FF-D0B2-D1EDC237129A">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CONTEST</sourceObjSchema>
+<sourceObjName>TOTALSOLVES</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="83070BDA-A067-167F-C8BB-1373EB46C3D2" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="CONTEST_PK">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SYS_C008289</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5D2A757A-849D-9137-5DB4-00EE5E4C8A70"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

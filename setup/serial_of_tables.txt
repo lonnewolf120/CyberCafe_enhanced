@@ -1,0 +1,10 @@
+USERS -> 
+PROFILE -> 
+CATEGORY -> 
+COURSES -> 
+Course_StudentsEnrolled -> 
+SECTION -> 
+SUBSECITON -> 
+CourseProgress ->
+OTP
+

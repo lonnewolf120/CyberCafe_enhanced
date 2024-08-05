@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="COURSEPROGRESS" directorySegmentName="seg_0" id="2A2DDC8E-808B-7648-ED66-84F2F3A91DDB">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>ABE364D9-693D-DA3F-61D3-92E1994542E5</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>4BF181BF-107B-1889-AC9F-927440972DC0</segment>
+<tableSpace>676C0546-9BAE-CE72-D8CE-81900F2C0181</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="COURSE_PROGRESS_ID" id="098BABC8-C349-006A-7FB5-B968ED0717ED">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="COURSE_ID" id="469CF9B3-081B-9F27-0408-425493349857">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_ID" id="59A5A792-F05D-7F64-FD8F-404F947ADED4">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COMPLETED_VIDEOS" id="E7D2BE2A-C056-70B5-AE0E-9351C780B06F">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_COURSEPROGRESS_COURSEID" id="69F21D1F-AB7D-F751-DA95-181C2681DD70">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_COURSEPROGRESS_USERID" id="E2972401-2E88-2C31-0895-0051A4A85D05">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="COURSEPROGRESS_PK" id="8C73065A-5B2E-B76F-48FD-3C55A4D968EA">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:13 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>ABE364D9-693D-DA3F-61D3-92E1994542E5</schemaObject>
+<segment>7F23AFD3-004B-4E4C-F57A-8C003F00746B</segment>
+<tableSpace>676C0546-9BAE-CE72-D8CE-81900F2C0181</tableSpace>
+<indexSegment>7F23AFD3-004B-4E4C-F57A-8C003F00746B</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

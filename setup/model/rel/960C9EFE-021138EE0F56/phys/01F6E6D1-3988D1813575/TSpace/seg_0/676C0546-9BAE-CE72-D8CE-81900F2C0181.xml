@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSpaceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableSpaceOraclev10g" name="USERS" directorySegmentName="seg_0" id="676C0546-9BAE-CE72-D8CE-81900F2C0181">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>USERS</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<emUniformSize>0</emUniformSize>
+<extentManagement>LOCAL</extentManagement>
+</TableSpaceOraclev10g>

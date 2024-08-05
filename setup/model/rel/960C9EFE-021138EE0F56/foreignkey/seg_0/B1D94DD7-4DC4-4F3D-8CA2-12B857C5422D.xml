@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B1D94DD7-4DC4-4F3D-8CA2-12B857C5422D" containerWithKeyObject="2B91DD6B-49AD-3218-3312-206F90BA8C3E" localFKIndex="768AB199-762B-6DDF-E477-9FD1B4FB57CF" name="FK_TASKLIST_USERID">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>FK_TASKLIST_USERID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>MCSC.USERS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>49A5E6B0-5372-EAE8-08E3-29A3285673EE</referredTableID>
+<keyObject>0E3689B7-3186-FCA0-FA90-35C9212C566C</keyObject>
+<referredKeyID>0E3689B7-3186-FCA0-FA90-35C9212C566C</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>USER_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

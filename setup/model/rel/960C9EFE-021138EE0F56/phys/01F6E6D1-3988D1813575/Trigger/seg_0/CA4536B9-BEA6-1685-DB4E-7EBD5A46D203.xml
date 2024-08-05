@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="USERID_KEY_TRIGGER" directorySegmentName="seg_0" id="CA4536B9-BEA6-1685-DB4E-7EBD5A46D203">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>USERID_KEY_TRIGGER</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<actions>INSERT</actions>
+<body><![CDATA[BEGIN
+  :NEW.user_id := TO_CHAR(LPAD(random_value_seq.NEXTVAL, 10, '0') || LPAD(incrementing_counter_seq.NEXTVAL, 7, '0'));
+END;
+]]></body>
+<triggerTime>BEFORE</triggerTime>
+<owner>02AD5241-AD2E-285C-4374-16E621AF1BE4</owner>
+<table>49A5E6B0-5372-EAE8-08E3-29A3285673EE</table>
+</TriggerOraclev10g>

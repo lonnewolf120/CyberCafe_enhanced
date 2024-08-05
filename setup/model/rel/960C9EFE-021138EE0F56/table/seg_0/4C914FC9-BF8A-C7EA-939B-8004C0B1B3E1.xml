@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4C914FC9-BF8A-C7EA-939B-8004C0B1B3E1" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="OTP">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>OTP</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="OTP_ID" id="84FC5795-69BA-BDB0-F7B7-9E14238C6A05">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>OTP</sourceObjSchema>
+<sourceObjName>OTP_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="EMAIL" id="CAF39804-7479-02D9-B228-00FE9E213D66">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>OTP</sourceObjSchema>
+<sourceObjName>EMAIL</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OTP" id="23BFB5D7-E44A-CAA6-C953-4FFF91427D62">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>OTP</sourceObjSchema>
+<sourceObjName>OTP</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_AT" id="9346B3DC-9364-C8B4-47B1-AC377B856D23">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>OTP</sourceObjSchema>
+<sourceObjName>CREATED_AT</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>CURRENT_TIMESTAMP</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXPIRES_AT" id="DE74D382-7184-3526-885E-CF6EED21ADFA">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>OTP</sourceObjSchema>
+<sourceObjName>EXPIRES_AT</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<formulaDesc>&quot;CREATED_AT&quot;+INTERVAL&apos;+00 00:05:00&apos; DAY(2) TO SECOND(0)</formulaDesc>
+<nullsAllowed>true</nullsAllowed>
+<sourceType>Derived</sourceType>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<computed>true</computed>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A6F3E820-D1B4-6FF2-EA03-E603F5DA7A7F" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="OTP_PK">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SYS_C008282</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="84FC5795-69BA-BDB0-F7B7-9E14238C6A05"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

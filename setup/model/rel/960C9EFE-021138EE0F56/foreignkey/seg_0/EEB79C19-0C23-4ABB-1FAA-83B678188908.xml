@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="EEB79C19-0C23-4ABB-1FAA-83B678188908" containerWithKeyObject="351B783F-2360-8833-0B27-C7DD2F64EB1B" localFKIndex="B25E784E-0E8E-7118-7578-83E817AE452B" name="FK_COURSES_INSTRUCTOR">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>FK_COURSES_INSTRUCTOR</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>MCSC.USERS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>49A5E6B0-5372-EAE8-08E3-29A3285673EE</referredTableID>
+<keyObject>0E3689B7-3186-FCA0-FA90-35C9212C566C</keyObject>
+<referredKeyID>0E3689B7-3186-FCA0-FA90-35C9212C566C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>USER_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

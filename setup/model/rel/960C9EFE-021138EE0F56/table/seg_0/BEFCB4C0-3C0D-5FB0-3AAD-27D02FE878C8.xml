@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BEFCB4C0-3C0D-5FB0-3AAD-27D02FE878C8" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="SIMPLETEST">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SIMPLETEST</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="64E10297-D15C-3E1F-1755-55B6360A4449">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SIMPLETEST</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="NAME" id="7C3A7757-A216-4AC8-3745-C179F9837095">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SIMPLETEST</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="636BFF70-12E4-C26F-8B8F-BC27DB572521" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="SIMPLETEST_PK">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SYS_C008294</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="64E10297-D15C-3E1F-1755-55B6360A4449"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="598D1B62-1471-1FC8-E66E-3BE4BF305DA1" containerWithKeyObject="4F82C283-DC03-526F-D073-7E050D2C7C71" localFKIndex="A2676110-BF9E-96F0-27EA-B92C3C2A99A7" name="FK_SECTION_COURSEID">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>FK_SECTION_COURSEID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>MCSC.COURSES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>351B783F-2360-8833-0B27-C7DD2F64EB1B</referredTableID>
+<keyObject>0F8945C4-F06C-967F-4B44-B3534001924F</keyObject>
+<referredKeyID>0F8945C4-F06C-967F-4B44-B3534001924F</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>COURSE_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

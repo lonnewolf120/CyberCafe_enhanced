@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="SYS" directorySegmentName="seg_0" id="02AD5241-AD2E-285C-4374-16E621AF1BE4">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjName>SYS</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</UserOraclev10g>

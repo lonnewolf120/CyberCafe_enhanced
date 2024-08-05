@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3230A25A-CBAD-E86C-80F0-A6006166307B" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="PROFILE">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>PROFILE</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROFILE_ID" id="222E136E-5A8A-5BF3-F723-4EF7E3F52B7E">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>PROFILE</sourceObjSchema>
+<sourceObjName>PROFILE_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="USER_ID" id="0DE7288C-A9EF-8DD1-DD1A-64D53341C6F8">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>PROFILE</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EA8FB656-E343-3DAC-52EF-71F2EE3182AC" referredColumn="D065C3EF-4508-5FC6-1A3E-37802F46A2C9"/>
+</associations>
+</Column>
+<Column name="GENDER" id="CF46D82D-2899-7308-9EE4-D8932CC2B962">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>PROFILE</sourceObjSchema>
+<sourceObjName>GENDER</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DATE_OF_BIRTH" id="81F86071-1BC3-D920-5101-625957CEF3E4">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>PROFILE</sourceObjSchema>
+<sourceObjName>DATE_OF_BIRTH</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ABOUT" id="965C7FE4-E739-99DB-5342-993C1A93EF54">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>PROFILE</sourceObjSchema>
+<sourceObjName>ABOUT</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTACT_NUMBER" id="8999BB62-C3AC-EA57-BF9A-D2DD47132224">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>PROFILE</sourceObjSchema>
+<sourceObjName>CONTACT_NUMBER</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BD558E2D-3678-337E-BF3E-D1DAF1658067" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="PROFILE_PK">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SYS_C008263</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="222E136E-5A8A-5BF3-F723-4EF7E3F52B7E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E0345087-134D-02B1-78AB-31F4BF0390E0" name="FK_PROFILE_USERID">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0DE7288C-A9EF-8DD1-DD1A-64D53341C6F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

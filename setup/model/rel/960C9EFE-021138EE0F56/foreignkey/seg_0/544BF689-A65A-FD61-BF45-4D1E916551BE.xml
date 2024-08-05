@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="544BF689-A65A-FD61-BF45-4D1E916551BE" containerWithKeyObject="7FEACF68-D251-7950-9395-842A1CB428ED" localFKIndex="383D0393-58C0-758B-3E61-65CAE5604843" name="FK_CHALLENGES_CONTEST">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>FK_CHALLENGES_CONTEST</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>MCSC.CONTEST</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A3219934-D001-5D41-3466-39958C25E06C</referredTableID>
+<keyObject>83070BDA-A067-167F-C8BB-1373EB46C3D2</keyObject>
+<referredKeyID>83070BDA-A067-167F-C8BB-1373EB46C3D2</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>CONTESTID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

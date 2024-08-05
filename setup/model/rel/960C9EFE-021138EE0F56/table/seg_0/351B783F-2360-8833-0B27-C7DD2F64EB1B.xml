@@ -1,0 +1,257 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="351B783F-2360-8833-0B27-C7DD2F64EB1B" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="COURSES">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>COURSES</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="COURSE_ID" id="65E57A9C-1CCB-42D5-C446-A0DE0692442D">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>COURSE_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="COURSE_NAME" id="F8C49913-5EA1-6F01-B1B9-6A9E965EE96F">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>COURSE_NAME</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COURSE_DESCRIPTION" id="D37E9497-D7BF-0292-9799-E392CD00EA9D">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>COURSE_DESCRIPTION</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INSTRUCTOR" id="2179422C-179B-91B1-E4E0-8B6802DDE805">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>INSTRUCTOR</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EEB79C19-0C23-4ABB-1FAA-83B678188908" referredColumn="D065C3EF-4508-5FC6-1A3E-37802F46A2C9"/>
+</associations>
+</Column>
+<Column name="WHAT_YOU_WILL_LEARN" id="591D0F46-5EA8-F161-646D-239B3BFE0A0A">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>WHAT_YOU_WILL_LEARN</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE" id="E5A4B517-6679-C955-C6EF-6E331405678F">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>PRICE</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="THUMBNAIL" id="3CF352EC-D481-257E-37FA-61F8801E2EB5">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>THUMBNAIL</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="E9EDC639-B0DE-3A65-0DCD-F985AB62D781">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<constraintName>SYS_C008235</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;Draft&apos;" description=""/>
+<valueDef value="&apos;Published&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREATED_AT" id="B04917E4-7EB8-6FDB-EA04-AABF59ADB9A7">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>CREATED_AT</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>CURRENT_TIMESTAMP</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CATEGORY" id="0D7CC289-1768-F2A1-C500-602F5DE7C47F">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>CATEGORY</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F711A4FB-1663-659B-6F34-D231E7CEDF06" referredColumn="7FB4DD58-B509-54F1-9203-B6721E6DCAE8"/>
+</associations>
+</Column>
+<Column name="SOLD" id="2237F1EB-84EB-EE70-A5B5-7CA2264B4F0A">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>SOLD</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TAG" id="8E79231F-4950-687B-B05D-858588B338F3">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>TAG</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INSTRUCTIONS" id="56BCC017-A6C6-47EA-FF65-C5E8D71B95B8">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>COURSES</sourceObjSchema>
+<sourceObjName>INSTRUCTIONS</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0F8945C4-F06C-967F-4B44-B3534001924F" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="COURSES_PK">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SYS_C008236</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="65E57A9C-1CCB-42D5-C446-A0DE0692442D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="31CD9C03-7C2E-AD72-7334-800E3C70FA6C" name="FK_COURSES_CATEGORY">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0D7CC289-1768-F2A1-C500-602F5DE7C47F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B25E784E-0E8E-7118-7578-83E817AE452B" name="FK_COURSES_INSTRUCTOR">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2179422C-179B-91B1-E4E0-8B6802DDE805"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

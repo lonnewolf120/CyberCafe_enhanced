@@ -1,0 +1,162 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7BD266A1-683A-4AEE-7344-70A50405D40B" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="SUBSECTION">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SUBSECTION</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SUBSECTION_ID" id="B630DD09-0F70-DBB5-3A73-6A88122B5DB4">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SUBSECTION</sourceObjSchema>
+<sourceObjName>SUBSECTION_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="SECTION_ID" id="11244881-F16A-D004-E4B4-D64723C390BE">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SUBSECTION</sourceObjSchema>
+<sourceObjName>SECTION_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DEA3468F-E1B1-2EC8-D277-AE0C4E38642C" referredColumn="BA66840A-378B-5BF7-8207-3ED0AC2586F6"/>
+</associations>
+</Column>
+<Column name="COURSE_ID" id="C7473DC4-D5F8-1ED1-F937-B5A19E94E129">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SUBSECTION</sourceObjSchema>
+<sourceObjName>COURSE_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="827E1DB4-E04F-BB3B-02E6-3B60C8071606" referredColumn="65E57A9C-1CCB-42D5-C446-A0DE0692442D"/>
+</associations>
+</Column>
+<Column name="TITLE" id="18825DAA-1EDA-E95C-B50D-25CDECB36504">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SUBSECTION</sourceObjSchema>
+<sourceObjName>TITLE</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIME_DURATION" id="604EF3D2-A941-BCD8-E076-7FA05FD442B7">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SUBSECTION</sourceObjSchema>
+<sourceObjName>TIME_DURATION</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIPTION" id="CD93DC3A-D1DB-3369-5BF0-C51DF972BB34">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SUBSECTION</sourceObjSchema>
+<sourceObjName>DESCRIPTION</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VIDEO_URL" id="4D04ADA2-0333-8008-D867-7D3D38CF0F27">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SUBSECTION</sourceObjSchema>
+<sourceObjName>VIDEO_URL</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="92465D5B-C18F-A0AD-E0CB-92CB22D5A410" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="SUBSECTION_PK">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SYS_C008272</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B630DD09-0F70-DBB5-3A73-6A88122B5DB4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="10F01039-AE94-B0FC-3E4B-03DE59E7B131" name="FK_SECTION_SECTIONID">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="11244881-F16A-D004-E4B4-D64723C390BE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8936A02B-71AA-9391-A7AC-C2D5835CAD7D" name="FK_SUBSECTION_COURSEID">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C7473DC4-D5F8-1ED1-F937-B5A19E94E129"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4F82C283-DC03-526F-D073-7E050D2C7C71" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="SECTION">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SECTION</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SECTION_ID" id="BA66840A-378B-5BF7-8207-3ED0AC2586F6">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SECTION</sourceObjSchema>
+<sourceObjName>SECTION_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="COURSE_ID" id="E871236C-07C8-4D71-259D-49C67D42B78E">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SECTION</sourceObjSchema>
+<sourceObjName>COURSE_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="598D1B62-1471-1FC8-E66E-3BE4BF305DA1" referredColumn="65E57A9C-1CCB-42D5-C446-A0DE0692442D"/>
+</associations>
+</Column>
+<Column name="SECTION_NAME" id="95F971F2-1AF5-0786-EAA5-F618FE095E88">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SECTION</sourceObjSchema>
+<sourceObjName>SECTION_NAME</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUBSECTION_ID" id="B7B02A4E-20BD-F591-C47C-B11092610DAB">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>SECTION</sourceObjSchema>
+<sourceObjName>SUBSECTION_ID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B1C51921-C374-6049-D2B1-DCC24F9A09CA" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="SECTION_PK">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SYS_C008269</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA66840A-378B-5BF7-8207-3ED0AC2586F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A2676110-BF9E-96F0-27EA-B92C3C2A99A7" name="FK_SECTION_COURSEID">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E871236C-07C8-4D71-259D-49C67D42B78E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

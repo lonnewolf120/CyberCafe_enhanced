@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="USERS" directorySegmentName="seg_0" id="49A5E6B0-5372-EAE8-08E3-29A3285673EE">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>ABE364D9-693D-DA3F-61D3-92E1994542E5</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>4BF181BF-107B-1889-AC9F-927440972DC0</segment>
+<tableSpace>676C0546-9BAE-CE72-D8CE-81900F2C0181</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="COURSES" id="083B5891-24BA-8307-23C9-DB71A504474B">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FIRST_NAME" id="142D32D8-B526-6167-1661-E30BA18CB28C">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RESET_PASSWORD_EXPIRES" id="1AD01580-CB8D-EFC2-ACBD-0FFAAFC35B9E">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="APPROVED" id="31C49A5D-6AF0-4CDB-8C9A-A20C5C036D19">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<defaultValue>&apos;0&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="PASSWORD" id="32494A21-4CAD-1608-0E9D-2CA3D1477787">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CONTACTNUMBER" id="3895BD3C-E146-04D8-39DA-2FE8A9F5DB4A">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IMAGE" id="3C0AF897-0D2F-605F-8220-66E185F67C0B">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LAST_NAME" id="7B7C7AF8-551E-B492-087E-AF116B8A4F25">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACCOUNT_TYPE" id="7DAF45DD-FE50-2DD3-3BBD-4991D5A519D4">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TOKEN" id="90588605-A54D-D2CD-54F9-D92401221436">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMAIL" id="AF24D34F-7795-527C-C996-36C579A97DCC">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACTIVE" id="BC9FC101-F95D-EE9E-6933-97844AF6C411">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<defaultValue>&apos;0&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="USER_ID" id="D065C3EF-4508-5FC6-1A3E-37802F46A2C9">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COURSE_PROGRESS" id="EB834DE3-7E3A-F21B-C12A-1895E6B1EF99">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="USERS_PK" id="0E3689B7-3186-FCA0-FA90-35C9212C566C">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:13 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>ABE364D9-693D-DA3F-61D3-92E1994542E5</schemaObject>
+<segment>7F23AFD3-004B-4E4C-F57A-8C003F00746B</segment>
+<tableSpace>676C0546-9BAE-CE72-D8CE-81900F2C0181</tableSpace>
+<indexSegment>7F23AFD3-004B-4E4C-F57A-8C003F00746B</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

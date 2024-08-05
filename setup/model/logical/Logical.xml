@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="FD603699-D353-BC17-5DEE-F194C0E62D43" mainViewID="C0B59693-4C9A-F12F-CC38-06CC82974042">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:57:41 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

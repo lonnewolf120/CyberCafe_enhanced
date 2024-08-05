@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="EA8FB656-E343-3DAC-52EF-71F2EE3182AC" containerWithKeyObject="3230A25A-CBAD-E86C-80F0-A6006166307B" localFKIndex="E0345087-134D-02B1-78AB-31F4BF0390E0" name="FK_PROFILE_USERID">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>FK_PROFILE_USERID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>MCSC.USERS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>49A5E6B0-5372-EAE8-08E3-29A3285673EE</referredTableID>
+<keyObject>0E3689B7-3186-FCA0-FA90-35C9212C566C</keyObject>
+<referredKeyID>0E3689B7-3186-FCA0-FA90-35C9212C566C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>USER_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

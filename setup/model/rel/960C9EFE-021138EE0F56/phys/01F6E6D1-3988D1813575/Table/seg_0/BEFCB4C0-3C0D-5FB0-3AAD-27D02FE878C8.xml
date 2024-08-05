@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="SIMPLETEST" directorySegmentName="seg_0" id="BEFCB4C0-3C0D-5FB0-3AAD-27D02FE878C8">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>ABE364D9-693D-DA3F-61D3-92E1994542E5</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>E7C84F2A-35E3-6F95-2A9E-418DDCE6ADE7</segment>
+<tableSpace>676C0546-9BAE-CE72-D8CE-81900F2C0181</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ID" id="64E10297-D15C-3E1F-1755-55B6360A4449">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="NAME" id="7C3A7757-A216-4AC8-3745-C179F9837095">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="SIMPLETEST_PK" id="636BFF70-12E4-C26F-8B8F-BC27DB572521">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:13 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>ABE364D9-693D-DA3F-61D3-92E1994542E5</schemaObject>
+<segment>07738C81-CAD5-3C24-2124-7C5DE6967A2D</segment>
+<tableSpace>676C0546-9BAE-CE72-D8CE-81900F2C0181</tableSpace>
+<indexSegment>07738C81-CAD5-3C24-2124-7C5DE6967A2D</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

@@ -1,0 +1,188 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7FEACF68-D251-7950-9395-842A1CB428ED" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="CHALLENGES">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>CHALLENGES</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CID" id="D123EA7D-A792-C1E6-388E-45B89082488A">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CHALLENGES</sourceObjSchema>
+<sourceObjName>CID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="C_TITLE" id="8524E0F8-924F-B894-704E-789C09AD6910">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CHALLENGES</sourceObjSchema>
+<sourceObjName>C_TITLE</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="C_CONTENT" id="BDD3469C-D536-4FE9-0DF0-F531295CBA57">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CHALLENGES</sourceObjSchema>
+<sourceObjName>C_CONTENT</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>400 BYTE</dataTypeSize>
+<ownDataTypeParameters>400 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TASKURL" id="037D8142-9004-92F2-D2BC-8F99465922C7">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CHALLENGES</sourceObjSchema>
+<sourceObjName>TASKURL</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 BYTE</dataTypeSize>
+<ownDataTypeParameters>150 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="6C5D2813-0FF3-F360-D8E4-287FE0AD7649">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CHALLENGES</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOTE" id="66779AE9-C466-DE1E-B940-B77F998E6162">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CHALLENGES</sourceObjSchema>
+<sourceObjName>NOTE</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 BYTE</dataTypeSize>
+<ownDataTypeParameters>150 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ATTEMPTED" id="ED8E4CC3-982F-CE92-77DC-2F1B636D213F">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CHALLENGES</sourceObjSchema>
+<sourceObjName>ATTEMPTED</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTALSOLVES" id="FE7EC868-55A0-ADD9-9D9C-47C1E3BCB749">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CHALLENGES</sourceObjSchema>
+<sourceObjName>TOTALSOLVES</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FLAG" id="27CF88C1-AF09-C9AB-775B-CC69A4149779">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CHALLENGES</sourceObjSchema>
+<sourceObjName>FLAG</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTESTID" id="736E6FAE-BFFA-34C9-5D31-76380D43D8FE">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>CHALLENGES</sourceObjSchema>
+<sourceObjName>CONTESTID</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="544BF689-A65A-FD61-BF45-4D1E916551BE" referredColumn="5D2A757A-849D-9137-5DB4-00EE5E4C8A70"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C79A80E6-EC25-ADF8-55A2-E2370BF505D6" schemaObject="ABE364D9-693D-DA3F-61D3-92E1994542E5" name="CHALLENGES_PK">
+<sourceConnName>MCSC_CTF_2</sourceConnName>
+<sourceObjSchema>MCSC</sourceObjSchema>
+<sourceObjName>SYS_C008291</sourceObjName>
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D123EA7D-A792-C1E6-388E-45B89082488A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="383D0393-58C0-758B-3E61-65CAE5604843" name="FK_CHALLENGES_CONTEST">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="736E6FAE-BFFA-34C9-5D31-76380D43D8FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

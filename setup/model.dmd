@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="model" id="10FED16D-C4C5-6FD0-F181-FBD88F4959FB" version="3.5">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:57:41 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>10FED16D-C4C5-6FD0-F181-FBD88F4959FB</designId>
+</OSDM_Design>

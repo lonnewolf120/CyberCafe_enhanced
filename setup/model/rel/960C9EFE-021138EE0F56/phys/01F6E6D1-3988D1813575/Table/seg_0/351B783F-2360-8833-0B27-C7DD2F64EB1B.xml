@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="COURSES" directorySegmentName="seg_0" id="351B783F-2360-8833-0B27-C7DD2F64EB1B">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>ABE364D9-693D-DA3F-61D3-92E1994542E5</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>4BF181BF-107B-1889-AC9F-927440972DC0</segment>
+<tableSpace>676C0546-9BAE-CE72-D8CE-81900F2C0181</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CATEGORY" id="0D7CC289-1768-F2A1-C500-602F5DE7C47F">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="INSTRUCTOR" id="2179422C-179B-91B1-E4E0-8B6802DDE805">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SOLD" id="2237F1EB-84EB-EE70-A5B5-7CA2264B4F0A">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="THUMBNAIL" id="3CF352EC-D481-257E-37FA-61F8801E2EB5">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="INSTRUCTIONS" id="56BCC017-A6C6-47EA-FF65-C5E8D71B95B8">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="WHAT_YOU_WILL_LEARN" id="591D0F46-5EA8-F161-646D-239B3BFE0A0A">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COURSE_ID" id="65E57A9C-1CCB-42D5-C446-A0DE0692442D">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="TAG" id="8E79231F-4950-687B-B05D-858588B338F3">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CREATED_AT" id="B04917E4-7EB8-6FDB-EA04-AABF59ADB9A7">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<defaultValue>CURRENT_TIMESTAMP</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="COURSE_DESCRIPTION" id="D37E9497-D7BF-0292-9799-E392CD00EA9D">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRICE" id="E5A4B517-6679-C955-C6EF-6E331405678F">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATUS" id="E9EDC639-B0DE-3A65-0DCD-F985AB62D781">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COURSE_NAME" id="F8C49913-5EA1-6F01-B1B9-6A9E965EE96F">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_COURSES_CATEGORY" id="31CD9C03-7C2E-AD72-7334-800E3C70FA6C">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_COURSES_INSTRUCTOR" id="B25E784E-0E8E-7118-7578-83E817AE452B">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="COURSES_PK" id="0F8945C4-F06C-967F-4B44-B3534001924F">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:13 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>ABE364D9-693D-DA3F-61D3-92E1994542E5</schemaObject>
+<segment>7F23AFD3-004B-4E4C-F57A-8C003F00746B</segment>
+<tableSpace>676C0546-9BAE-CE72-D8CE-81900F2C0181</tableSpace>
+<indexSegment>7F23AFD3-004B-4E4C-F57A-8C003F00746B</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="TASKLIST" directorySegmentName="seg_0" id="2B91DD6B-49AD-3218-3312-206F90BA8C3E">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>ABE364D9-693D-DA3F-61D3-92E1994542E5</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>4BF181BF-107B-1889-AC9F-927440972DC0</segment>
+<tableSpace>676C0546-9BAE-CE72-D8CE-81900F2C0181</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TASKURL" id="07AE5667-D9B6-7A4E-8298-C5B386949B0F">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PLATFORM" id="0BD3DD4D-FC77-9D17-3EF5-BACA41D2F9D6">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ATTEMPTED" id="19E67CBA-BC9D-5E60-2B3F-290DE7E73C20">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TASKNAME" id="38BC7DB4-B38B-8AB0-197C-4D9073A51F60">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMAIL" id="50D42373-77DA-B7DD-2FF6-63B7522D4E12">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATUS" id="607FFA56-E6B3-A4EA-44DF-B73192B70B8F">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<defaultValue>&apos;Pending&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="REVISIT" id="9F250D18-308A-578A-11B9-A2572989DBF8">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TOTAL" id="D212577A-3CBF-0389-CBDC-1550995037BA">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_ID" id="D5A0AAEE-6474-2C22-90B0-B298466EECE9">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="UID" id="E10343D5-71E5-BA7D-DE88-1C8A93B0F9EF">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="PENDING" id="E58A3BF8-AB57-C1E5-639C-B0F43C9B2FD2">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TASKNOTE" id="EDB08078-4CA5-745E-4DA8-554D44134015">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_TASKLIST_USERID" id="768AB199-762B-6DDF-E477-9FD1B4FB57CF">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:16 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TASKLIST_PK" id="40526257-C3BA-E2F1-5744-8477FD706762">
+<createdBy>iftek</createdBy>
+<createdTime>2024-07-06 07:58:13 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>ABE364D9-693D-DA3F-61D3-92E1994542E5</schemaObject>
+<segment>7F23AFD3-004B-4E4C-F57A-8C003F00746B</segment>
+<tableSpace>676C0546-9BAE-CE72-D8CE-81900F2C0181</tableSpace>
+<indexSegment>7F23AFD3-004B-4E4C-F57A-8C003F00746B</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

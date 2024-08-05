@@ -1,0 +1,24 @@
+
+.ranking-table {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid  #0ff; 
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background: linear-gradient(135deg, #1a1a1d, #2d2d34); 
+  font-weight: bold;
+  color: #ff0099;
+  text-shadow: 0 0 10px rgba(255, 0, 153, 0.7);
+}
