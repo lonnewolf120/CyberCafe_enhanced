@@ -11,9 +11,8 @@ const AddContestPage = () => {
   const [challenges, setChallenges] = useState([
     { c_point: "", c_title: "", c_content: "", flag: "" },
   ]);
-  // const { enqueueSnackbar } = useSnackbar();
+
   const { token } = useSelector((state) => state.auth);
-  const { user } = useSelector((state) => state.profile);
 
   const handleChallengeChange = (index, e) => {
     const { name, value } = e.target;
@@ -47,11 +46,9 @@ const AddContestPage = () => {
           },
         }
       );
-      // enqueueSnackbar('Contest and challenges added successfully', { variant: 'success' });
       toast.success("Contest and challenges added successfully");
     } catch (error) {
       console.error("Error adding contest:", error);
-      // enqueueSnackbar('Failed to add contest', { variant: 'error' });
       toast.error("Failed to add contest");
     }
   };
@@ -59,7 +56,7 @@ const AddContestPage = () => {
   return (
     <div className="add-contest-page">
       <h1>Add Contest and Challenges</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <div className="form-group">
           <label>Contest Name:</label>
           <input
@@ -121,7 +118,7 @@ const AddContestPage = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Flag: </label>
+                <label>Flag:</label>
                 <input
                   type="text"
                   name="flag"
@@ -132,12 +129,12 @@ const AddContestPage = () => {
               </div>
             </div>
           ))}
-          <button type="button" onClick={addChallenge}>
+          <button type="button" onClick={addChallenge} className="add-challenge-btn">
             Add Another Challenge
           </button>
         </div>
-        <div className="flex justify-center ">
-          <button type="submit">Submit</button>
+        <div className="submit-btn-container">
+          <button type="submit" className="submit-btn">Submit</button>
         </div>
       </form>
     </div>

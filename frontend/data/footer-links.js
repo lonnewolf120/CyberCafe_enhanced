@@ -1,3 +1,4 @@
+//TODO: fetch categories from database
 export const FooterLink2 = [
   {
     title: "Subjects",
@@ -31,7 +32,7 @@ export const FooterLink2 = [
       { title: "HTML & CSS", link: "/html-css" },
       { title: "Java", link: "/java" },
       { title: "JavaScript", link: "/javascript" },
-      { title: "Kotlin", link: "/kotlin" },
+      { title: "Kotlin", link: "/kotli  n" },
       { title: "PHP", link: "/php" },
       { title: "Python", link: "/python" },
       { title: "R", link: "/r" },

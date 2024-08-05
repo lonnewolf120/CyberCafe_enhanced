@@ -5,6 +5,7 @@ const {
   allcontests,
   challenges,
   addContest,
+  leaderboard,
 } = require("../controllers/contests2.js");
 const router = express.Router();
 
@@ -15,6 +16,8 @@ const { auth, isAdmin, isInstructor, isStudent } = require('../middleware/auth')
 // Contest Routes
 
 router.post("/submit", auth, submit);
+
+router.get("/leaderboard/:cid", leaderboard);
 
 router.get("/all-contests", auth, allcontests);
 

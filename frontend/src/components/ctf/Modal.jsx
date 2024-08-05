@@ -1,61 +1,61 @@
-/* import e from "cors";
-// import { Button } from "flowbite-react";
+import React from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import "./Modal.css";
 
-export  default function Modal({open, onClose, children}) {
-
-    return (
-        <div
-        onClick={onClose}
-        className={`
-        fixed inset-0 flex justify-center items-center
-        transition-colors
-        ${open ? "visible bg-black/20" : "invisible"}
-        `}
-        >
-        
-        <div 
-        onClick={(e) => e.stopPropagation()}
-        className={`
-        bg-white rounded-xl shadow p-6 transition-all
-        ${open ? "scale-100 opacity-100" : "scale-125 opacity-0"}     
-        `
-        }
-        >
-        <button
-        onClick={onClose} className="absolute top-2 right-2 p-1 rounded-lg
-        text-gray-400 bg-white hover:bg-gray-50 hover:text-gray-600">
-        <X />
-        </button> 
-         {children}
-        </div>
-
-    </div>
-
-    )
-
-
-}
-
- */
-
-import React from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
-import './Modal.css'; 
 const Modal = ({ open, onClose, children }) => {
+  console.log("Modal children: ", children);
   return (
     <div
-      className={`fixed inset-0 flex justify-center items-center transition-colors ${open ? "visible bg-black/20" : "invisible"}`}
-      onClick={onClose}
+      className={`fixed inset-0 z-50 flex justify-center items-center overflow-y-auto 
+        overflow-x-hidden ${open ? "visible" : "invisible"}`}
+      aria-hidden={!open}
     >
       <div
-        onClick={(e) => e.stopPropagation()}
-        className={`bg-gray-100 rounded-xl shadow p-6 transition-all ${open ? "scale-100 opacity-100" : "scale-125 opacity-0"} modal-size`}
+        className="relative p-4 w-full max-w-md max-h-full"
+        onClick={onClose}
       >
-        <AiOutlineClose
-          className='absolute top-2 right-2 text-3xl text-gray-400 cursor-pointer hover:text-gray-600'
-          onClick={onClose}
-        />
-        {children}
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="relative bg-gradient-to-r from-richblack-400 to-richblack-700 rounded-lg shadow"
+        >
+          <div
+            className="flex items-center justify-between p-4 md:p-5 border-b
+           rounded-t border-gray-200 dark:border-gray-600"
+          >
+            {/* title here */}
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              {children?.props?.children[0]} 
+            </h3>
+            {/* close button */}
+            <button
+              type="button"
+              className="end-2.5 text-richblue-300 hover:bg-gray-200 hover:text-pink-300 rounded-lg
+               text-sm w-8 h-8 ms-auto inline-flex justify-center items-center 
+               dark:hover:bg-gray-600 dark:hover:text-pink-500 bg-pink-50"
+              onClick={onClose}
+            >
+              <AiOutlineClose className="w-3 h-3" />
+              <span className="sr-only">Close modal</span>
+            </button>
+          </div>
+          {/* children here */}
+          <div className="p-2 md:p-2">
+            {children &&
+              children.props.children.map((child, index) => {
+                if (index === 0) 
+                    return <div key={index}></div>;
+                else if (index === 3) 
+                    return <div key={index} className="flex justify-center items-center p-2">{child}</div>;
+                else {
+                  return (
+                    <div key={index} className="p-2" id="modal-content">
+                      {child}
+                    </div>
+                  );
+                }
+              })}
+          </div>
+        </div>
       </div>
     </div>
   );

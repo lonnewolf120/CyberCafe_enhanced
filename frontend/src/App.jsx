@@ -44,7 +44,7 @@ import AllInstructors from "./components/core/Dashboard/AllInstructors";
 import Challenges from "./pages/ctf/ChallengesPage.jsx";
 import WebExploitation from "./pages/ctf/WebExploitation.jsx";
 import Contests from "./pages/ctf/Contests.jsx";
-import Solutions from "./pages/ctf/Leaderboard_.jsx";
+import Leaderboard from "./pages/ctf/leaderboard.jsx";
 import AddContestPage from "./pages/ctf/AddContestPage.jsx";
 
 function App() {
@@ -245,6 +245,15 @@ function App() {
           }
         />
         <Route
+          path="/leaderboard/:cid"
+          element={
+            <ProtectedRoute>
+              <Leaderboard/>
+            </ProtectedRoute>
+          }
+        />
+        
+        {/* <Route
           path="/cryptography"
           element={
             <ProtectedRoute>
@@ -275,7 +284,7 @@ function App() {
               <Solutions />
             </ProtectedRoute>
           }
-        />
+        /> */}
         <Route
           path="/Challenges/:contestID"
           element={

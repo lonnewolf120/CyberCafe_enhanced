@@ -1,79 +1,3 @@
-/*  import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './contests.css';
-import { Link } from 'react-router-dom';
-
-const ContestCard = ({ title }) => (
-    <div className="card">
-        <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <Link to="/challenges">
-                <Button className="solutions-button">View Details</Button>
-            </Link>
-        </div>
-    </div>
-);
-
-const Contests = () => {
-    const [runningContests, setRunningContests] = useState([]);
-    const [upcomingContests, setUpcomingContests] = useState([]);
-    const [pastContests, setPastContests] = useState([]);
-
-    useEffect(() => {
-        const fetchContests = async () => {
-            try {
-                const response = await axios.get('http://localhost:5000/api/v1/contests');
-                console.log('API Response:', response.data); // Log API response
-                setRunningContests(response.data.running || []);
-                setUpcomingContests(response.data.upcoming || []);
-                setPastContests(response.data.past || []);
-            } catch (error) {
-                console.error('Error fetching contests:', error);
-            }
-        };
-
-        fetchContests();
-    }, []);
-
-    return (
-        <div className="container mt-5">
-            <h1 className="header">Contests</h1>
-
-            <div className="challenges">
-                <div className="section">
-                    <h2 className="section-title">Running</h2>
-                    <div className="contest-list">
-                        {runningContests.map(contest => (
-                            <ContestCard key={contest.contestID} title={contest.CONTESTNAME} />
-                        ))}
-                    </div>
-                </div>
-
-                <div className="section">
-                    <h2 className="section-title">Upcoming</h2>
-                    <div className="contest-list">
-                        {upcomingContests.map(contest => (
-                            <ContestCard key={contest.contestID} title={contest.CONTESTNAME} />
-                        ))}
-                    </div>
-                </div>
-
-                <div className="section">
-                    <h2 className="section-title">Past</h2>
-                    <div className="contest-list">
-                        {pastContests.map(contest => (
-                            <ContestCard key={contest.contestID} title={contest.CONTESTNAME} />
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export default Contests;
-  */
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './contests.css';
@@ -81,20 +5,41 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button } from 'flowbite-react';
 
-const ContestCard = ({ title, contestID }) => (
-    <div className="card">
-        <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <Link to={`/challenges/${contestID}`}>
-                <Button className="solutions-button">Enter Contest</Button>
-            </Link>
+const formatDate = (dateString) => {
+    const options = { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit' 
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+};
+
+const ContestCard = ({ title, contestID, starttime, endtime }) => {
+    const formattedStartTime = formatDate(starttime);
+    const formattedEndTime = formatDate(endtime);
+
+    return (
+        <div className="card bg-white shadow-md rounded-lg flex flex-col items-center p-4">
+            <div className="card-body text-center">
+                <h5 className="card-title text-xl font-bold">{title}</h5>
+                <p className="text-caribbeangreen-300">Starts: {formattedStartTime}</p>
+                <p className="text-caribbeangreen-300">Ends: {formattedEndTime}</p>
+                <Link to={`/challenges/${contestID}`}>
+                    <button className="solutions-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
+                        Enter Contest
+                    </button>
+                </Link>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 const Contests = () => {
     const [pastContests, setPastContests] = useState([]);
     const { token } = useSelector((state) => state.auth);
+    
     const { user } = useSelector((state) => state.profile);
 
     useEffect(() => {
@@ -102,9 +47,9 @@ const Contests = () => {
             try {
                 const response = await axios.get('http://localhost:5000/api/v1/contest/all-contests', {
                     headers: {
-                      Authorization: `Bearer ${token}`,
+                        Authorization: `Bearer ${token}`,
                     },
-                  }); 
+                }); 
                 console.log('Contests API Response:', response.data); 
                 setPastContests(response.data); // Set only past contests
             } catch (error) {
@@ -116,31 +61,35 @@ const Contests = () => {
     }, []);
 
     return (
-        <div >
-             <div className="flex justify-center">
+        <div className="container mx-auto p-5">
+            {user.ACCOUNT_TYPE === 'Instructor' && (
+                <div className="flex justify-center">
+                    <Link to={`/add-contest`}>
+                        <Button className="add-contest-button p-2 m-5">Add Contest</Button>
+                    </Link>
+                </div>
+            )}
 
-             <Link to={`/add-contest`}>
-            <Button className="solutions-button" >Add Contest</Button>
-            </Link>
-            </div>
-            <h1 className="header"></h1> {/* //past contest */}
+            {/* <h1 className="header">Past Contests</h1> */}
 
             <div className="challenges">
                 <div className="section">
-                    <h2 className="section-title"></h2>
-                    <div className="contest-list">
+                    {/* <h2 className="section-title">Past Contests</h2> */}
+                    <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
                         {pastContests.map(contest => (
-                            <ContestCard key={contest.CONTESTID} contestID={contest.CONTESTID} title={contest.CONTESTNAME} />
+                            <ContestCard 
+                                key={contest.CONTESTID} 
+                                contestID={contest.CONTESTID} 
+                                title={contest.CONTESTNAME}
+                                starttime={contest.STARTTIME}
+                                endtime={contest.ENDTIME} 
+                            />
                         ))}
                     </div>
                 </div>
             </div>
-
-           
-            
         </div>
-       
     );
 };
 
-export default Contests;    
+export default Contests;

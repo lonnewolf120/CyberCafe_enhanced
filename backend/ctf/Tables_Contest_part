@@ -53,14 +53,72 @@ CREATE TABLE MCSC.TEAMMEMBER(
 
 CREATE TABLE MCSC.SUBMISSION( 
     submissionID VARCHAR (20) PRIMARY KEY NOT NULL,
-    penalty VARCHAR (20),       
-    submission_time VARCHAR (20),  
+    penalty NUMBER,       
+    submission_time TIMESTAMP,  
     cid NUMBER,
     status VARCHAR2(20),
     user_id VARCHAR (20),
+    points NUMBER,
+    contestID NUMBER,
     CONSTRAINT fk_submission_user_id FOREIGN KEY (USER_ID) REFERENCES MCSC.USERS (USER_ID),
     CONSTRAINT fk_submission_cid FOREIGN KEY (cid) REFERENCES MCSC.Challenges(cid)
 )
+CREATE SEQUENCE submission_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE;
+
+-- Trigger to generate the submissionID, calculate the penalty and points
+CREATE OR REPLACE TRIGGER submission_trigger
+BEFORE INSERT ON MCSC.SUBMISSION
+FOR EACH ROW
+DECLARE
+    v_startTime TIMESTAMP;
+    v_submissionTime TIMESTAMP;
+    v_penalty NUMBER;
+    v_points NUMBER;
+BEGIN
+    -- Generate the new SUBMISSIONID using the sequence
+    :NEW.submissionID := 'S' || submission_seq.NEXTVAL;
+
+    -- Fetch the contest start time for the given challenge
+    SELECT c.startTime, ch.c_point 
+    INTO v_startTime, v_points
+    FROM MCSC.Challenges ch
+    JOIN MCSC.Contest c ON ch.contestID = c.contestID
+    WHERE ch.cid = :NEW.cid;
+
+    -- Use the submission_time from the new row
+    v_submissionTime := :NEW.submission_time;
+
+    -- Calculate the penalty in seconds
+       IF v_submissionTime > v_startTime THEN
+        v_penalty := EXTRACT(DAY FROM (v_submissionTime - v_startTime)) * 24 + -- Days to minutes
+                     EXTRACT(HOUR FROM (v_submissionTime - v_startTime))  +  -- Hours to minutes
+                     EXTRACT(MINUTE FROM (v_submissionTime - v_startTime)) / 60 +   -- Minutes to minutes
+                     EXTRACT(SECOND FROM (v_submissionTime - v_startTime)) / 3600;          -- minutes
+
+        v_penalty := v_penalty/2;    
+    ELSE
+        v_penalty := 0; -- No penalty if the submission time is before or equal to the start time
+    END IF;
+
+    -- Adjust points based on the penalty
+    v_points := v_points - v_penalty;
+    IF v_points < 0 THEN
+        v_points := 0;
+    END IF;
+
+    :NEW.penalty := v_penalty;
+    :NEW.points := v_points;
+
+    -- Optional debug output (will only show in environments where DBMS_OUTPUT is enabled)
+    -- DBMS_OUTPUT.PUT_LINE('penalty: ' || v_penalty);
+    -- DBMS_OUTPUT.PUT_LINE('points: ' || v_points);
+    
+END;
+/
 
 
 CREATE TABLE MCSC.HINT( 
