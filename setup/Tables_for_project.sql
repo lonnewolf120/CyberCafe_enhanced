@@ -249,6 +249,93 @@ CREATE TABLE MCSC.TRX_HISTORY(
     )
 
 
+CREATE TABLE MCSC.COURSE_BOUGHT
+(
+    COURSE_ID NUMBER(10),
+    USER_ID VARCHAR2(20),
+    TRXID VARCHAR2(100) ,
+    PURCHASE_DATE TIMESTAMP 
+);
+
+CREATE OR REPLACE TYPE COURSE_ARRAY AS TABLE OF NUMBER;
+/
+
+
+CREATE OR REPLACE PROCEDURE create_payment (
+    p_userid   IN  MCSC.ACCOUNT.USER_ID%TYPE,
+    p_amount   IN  NUMBER,
+    p_date     IN  VARCHAR2,
+    p_courses  IN  course_array,  -- Array of course names or IDs
+    p_message  OUT VARCHAR2,
+    p_trxid    OUT VARCHAR2
+) 
+IS
+    l_balance     NUMBER;
+    l_account_id  MCSC.ACCOUNT.ACCOUNT_ID%TYPE;
+BEGIN
+    -- Fetch account data
+    BEGIN
+        SELECT BALANCE, ACCOUNT_ID 
+        INTO l_balance, l_account_id
+        FROM MCSC.ACCOUNT 
+        WHERE USER_ID = p_userid;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            -- Create account if not exists
+            INSERT INTO MCSC.ACCOUNT (USER_ID, BALANCE) 
+            VALUES (p_userid, 100);
+            COMMIT;
+            -- Fetch the newly created account data
+            SELECT BALANCE, ACCOUNT_ID 
+            INTO l_balance, l_account_id
+            FROM MCSC.ACCOUNT 
+            WHERE USER_ID = p_userid;
+    END;
+
+    -- Check balance
+    IF l_balance < p_amount THEN
+        p_message := 'Insufficient Balance, current balance: ' || l_balance;
+        RETURN;
+    END IF;
+
+    -- Deduct balance
+    UPDATE MCSC.ACCOUNT 
+    SET BALANCE = BALANCE - p_amount 
+    WHERE USER_ID = p_userid;
+    COMMIT;
+
+    -- Generate a smaller TRXID (format: USERID_ACCOUNTID_YYYYMMDD)
+    p_trxid := TO_CHAR(p_userid) || '_' || TO_CHAR(l_account_id) || '_' || REPLACE(SUBSTR(p_date, 1, 10), '-', '');
+
+    -- Insert into TRX_HISTORY
+    INSERT INTO MCSC.TRX_HISTORY (
+        TRXID, USER_ID, ACCOUNT_ID, date_of_trx, amount_of_trx
+    ) VALUES (
+        p_trxid, p_userid, l_account_id, 
+        TO_TIMESTAMP(p_date, 'YYYY-MM-DD HH24:MI:SS'), 
+        p_amount
+    );
+    COMMIT;
+
+    -- Insert each course from the array into a related table or process them as needed
+    FOR i IN 1 .. p_courses.COUNT LOOP
+        INSERT INTO MCSC.COURSE_BOUGHT (
+            TRXID, USER_ID, COURSE_ID, PURCHASE_DATE
+        ) VALUES (
+            p_trxid, p_userid, p_courses(i),TO_TIMESTAMP(p_date, 'YYYY-MM-DD HH24:MI:SS')
+        );
+    END LOOP;
+    COMMIT;
+
+    p_message := 'Transaction successful';
+EXCEPTION
+    WHEN OTHERS THEN
+        p_message := 'Transaction failed: ' || SQLERRM;
+        ROLLBACK;
+END;
+/
+
+
         
 
 ----------------------CONTEST PART---------------------------

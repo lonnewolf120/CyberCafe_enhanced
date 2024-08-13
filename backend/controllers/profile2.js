@@ -217,6 +217,7 @@ exports.updateUserProfileImage = async (req, res) => {
 exports.getEnrolledCourses = async (req, res) => {
   try {
     //FIXME: cannot set undefined (setting sections)
+    //TODO: replace with PLSQL
     const USER_ID = req.user.id;
     console.log("USer (getEnrolledCourses): ", USER_ID)
     //TODO:

@@ -1,5 +1,5 @@
 // const Category = require('../models/category')
-const {addCategory, showAllCat, showCatWithCourse, getMostSellingCourses, deleteCategory, showCourseForCat, showAllCat2} = require("../database/origins/Cat.js")
+const {addCategory, showAllCat, showCatWithCourse,showCatWithCoursePL, getMostSellingCourses, deleteCategory, showCourseForCat, showAllCat2} = require("../database/origins/Cat.js")
 
 
 // get Random Integer

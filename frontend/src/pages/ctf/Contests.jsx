@@ -4,6 +4,10 @@ import './contests.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button } from 'flowbite-react';
+import toast from 'react-hot-toast';
+
+// const BASE_URL = import.meta.env.VITE_APP_API_URL;
+const BASE_URL = "http://localhost:5000/api/v1";
 
 const formatDate = (dateString) => {
     const options = { 
@@ -45,7 +49,7 @@ const Contests = () => {
     useEffect(() => {
         const fetchContests = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/v1/contest/all-contests', {
+                const response = await axios.get(BASE_URL+`/contest/all-contests`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -53,7 +57,9 @@ const Contests = () => {
                 console.log('Contests API Response:', response.data); 
                 setPastContests(response.data); // Set only past contests
             } catch (error) {
-                console.error('Error fetching contests:', error);
+                console.error('Error fetching contests:', error.response.data);
+                toast.error(`Login again to continue, ${error.response.data.message}`);
+                // toast.error();
             }
         };
 

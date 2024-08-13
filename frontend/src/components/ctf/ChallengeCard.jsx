@@ -17,6 +17,7 @@
     const handleSubmit = async () => {
       let stat = "";
       if (flag === real_flag) {
+        // toast.success("Correct Flag");
         stat = "Correct";
         setBgColor("bg-gradient-to-br from-green-500 via-green-600 to-green-700")
       } else {
@@ -24,6 +25,7 @@
         stat = "Incorrect";
         setBgColor("bg-gradient-to-br from-red-500 via-red-600 to-red-700")
       }
+      console.log("all data (ChallengeCard): ", cid, user_id, stat, contestID);
       try {
         const response = await axios.post(
           "http://localhost:5000/api/v1/contest/submit",

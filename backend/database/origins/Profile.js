@@ -32,25 +32,29 @@ async function createProfile(input) {
 }
 
 async function findUserProfile(EMAIL) {
-    // const uid = await getUSER_ID(EMAIL); // Ensure to await getUSER_ID, assuming it returns a promise
-    // console.log("The uid: ",uid)
-    const sql = `
-        SELECT 
-            "A2"."USER_ID", "A2"."FIRST_NAME", "A2"."LAST_NAME", "A2"."EMAIL", "A2"."PASSWORD", "A2"."ACCOUNT_TYPE", "A2"."ACTIVE",
-            "A2"."APPROVED", "A2"."TOKEN", "A2"."RESET_PASSWORD_EXPIRES", "A2"."IMAGE", "A2"."COURSES", "A2"."COURSE_PROGRESS", "A2"."CONTACTNUMBER",
-            "A1"."PROFILE_ID", "A1"."GENDER", "A1"."DATE_OF_BIRTH", "A1"."ABOUT", "A1"."CONTACT_NUMBER"
-        FROM
-            "MCSC"."USERS" "A2",
-            "MCSC"."PROFILE" "A1"
-        WHERE
-            "A2"."EMAIL" = :val
-            AND "A2"."USER_ID" = "A1"."USER_ID"`;
+    let sql = `SELECT 
+    A.USER_ID, A.FIRST_NAME, A.LAST_NAME, A.EMAIL, A.PASSWORD, A.ACCOUNT_TYPE, A.ACTIVE,
+    A.APPROVED, A.TOKEN, A.RESET_PASSWORD_EXPIRES, A.IMAGE, A.COURSES, A.COURSE_PROGRESS, A.CONTACTNUMBER,
+    B.PROFILE_ID, B.GENDER, B.DATE_OF_BIRTH, B.ABOUT, B.CONTACT_NUMBER,
+    C.ACCOUNT_ID, C.BALANCE
+FROM
+    MCSC.USERS A,
+    MCSC.PROFILE B,
+    MCSC.ACCOUNT C
+WHERE
+    A.EMAIL = :val
+    AND A.USER_ID = B.USER_ID (+)
+    AND A.USER_ID = C.USER_ID (+)
+`;
     let db;
     try {
         db = await connection();
-        const res = await db.execute(sql, { val: EMAIL });
+        let res = await db.execute(sql, { val: EMAIL });
         if (res.rows.length > 0) {
             console.log("User profile found!");
+            sql = `SELECT A.CONTESTID AS HOSTEDCONTEST, A.HOST_ID FROM MCSC.HOST A WHERE A.USER_ID = :val`;
+            const res1 = await db.execute(sql, { val: res.rows[0].USER_ID });
+            res.rows[0].host_info = res1.rows;
             return res.rows[0];
         } else {
             console.log("User profile not found");

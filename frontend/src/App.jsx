@@ -46,6 +46,7 @@ import WebExploitation from "./pages/ctf/WebExploitation.jsx";
 import Contests from "./pages/ctf/Contests.jsx";
 import Leaderboard from "./pages/ctf/leaderboard.jsx";
 import AddContestPage from "./pages/ctf/AddContestPage.jsx";
+import AddChallenge from "./pages/ctf/AddChallenge.jsx"
 
 function App() {
   const { user } = useSelector((state) => state.profile);
@@ -229,14 +230,6 @@ function App() {
           }
         />
         <Route
-          path="/web-exploitation"
-          element={
-            <ProtectedRoute>
-              <WebExploitation />
-            </ProtectedRoute>
-          }
-        />
-        <Route
           path="/contests/all"
           element={
             <ProtectedRoute>
@@ -286,10 +279,18 @@ function App() {
           }
         /> */}
         <Route
-          path="/Challenges/:contestID"
+          path="/challenges/:contestID"
           element={
             <ProtectedRoute>
               <Challenges />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/challenges/:contestID/add-challenge"
+          element={
+            <ProtectedRoute>
+              <AddChallenge />
             </ProtectedRoute>
           }
         />

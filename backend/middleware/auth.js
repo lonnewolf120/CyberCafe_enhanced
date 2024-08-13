@@ -42,10 +42,10 @@ exports.auth = (req, res, next) => {
         catch (error) {
             console.log('Error while decoding token');
             console.log(error);
-            return res.status(401).json({
+            return res.status(401).send({
                 success: false,
                 error: error.message,
-                messgae: 'Error while decoding token'
+                message: 'Error while decoding token'
             })
         }
         // go to next middleware

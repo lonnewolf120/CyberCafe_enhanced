@@ -104,7 +104,7 @@ WHERE
     "all courses with category fetched"
   );
   //TODO: add ratings for every course
-  return { categories, courses };      
+  return { categories, courses };
 }
 
 async function showCourseForCat(name) {
@@ -169,12 +169,17 @@ async function showCatWithCourse(id, f = 1) {
       `Failed to fetch for Category ${id} query from showCatWithCourse() in Cat.js`,
       "Category with Courses fetched"
     );
-    const sql2 =  `
+    const sql2 = `
     SELECT AVG(A1.RATING) AS AVG_RATING, 
            COUNT(A1.RATING) AS TOTAL_RATING 
     FROM MCSC.RATINGANDREVIEWS A1 
-    WHERE A1.CATEGORY_ID = :b1`
-    const ratings = query(sql2, { b1: id }, `Failed to fetch ratings for the category ${id}`, `Ratings fetched successfully for cat ${id}`);
+    WHERE A1.CATEGORY_ID = :b1`;
+    const ratings = query(
+      sql2,
+      { b1: id },
+      `Failed to fetch ratings for the category ${id}`,
+      `Ratings fetched successfully for cat ${id}`
+    );
     cat.ratings = ratings;
     return cat;
   } else {
@@ -196,8 +201,13 @@ async function showCatWithCourse(id, f = 1) {
     FROM MCSC.RATINGANDREVIEWS A1 
     WHERE A1.CATEGORY_ID <> :b1
     `;
-    
-    const ratings = query(sql2, { b1: id }, `Failed to fetch ratings for the category except ${id}`, `Ratings fetched successfully for category except ${id}`);
+
+    const ratings = query(
+      sql2,
+      { b1: id },
+      `Failed to fetch ratings for the category except ${id}`,
+      `Ratings fetched successfully for category except ${id}`
+    );
     cat.ratings = ratings;
     return cat;
   }
@@ -272,8 +282,8 @@ BEGIN
     END LOOP;
 END;
 `;
-try{
-  const db = await connection();
+  try {
+    const db = await connection();
     // Enable DBMS_OUTPUT
     await db.execute("BEGIN DBMS_OUTPUT.ENABLE(NULL); END;");
 
@@ -283,16 +293,22 @@ try{
     // Retrieve the output
     let result = await db.execute(
       `BEGIN DBMS_OUTPUT.GET_LINE(:line, :status); END;`,
-      { line: { type: oracledb.STRING, dir: oracledb.BIND_OUT }, status: { type: oracledb.NUMBER, dir: oracledb.BIND_OUT } },
+      {
+        line: { type: oracledb.STRING, dir: oracledb.BIND_OUT },
+        status: { type: oracledb.NUMBER, dir: oracledb.BIND_OUT },
+      },
       { outFormat: oracledb.OUT_FORMAT_OBJECT }
     );
 
-    let output = '';
+    let output = "";
     while (result.outBinds.status === 0) {
-      output += result.outBinds.line + '\n';
+      output += result.outBinds.line + "\n";
       result = await db.execute(
         `BEGIN DBMS_OUTPUT.GET_LINE(:line, :status); END;`,
-        { line: { type: oracledb.STRING, dir: oracledb.BIND_OUT }, status: { type: oracledb.NUMBER, dir: oracledb.BIND_OUT } },
+        {
+          line: { type: oracledb.STRING, dir: oracledb.BIND_OUT },
+          status: { type: oracledb.NUMBER, dir: oracledb.BIND_OUT },
+        },
         { outFormat: oracledb.OUT_FORMAT_OBJECT }
       );
     }

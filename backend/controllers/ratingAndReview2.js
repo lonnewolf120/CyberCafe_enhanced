@@ -4,7 +4,7 @@ const { getRating, addRating, getAvgRating, getAllRR } = require('../database/or
 // ================ Create Rating ================
 exports.createRating = async (req, res) => {
     try {
-        // get 
+        // TODO: replace with PL/SQL
         console.log("req.body (createRating:", req.body);
         const { rating, review, COURSE_ID } = req.body;
 

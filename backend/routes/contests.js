@@ -6,6 +6,7 @@ const {
   challenges,
   addContest,
   leaderboard,
+  addChallenge,
 } = require("../controllers/contests2.js");
 const router = express.Router();
 
@@ -24,5 +25,7 @@ router.get("/all-contests", auth, allcontests);
 router.get("/:contestID/challenges", auth, challenges);
 
 router.post("/add-contest", auth, addContest);
+
+router.post("/add-challenge", auth, isAdmin, addChallenge);
 
 module.exports = router;

@@ -52,6 +52,25 @@ export default function MyProfile() {
 
       <div className="my-10 flex flex-col gap-y-10 rounded-2xl border-[1px] border-richblack-700 bg-richblack-800 p-8 px-7 sm:px-12">
         <div className="flex w-full items-center justify-between">
+          <p className="text-lg font-semibold text-richblack-5">Balance: {user?.BALANCE}</p>
+          <img
+          src="/coin.gif"
+          alt=""
+          className="w-16 h-16 rounded-lg shadow-lg"
+        />
+          {/* Add option to get coins by buying or watching ads 
+          <IconBtn
+            text="Edit"
+            onclick={() => {
+              navigate("/dashboard/settings")
+            }}
+          >
+            <RiEditBoxLine />
+          </IconBtn> */}
+        </div>
+        </div>
+      <div className="my-10 flex flex-col gap-y-10 rounded-2xl border-[1px] border-richblack-700 bg-richblack-800 p-8 px-7 sm:px-12">
+        <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold text-richblack-5">About</p>
           <IconBtn
             text="Edit"

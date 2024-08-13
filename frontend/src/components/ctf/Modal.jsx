@@ -3,7 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import "./Modal.css";
 
 const Modal = ({ open, onClose, children }) => {
-  console.log("Modal children: ", children);
+  // console.log("Modal children: ", children);
   return (
     <div
       className={`fixed inset-0 z-50 flex justify-center items-center overflow-y-auto 
@@ -23,9 +23,9 @@ const Modal = ({ open, onClose, children }) => {
            rounded-t border-gray-200 dark:border-gray-600"
           >
             {/* title here */}
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+            <div className="text-xl font-semibold text-gray-900 dark:text-white">
               {children?.props?.children[0]} 
-            </h3>
+            </div>
             {/* close button */}
             <button
               type="button"

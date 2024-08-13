@@ -93,13 +93,22 @@ async function getUserW(EMAIL) {
   return res;
 }
 async function getUserDeatails(USER_ID) {
-  const sql = `SELECT * FROM MCSC.USERS NATURAL JOIN MCSC.Profile WHERE USER_ID = :USER_ID`;
-  const res = await query(
+  const sql = `SELECT A3.USER_ID, A3.EMAIL, A3.PASSWORD, A3.ACCOUNT_TYPE, A3.CONTACTNUMBER, A3.ACTIVE, A3.APPROVED, A3.TOKEN, A3.RESET_PASSWORD_EXPIRES, A3.IMAGE, A3.COURSES, A3.COURSE_PROGRESS, A3.LAST_NAME, A3.FIRST_NAME, 
+A2.PROFILE_ID, A2.GENDER, A2.DATE_OF_BIRTH, A2.ABOUT, A2.CONTACT_NUMBER,
+A4.ACCOUNT_ID, A4.BALANCE
+FROM MCSC.USERS A3
+LEFT JOIN MCSC.PROFILE A2 ON A2.USER_ID = A3.USER_ID
+LEFT JOIN MCSC.ACCOUNT A4 ON A4.USER_ID = A3.USER_ID
+WHERE A3.USER_ID = :USER_ID
+`;
+  let res = await query(
     sql,
     { USER_ID: USER_ID },
     "Failed to find user",
     "user found"
   );
+  let res2 = await query(`SELECT A.CONTESTID AS HOSTEDCONTEST, A.HOST_ID FROM MCSC.HOST A WHERE A.USER_ID = :val`,  { val: res.rows[0].USER_ID }, `Failed to get host info`, `Host info fetched`);
+  res.rows[0].host_info = res2.rows;
   return res;
 }
 async function updateUserImage(imgurl, USER_ID) {
