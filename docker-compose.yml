@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:5000
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - oracle-db
+    environment:
+      - DB_HOST=oracle-db
+      - DB_PORT=1521
+      - DB_USER=MCSC
+      - DB_PASSWORD=MCSC
+      - DB_NAME=MCSC
+      - JWT_SECRET="MCSC_USER"
+      - FRONTEND_URL="http://localhost:5173"
+      - PORT=5000
+      - CLOUDINARY_CLOUD_NAME="dauafquys"
+      - CLOUDINARY_FOLDER_NAME="hackers_lair"
+      - CLOUDINARY_API_KEY="587267556573937"
+      - CLOUDINARY_API_SECRET="qK4ALOq5Dv9ze7s_zzctGmB9gOs"
+      - CLOUDINARY_URL="cloudinary://587267556573937:qK4ALOq5Dv9ze7s_zzctGmB9gOs@dauafquys"
+
+  oracle-db:
+    image: 68e9d90b542e1d9ad4494fc9569ff56529a01fe128b6e369d9fb018ac7785228
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=ADMIN
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+
+volumes:
+  oracle_data:

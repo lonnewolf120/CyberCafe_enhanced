@@ -32,6 +32,7 @@ import AddCourse from "./components/core/Dashboard/AddCourse/AddCourse";
 
 import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails";
+import ActivityHeatmap from "./pages/ActivityHeatmap.jsx"
 
 import { ACCOUNT_TYPE } from "./utils/constants";
 
@@ -42,7 +43,6 @@ import AllInstructors from "./components/core/Dashboard/AllInstructors";
 
 //CTF
 import Challenges from "./pages/ctf/ChallengesPage.jsx";
-import WebExploitation from "./pages/ctf/WebExploitation.jsx";
 import Contests from "./pages/ctf/Contests.jsx";
 import Leaderboard from "./pages/ctf/leaderboard.jsx";
 import AddContestPage from "./pages/ctf/AddContestPage.jsx";
@@ -159,6 +159,7 @@ function App() {
         >
           <Route path="dashboard/my-profile" element={<MyProfile />} />
           <Route path="dashboard/Settings" element={<Settings />} />
+          <Route path="dashboard/Activity" element={<ActivityHeatmap />} />
 
           {/* Route only for Admin */}
           {/* create category, all students, all instructors */}

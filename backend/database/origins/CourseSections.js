@@ -50,7 +50,7 @@ async function updateCourseProgress(COURSE_ID, USER_ID, subsection_id){
 }
 
 async function addCourseProgress(COURSE_ID, USER_ID){
-    const sql = `INSERT INTO MCSC.COURSEPROGRESS (COURSE_ID, USER_ID) VALUES (:COURSE_ID, :USER_ID);`;
+    const sql = `INSERT INTO MCSC.COURSEPROGRESS (COURSE_ID, USER_ID) VALUES (:COURSE_ID, :USER_ID)`;
     const res = await query(sql, {COURSE_ID:COURSE_ID, USER_ID:USER_ID});
     return res;
 }

@@ -29,7 +29,6 @@ CREATE TABLE MCSC.Profile (
     CONSTRAINT fk_profile_userId FOREIGN KEY (user_id) REFERENCES MCSC.USERS(user_id) ON DELETE CASCADE
 );
 
-
 -- Recreate the sequences with the correct increment
 CREATE SEQUENCE random_value_seq
   START WITH 412

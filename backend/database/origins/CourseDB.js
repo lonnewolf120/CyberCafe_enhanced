@@ -276,7 +276,7 @@ async function getStudentsEnrolled(COURSE_ID, studentId) {
 }
 
 async function sellDataInstr(instrId) {
-  const sql = `SELECT SUM(PRICE), COUNT(*)  FROM MCSC.COURSES A, MCSC.INSTRUCTOR B WHERE A.COURSE_ID = B.COURSES AND A.INSTRUCTOR = :instrId;`;
+  const sql = `SELECT SUM(PRICE), COUNT(*)  FROM MCSC.COURSES A, MCSC.INSTRUCTOR B WHERE A.COURSE_ID = B.COURSES AND A.INSTRUCTOR = :instrId`;
   const res = await query(sql, { instrId: instrId });
   return res;
 }

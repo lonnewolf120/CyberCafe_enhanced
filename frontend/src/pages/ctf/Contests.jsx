@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button } from 'flowbite-react';
 import toast from 'react-hot-toast';
+import ContestSearch from '../../components/common/ContestSearch';
 
 // const BASE_URL = import.meta.env.VITE_APP_API_URL;
 const BASE_URL = "http://localhost:5000/api/v1";
@@ -24,14 +25,20 @@ const ContestCard = ({ title, contestID, starttime, endtime }) => {
     const formattedStartTime = formatDate(starttime);
     const formattedEndTime = formatDate(endtime);
 
+    const randomColor = () => {
+        const colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple'];
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        return colors[randomIndex];
+    };
+
     return (
-        <div className="card bg-white shadow-md rounded-lg flex flex-col items-center p-4">
+        <div className={`card  shadow-md rounded-lg flex flex-col items-center p-4 bg-${randomColor()}`}>
             <div className="card-body text-center">
                 <h5 className="card-title text-xl font-bold">{title}</h5>
                 <p className="text-caribbeangreen-300">Starts: {formattedStartTime}</p>
                 <p className="text-caribbeangreen-300">Ends: {formattedEndTime}</p>
                 <Link to={`/challenges/${contestID}`}>
-                    <button className="solutions-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
+                    <button className={`solutions-button bg-${randomColor()} hover:bg-${randomColor()} text-white font-bold py-2 px-4 rounded mt-4`}>
                         Enter Contest
                     </button>
                 </Link>
@@ -70,6 +77,8 @@ const Contests = () => {
         <div className="container mx-auto p-5">
             {user.ACCOUNT_TYPE === 'Instructor' && (
                 <div className="flex justify-center">
+                    
+                    <ContestSearch className=""/>
                     <Link to={`/add-contest`}>
                         <Button className="add-contest-button p-2 m-5">Add Contest</Button>
                     </Link>

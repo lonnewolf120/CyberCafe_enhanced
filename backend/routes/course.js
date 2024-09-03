@@ -50,6 +50,7 @@ const {
     getAllRatingReview
 } = require('../controllers/ratingAndReview2');
 
+const { courseSearch } = require('../controllers/search')
 
 // Middlewares
 const { auth, isAdmin, isInstructor, isStudent } = require('../middleware/auth')
@@ -60,6 +61,7 @@ const { auth, isAdmin, isInstructor, isStudent } = require('../middleware/auth')
 // ********************************************************************************************************
 // Courses can Only be Created by Instructors
 
+router.post('/courseSearch', courseSearch);
 router.post('/createCourse', auth, isInstructor, createCourse);
 
 //Add a Section to a Course

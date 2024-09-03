@@ -93,7 +93,8 @@ async function getUserW(EMAIL) {
   return res;
 }
 async function getUserDeatails(USER_ID) {
-  const sql = `SELECT A3.USER_ID, A3.EMAIL, A3.PASSWORD, A3.ACCOUNT_TYPE, A3.CONTACTNUMBER, A3.ACTIVE, A3.APPROVED, A3.TOKEN, A3.RESET_PASSWORD_EXPIRES, A3.IMAGE, A3.COURSES, A3.COURSE_PROGRESS, A3.LAST_NAME, A3.FIRST_NAME, 
+  const sql = `
+SELECT A3.USER_ID, A3.EMAIL, A3.PASSWORD, A3.ACCOUNT_TYPE, A3.CONTACTNUMBER, A3.ACTIVE, A3.APPROVED, A3.TOKEN, A3.RESET_PASSWORD_EXPIRES, A3.IMAGE, A3.COURSES, A3.COURSE_PROGRESS, A3.LAST_NAME, A3.FIRST_NAME, 
 A2.PROFILE_ID, A2.GENDER, A2.DATE_OF_BIRTH, A2.ABOUT, A2.CONTACT_NUMBER,
 A4.ACCOUNT_ID, A4.BALANCE
 FROM MCSC.USERS A3
@@ -378,7 +379,7 @@ FROM
 WHERE
         "A2"."INSTR_ID" = :b1
     AND "A2"."INSTR_ID" = "A1"."INSTRUCTOR"
-    AND "A2"."COURSES" = "A1"."COURSE_ID";`
+    AND "A2"."COURSES" = "A1"."COURSE_ID"`
       const result = await db.execute(sql, {b1: user.USER_ID});
 
       retrievedUser[index].courses = result.rows;
@@ -410,11 +411,11 @@ WHERE
 }
 
 async function addToken(USER_ID, token, exp) {
-  const sql = `insert into mcsc.tokens (USER_ID, TOKEN, EXPIRES_AT) VALUES(:USER_ID, :token, :exp);`;
+  const sql = `insert into mcsc.tokens (USER_ID, TOKEN, EXPIRES_AT) VALUES(:USER_ID, :token, :exp)`;
   return await query(sql, { USER_ID: USER_ID, token: token, exp: exp });
 }
 async function getToken(token) {
-  const sql = `select * from mcsc.tokens where token = :token;`;
+  const sql = `select * from mcsc.tokens where token = :token`;
   return await query(sql, { token: token });
 }
 

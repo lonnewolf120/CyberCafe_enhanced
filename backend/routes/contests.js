@@ -13,8 +13,10 @@ const router = express.Router();
 // Middlewares
 const { auth, isAdmin, isInstructor, isStudent } = require('../middleware/auth')
 
+const {contestSearch} =  require("../controllers/search.js");
 
 // Contest Routes
+router.post("/search", contestSearch);
 
 router.post("/submit", auth, submit);
 

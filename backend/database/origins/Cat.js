@@ -68,44 +68,26 @@ async function showAllCat() {
   ));
 }
 async function showAllCat2() {
-  //FIXME update here or in frontend
-  const sql = `SELECT * FROM MCSC.CATEGORY `;
+  // Fetch all categories (if needed separately)
+  const sql = `SELECT * FROM MCSC.CATEGORY`;
   const categories = await queryWP(
     sql,
     "Cat.js: Failed to fetch all categories",
-    "showAllCat: All selected"
+    "showAllCat: All categories selected"
   );
-  const sql2 = `SELECT
-    "A2"."CATEGORY_ID"         "CATEGORY_ID",
-    "A2"."NAME"                "CAT_NAME",
-    "A2"."DESCRIPTION"         "CAT_DESCRIPTION",
-    "A2"."COURSES"             "COURSES",
-    "A1"."COURSE_ID"           "COURSE_ID",
-    "A1"."COURSE_NAME"         "COURSE_NAME",
-    "A1"."COURSE_DESCRIPTION"  "COURSE_DESCRIPTION",
-    "A1"."INSTRUCTOR"          "INSTRUCTOR",
-    "A1"."WHAT_YOU_WILL_LEARN" "WHAT_YOU_WILL_LEARN",
-    "A1"."PRICE"               "PRICE",
-    "A1"."THUMBNAIL"           "THUMBNAIL",
-    "A1"."STATUS"              "STATUS",
-    "A1"."CREATED_AT"          "CREATED_AT",
-    "A1"."SOLD"                "SOLD",
-    "A1"."TAG"                 "TAG",
-    "A1"."INSTRUCTIONS"        "INSTRUCTIONS",
-    "A1"."POINTS"              "POINTS"
-FROM
-    "MCSC"."CATEGORY" "A2",
-    "MCSC"."COURSES"  "A1"
-WHERE
-    "A2"."CATEGORY_ID" = "A1"."CATEGORY"`;
+
+  // Fetch all courses with their respective categories using the view
+  const sql2 = `SELECT * FROM MCSC.CATEGORY_COURSES_VIEW`;
   const courses = await queryWP(
     sql2,
-    "failed to get all courses with category",
-    "all courses with category fetched"
+    "Failed to fetch all courses with categories",
+    "All courses with categories fetched"
   );
-  //TODO: add ratings for every course
+
+  // TODO: Add ratings for every course if needed
   return { categories, courses };
 }
+
 
 async function showCourseForCat(name) {
   console.log("name : ", name);
