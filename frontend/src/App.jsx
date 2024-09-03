@@ -48,11 +48,24 @@ import Leaderboard from "./pages/ctf/leaderboard.jsx";
 import AddContestPage from "./pages/ctf/AddContestPage.jsx";
 import AddChallenge from "./pages/ctf/AddChallenge.jsx"
 
+//for transition animation
+import { motion, AnimatePresence } from "framer-motion";  
+
 function App() {
   const { user } = useSelector((state) => state.profile);
-
+  const [showLogo, setShowLogo] = useState(true);
   // Scroll to the top of the page when the component mounts
   const location = useLocation();
+
+  useEffect(() => {
+    // Show logo for 2 seconds, then fade out
+    const timer = setTimeout(() => {
+      setShowLogo(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
@@ -81,8 +94,32 @@ function App() {
     };
   }, [showArrow]);
 
+  const pageVariants = {
+    initial: { opacity: 0, x: "-100%" },
+    in: { opacity: 1, x: 0 },
+    out: { opacity: 0, x: "100%" }
+  };
+
+  const pageTransition = {
+    type: "tween",
+    ease: "anticipate",
+    duration: 0.5
+  };
+
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
+      {/* <AnimatePresence>
+        {showLogo && (
+          <motion.div
+            initial={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="fixed inset-0 flex items-center justify-center bg-richblack-900 z-50"
+          >
+            <h1 className="text-4xl font-bold text-white">Your Logo</h1>
+          </motion.div>
+        )}
+      </AnimatePresence>  */}
       <Navbar />
 
       {/* go upward arrow */}
@@ -95,212 +132,223 @@ function App() {
         <HiArrowNarrowUp />
       </button>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/ABOUT" element={<About />} />
-        <Route path="catalog/:catalogName" element={<Catalog />} />
-        <Route path="courses/:COURSE_ID" element={<CourseDetails />} />
-
-        {/* Open Route - for Only Non Logged in User */}
-        <Route
-          path="signup"
-          element={
-            <OpenRoute>
-              <Signup />
-            </OpenRoute>
-          }
-        />
-
-        <Route
-          path="login"
-          element={
-            <OpenRoute>
-              <Login />
-            </OpenRoute>
-          }
-        />
-
-        <Route
-          path="forgot-password"
-          element={
-            <OpenRoute>
-              <ForgotPassword />
-            </OpenRoute>
-          }
-        />
-
-        <Route
-          path="verify-EMAIL"
-          element={
-            <OpenRoute>
-              <VerifyEmail />
-            </OpenRoute>
-          }
-        />
-
-        <Route
-          path="update-password/:id"
-          element={
-            <OpenRoute>
-              <UpdatePassword />
-            </OpenRoute>
-          }
-        />
-
-        {/* Protected Route - for Only Logged in User */}
-        {/* Dashboard */}
-        <Route
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
+      <AnimatePresence mode="wait">
+        <motion.div
+          // key={location.pathname}
+          // initial="initial"
+          // animate="in"
+          // exit="out"
+          // variants={pageVariants}
+          // transition={pageTransition}
         >
-          <Route path="dashboard/my-profile" element={<MyProfile />} />
-          <Route path="dashboard/Settings" element={<Settings />} />
-          <Route path="dashboard/Activity" element={<ActivityHeatmap />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/ABOUT" element={<About />} />
+          <Route path="catalog/:catalogName" element={<Catalog />} />
+          <Route path="courses/:COURSE_ID" element={<CourseDetails />} />
 
-          {/* Route only for Admin */}
-          {/* create category, all students, all instructors */}
-          {user?.ACCOUNT_TYPE === ACCOUNT_TYPE.ADMIN && (
-            <>
+          {/* Open Route - for Only Non Logged in User */}
+          <Route
+            path="signup"
+            element={
+              <OpenRoute>
+                <Signup />
+              </OpenRoute>
+            }
+          />
+
+          <Route
+            path="login"
+            element={
+              <OpenRoute>
+                <Login />
+              </OpenRoute>
+            }
+          />
+
+          <Route
+            path="forgot-password"
+            element={
+              <OpenRoute>
+                <ForgotPassword />
+              </OpenRoute>
+            }
+          />
+
+          <Route
+            path="verify-EMAIL"
+            element={
+              <OpenRoute>
+                <VerifyEmail />
+              </OpenRoute>
+            }
+          />
+
+          <Route
+            path="update-password/:id"
+            element={
+              <OpenRoute>
+                <UpdatePassword />
+              </OpenRoute>
+            }
+          />
+
+          {/* Protected Route - for Only Logged in User */}
+          {/* Dashboard */}
+          <Route
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="dashboard/my-profile" element={<MyProfile />} />
+            <Route path="dashboard/Settings" element={<Settings />} />
+            <Route path="dashboard/Activity" element={<ActivityHeatmap />} />
+
+            {/* Route only for Admin */}
+            {/* create category, all students, all instructors */}
+            {user?.ACCOUNT_TYPE === ACCOUNT_TYPE.ADMIN && (
+              <>
+                <Route
+                  path="dashboard/create-category"
+                  element={<CreateCategory />}
+                />
+                <Route path="dashboard/all-students" element={<AllStudents />} />
+                <Route
+                  path="dashboard/all-instructors"
+                  element={<AllInstructors />}
+                />
+              </>
+            )}
+
+            {/* Route only for Students */}
+            {/* cart , EnrolledCourses */}
+            {user?.ACCOUNT_TYPE === ACCOUNT_TYPE.STUDENT && (
+              <>
+                <Route path="dashboard/cart" element={<Cart />} />
+                <Route
+                  path="dashboard/enrolled-courses"
+                  element={<EnrolledCourses />}
+                />
+              </>
+            )}
+
+            {/* Route only for Instructors */}
+            {/* add course , MyCourses, EditCourse*/}
+            {user?.ACCOUNT_TYPE === ACCOUNT_TYPE.INSTRUCTOR && (
+              <>
+                <Route path="dashboard/instructor" element={<Instructor />} />
+                <Route path="dashboard/add-course" element={<AddCourse />} />
+                <Route path="dashboard/my-courses" element={<MyCourses />} />
+                <Route
+                  path="dashboard/edit-course/:COURSE_ID"
+                  element={<EditCourse />}
+                />
+              </>
+            )}
+          </Route>
+
+          {/* For the watching course lectures */}
+          <Route
+            element={
+              <ProtectedRoute>
+                <ViewCourse />
+              </ProtectedRoute>
+            }
+          >
+            {user?.ACCOUNT_TYPE === ACCOUNT_TYPE.STUDENT && (
               <Route
-                path="dashboard/create-category"
-                element={<CreateCategory />}
+                path="view-course/:COURSE_ID/section/:sectionId/sub-section/:subSectionId"
+                element={<VideoDetails />}
               />
-              <Route path="dashboard/all-students" element={<AllStudents />} />
-              <Route
-                path="dashboard/all-instructors"
-                element={<AllInstructors />}
-              />
-            </>
-          )}
+            )}
+          </Route>
+          
+          {/* CTF part */}
+          {/*  changes made by Sadman */}
+          <Route
+            path="/add-contest"
+            element={
+              <ProtectedRoute>
+                <AddContestPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/contests/all"
+            element={
+              <ProtectedRoute>
+                <Contests />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/leaderboard/:cid"
+            element={
+              <ProtectedRoute>
+                <Leaderboard/>
+              </ProtectedRoute>
+            }
+          />
+          
+          {/* <Route
+            path="/cryptography"
+            element={
+              <ProtectedRoute>
+                <WebExploitation />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reverse-engineering"
+            element={
+              <ProtectedRoute>
+                <WebExploitation />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/forensics"
+            element={
+              <ProtectedRoute>
+                <WebExploitation />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/solutions"
+            element={
+              <ProtectedRoute>
+                <Solutions />
+              </ProtectedRoute>
+            }
+          /> */}
+          <Route
+            path="/challenges/:contestID"
+            element={
+              <ProtectedRoute>
+                <Challenges />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/challenges/:contestID/add-challenge"
+            element={
+              <ProtectedRoute>
+                <AddChallenge />
+              </ProtectedRoute>
+            }
+          />
 
-          {/* Route only for Students */}
-          {/* cart , EnrolledCourses */}
-          {user?.ACCOUNT_TYPE === ACCOUNT_TYPE.STUDENT && (
-            <>
-              <Route path="dashboard/cart" element={<Cart />} />
-              <Route
-                path="dashboard/enrolled-courses"
-                element={<EnrolledCourses />}
-              />
-            </>
-          )}
+          {/*  changes made by Sadman */}
 
-          {/* Route only for Instructors */}
-          {/* add course , MyCourses, EditCourse*/}
-          {user?.ACCOUNT_TYPE === ACCOUNT_TYPE.INSTRUCTOR && (
-            <>
-              <Route path="dashboard/instructor" element={<Instructor />} />
-              <Route path="dashboard/add-course" element={<AddCourse />} />
-              <Route path="dashboard/my-courses" element={<MyCourses />} />
-              <Route
-                path="dashboard/edit-course/:COURSE_ID"
-                element={<EditCourse />}
-              />
-            </>
-          )}
-        </Route>
-
-        {/* For the watching course lectures */}
-        <Route
-          element={
-            <ProtectedRoute>
-              <ViewCourse />
-            </ProtectedRoute>
-          }
-        >
-          {user?.ACCOUNT_TYPE === ACCOUNT_TYPE.STUDENT && (
-            <Route
-              path="view-course/:COURSE_ID/section/:sectionId/sub-section/:subSectionId"
-              element={<VideoDetails />}
-            />
-          )}
-        </Route>
-        
-        {/* CTF part */}
-        {/*  changes made by Sadman */}
-        <Route
-          path="/add-contest"
-          element={
-            <ProtectedRoute>
-              <AddContestPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/contests/all"
-          element={
-            <ProtectedRoute>
-              <Contests />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/leaderboard/:cid"
-          element={
-            <ProtectedRoute>
-              <Leaderboard/>
-            </ProtectedRoute>
-          }
-        />
-        
-        {/* <Route
-          path="/cryptography"
-          element={
-            <ProtectedRoute>
-              <WebExploitation />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/reverse-engineering"
-          element={
-            <ProtectedRoute>
-              <WebExploitation />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/forensics"
-          element={
-            <ProtectedRoute>
-              <WebExploitation />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/solutions"
-          element={
-            <ProtectedRoute>
-              <Solutions />
-            </ProtectedRoute>
-          }
-        /> */}
-        <Route
-          path="/challenges/:contestID"
-          element={
-            <ProtectedRoute>
-              <Challenges />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/challenges/:contestID/add-challenge"
-          element={
-            <ProtectedRoute>
-              <AddChallenge />
-            </ProtectedRoute>
-          }
-        />
-
-        {/*  changes made by Sadman */}
-
-        {/* Page Not Found (404 Page ) */}
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+          {/* Page Not Found (404 Page ) */}
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

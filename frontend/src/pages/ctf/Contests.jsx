@@ -80,7 +80,7 @@ const Contests = () => {
                     
                     <ContestSearch className=""/>
                     <Link to={`/add-contest`}>
-                        <Button className="add-contest-button p-2 m-5">Add Contest</Button>
+                        <Button className="add-contest-button m-5">Add Contest</Button>
                     </Link>
                 </div>
             )}

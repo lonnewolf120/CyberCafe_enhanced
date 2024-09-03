@@ -10,9 +10,9 @@ async function initializePool() {
             password: 'MCSC',
             connectString: 'localhost:1521/FREEPDB1',
             poolMin: 10,
-            poolMax: 100,
-            poolIncrement: 10,
-            poolTimeout: 60
+            poolMax: 10000,
+            poolIncrement: 100,
+            poolTimeout: 1000
         });
       console.log('Connection pool started');
     } catch (err) {
