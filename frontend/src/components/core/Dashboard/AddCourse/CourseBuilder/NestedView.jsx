@@ -12,13 +12,11 @@ import { setCourse } from "../../../../../slices/courseSlice"
 import ConfirmationModal from "../../../../common/ConfirmationModal"
 import SubSectionModal from "./SubSectionModal"
 
-
-
-
 export default function NestedView({ handleChangeEditSectionName }) {
 
   const { course } = useSelector((state) => state.course)
   const { token } = useSelector((state) => state.auth)
+  console.log("Course info from Create course: ", course)
   const dispatch = useDispatch()
 
   // States to keep track of mode of modal [add, view, edit]
@@ -28,9 +26,9 @@ export default function NestedView({ handleChangeEditSectionName }) {
   // to keep track of confirmation modal
   const [confirmationModal, setConfirmationModal] = useState(null)
 
-  // Delele Section
+  // Delete Section
   const handleDeleleSection = async (sectionId) => {
-    const result = await deleteSection({ sectionId, COURSE_ID: course.COURSE_ID, token, })
+    const result = await deleteSection({ sectionId, COURSE_ID: course[0].COURSE_ID, token })
     if (result) {
       dispatch(setCourse(result))
     }
@@ -42,11 +40,11 @@ export default function NestedView({ handleChangeEditSectionName }) {
     const result = await deleteSubSection({ subSectionId, sectionId, token })
     if (result) {
       // update the structure of course - As we have got only updated section details 
-      const updatedCourseContent = course.courseContent.map((section) =>
+      const updatedSections = course[0].sections.map((section) =>
         section.SECTION_ID === sectionId ? result : section
       )
-      const updatedCourse = { ...course, courseContent: updatedCourseContent }
-      dispatch(setCourse(updatedCourse))
+      const updatedCourse = { ...course[0], sections: updatedSections }
+      dispatch(setCourse([updatedCourse]))
     }
     setConfirmationModal(null)
   }
@@ -57,7 +55,9 @@ export default function NestedView({ handleChangeEditSectionName }) {
         className="rounded-2xl bg-richblack-700 p-6 px-8"
         id="nestedViewContainer"
       >
-        {course?.courseContent?.map((section) => (
+        {console.log("Course Content in NestedView: ", course)}
+        { course[0] && course[0]?.sections && 
+        course[0]?.sections?.map((section, ind) => (
           // Section Dropdown
           <details key={section.SECTION_ID} open>
             {/* Section Dropdown Content */}
@@ -105,7 +105,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
             </summary>
             <div className="px-6 pb-4">
               {/* Render All Sub Sections Within a Section */}
-              {section.subSection.map((data) => (
+              {section.subSections && section.subSections.map((data) => (
                 <div
                   key={data?._id}
                   onClick={() => setViewSubSection(data)}
@@ -158,8 +158,6 @@ export default function NestedView({ handleChangeEditSectionName }) {
           </details>
         ))}
       </div>
-
-
 
       {/* Modal Display */}
       {addSubSection ? (

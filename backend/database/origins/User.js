@@ -213,7 +213,7 @@ async function findUSER_ID(USER_ID, instr = false) {
     const res = await query(sql, { USER_ID }, "User not found", "User found! ");
     return res.rows;
   } else {
-    //for use in createCourse() to get instr info in Course.js
+    //for use in createCourse() to get instr info in course2.js
     const sql = `SELECT "USER_ID", "FIRST_NAME" || ' '|| "LAST_NAME" AS FULLNAME, "EMAIL" FROM MCSC.USERS WHERE "ACCOUNT_TYPE" = 'Instructor' AND "USER_ID" = :USER_ID`;
     const res = await query(sql, { USER_ID }, "Instr not found", "Instr found! ");
     return res.rows;

@@ -57,7 +57,7 @@ export default function CourseBuilderForm() {
   // Change Edit SECTION_NAME
   const handleChangeEditSectionName = (sectionId, SECTION_NAME) => {
     //FIXME: probably section_name would be here
-    if (editSectionName === SECTION_NAME) {
+    if (editSectionName === SECTION_NAME ) {
       cancelEdit()
       return
     }
@@ -135,6 +135,7 @@ export default function CourseBuilderForm() {
 
       {/* nesetd view of section - subSection */}
       {/* {course?.data?.courseContent.length > 0 && ( */}
+      {console.log("Course in Course builder:" ,course)}
         <NestedView handleChangeEditSectionName={handleChangeEditSectionName} />
       {/* )} */}
 

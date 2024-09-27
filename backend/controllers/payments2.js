@@ -11,7 +11,7 @@ const { getUser } = require('../database/origins/User');
 const { createPayment, createPaymentPL } = require('../database/paymentMethods');
 
 
-// ================ capture the payment and Initiate the 'Rajorpay order' ================
+// ================ capture the payment and Initiate the order ================
 exports.capturePayment = async (req, res) => {
 
     // extract COURSE_ID & USER_ID
@@ -77,6 +77,9 @@ exports.capturePayment = async (req, res) => {
         })
     }
     try {
+        //TODO: add the ssl-commerz gateway here
+        // const payment = await 
+
         const payment = await createPayment(options)
         console.log("Payment info (from db): ", payment);
         if (!payment.data) return res.status(500).json({ success: false, message: payment.message});

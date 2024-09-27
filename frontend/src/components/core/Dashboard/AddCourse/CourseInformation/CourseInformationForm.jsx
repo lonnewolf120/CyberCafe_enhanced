@@ -24,7 +24,7 @@ export default function CourseInformationForm() {
   const [courseCategories, setCourseCategories] = useState([])
 
   // console.log("Course: ",course)
-  console.log("edit course: ", editCourse)
+  console.log("edit course: ", editCourse, "Course ID: ", course?.COURSE_ID)
   useEffect(() => {
     const getCategories = async () => {
       setLoading(true)
@@ -36,6 +36,7 @@ export default function CourseInformationForm() {
       }
       setLoading(false)
     }
+
     // if form is in edit mode 
     // It will add value in input field
     if (editCourse) {
@@ -49,7 +50,7 @@ export default function CourseInformationForm() {
       setValue("courseBenefits", course.WHAT_YOU_WILL_LEARN)
       setValue("courseCategory", course.NAME)
       setValue("courseRequirements", course.INSTRUCTIONS)
-      setValue("courseImage", course.THUMBNAIL?course.THUMBNAIL:"/hacking.png")
+      setValue("courseImage", course.THUMBNAIL? course.THUMBNAIL :"/hacking.png")
     }
 
     getCategories()
@@ -136,7 +137,7 @@ export default function CourseInformationForm() {
 
     // user has visted first time to step 1 
     const formData = new FormData()
-    formData.append("COURSE_ID", data.courseID)
+    console.log("The formData: ", formData)
     formData.append("COURSE_NAME", data.courseTitle)
     formData.append("COURSE_DESCRIPTION", data.courseShortDesc)
     formData.append("PRICE", data.coursePRICE)
@@ -334,6 +335,7 @@ export default function CourseInformationForm() {
       </div>
 
       {/* Next Button */}
+      {/* Next Button */}
       <div className="flex justify-end gap-x-2">
         {editCourse && (
           <button
@@ -342,15 +344,14 @@ export default function CourseInformationForm() {
             className={`flex cursor-pointer items-center gap-x-2 rounded-md py-[8px] px-[20px] font-semibold
               text-richblack-900 bg-richblack-300 hover:bg-richblack-900 hover:text-richblack-300 duration-300`}
           >
-            Continue Wihout Saving
+            Continue Without Saving
           </button>
         )}
-        <IconBtn
-          disabled={loading}
-          text={!editCourse ? "Next" : "Save Changes"}
-        >
-          <MdNavigateNext />
-        </IconBtn>
+        <button type="submit" disabled={loading} className="flex items-center gap-x-2">
+          <IconBtn text={!editCourse ? "Next" : "Save Changes"}>
+            <MdNavigateNext />
+          </IconBtn>
+        </button>
       </div>
     </form>
   )

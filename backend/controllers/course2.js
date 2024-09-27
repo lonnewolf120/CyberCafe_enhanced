@@ -28,7 +28,6 @@ const {
 } = require("../utils/imageUploader");
 const { convertSecondsToDuration } = require("../utils/secToDuration");
 const { connection } = require("../database/database.js");
-// const { deleteCourse } = require("../database/Course.js");
 
 // ================ create new course ================
 exports.createCourse = async (req, res) => {
@@ -113,7 +112,7 @@ exports.createCourse = async (req, res) => {
       secure_url:"https://res.cloudinary.com/dauafquys/image/upload/v1721931097/z9uwocm9s9nhon7n52i2.png"
     };
 
-    console.log("course.js: from Cloudinary-> secure_url: ", THUMBNAILDetails)
+    console.log("course2.js: from Cloudinary-> secure_url: ", THUMBNAILDetails)
     // create new course - entry in DB
     const newCourse = await addCourse(
         COURSE_NAME,
@@ -127,7 +126,7 @@ exports.createCourse = async (req, res) => {
         status,
         INSTRUCTIONS,
     );
-    console.log("course.js: newCourse: ", newCourse)
+    console.log("course2.js: newCourse: ", newCourse)
     // add course id to instructor courses list, this is bcoz - it will show all created courses by instructor
     await insertCourseToinstr(newCourse.data.COURSE_ID, instructorId);
 
@@ -233,11 +232,11 @@ exports.getFullCourseDetails = async (req, res) => {
 
     const courseDetails = await getAllCourseDetails(COURSE_ID);
 
-    console.log("from course.js, full courseDetails: ", courseDetails)
+    console.log("from course2.js, full courseDetails: ", courseDetails)
 
     // const allsections = await getSubsectionsForSection(COURSE_ID);
 
-    // console.log("section details (course.js): ", allsections);
+    // console.log("section details (course2.js): ", allsections);
 
     // courseDetails[0].sections = (allsections);
 
