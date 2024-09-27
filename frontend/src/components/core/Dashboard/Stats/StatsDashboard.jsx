@@ -3,17 +3,18 @@
 
 import axios from 'axios';
 import { Pie, Line } from 'react-chartjs-2';
-import './Dashboard.css';
+import './StatsDashboard.css';
 import { Link } from 'react-router-dom';
 import { Button } from 'flowbite-react';
 import { useSelector } from "react-redux";
+import Img from './../../../common/Img';
 
 import { pieChartData, lineChartData } from './data1.js';
 import { Chart as ChartJS, Tooltip, Legend, ArcElement, CategoryScale, LinearScale, LineElement, PointElement, Title } from 'chart.js';  
 
 ChartJS.register(Tooltip, Legend, ArcElement, CategoryScale, LinearScale, LineElement, PointElement, Title);
 
-const Dashboard = () => {
+const StatsDashboard = () => {
     // const [username, setUsername] = useState(''); 
     const [actualName, setActualName] = useState(''); 
     const [activedays, setActivedays] = useState([]);
@@ -59,7 +60,11 @@ const Dashboard = () => {
                 <div className="SubBox1">
                     <div className="contain">
                         <div className="profile-box">
-                            <img src="./images/profile-pic.png" className="profile-pic" alt="" />
+                        <Img
+                            src={user?.IMAGE}
+                            alt={`profile-${user?.FIRST_NAME}`}
+                            className="aspect-square w-[78px] rounded-full object-cover"
+                        />
                         </div>
                     </div>
                     <div className="u-name">
@@ -70,13 +75,11 @@ const Dashboard = () => {
                     <div className="p-info">
                         <div className="profile-info">
                             <p>Rating </p>
-                            <p>Rank </p>
                             <p>Contests </p>
                         </div>
 
                         <div className="p-data">
-                            <p className="profile-data">{user?.RATING} </p>
-                            <p className="profile-data">32 </p>
+                            <p className="profile-data">{user?.RATING || 150} </p>
                             <p className='profile-data'>45 </p>
                         </div>
                     </div>
@@ -88,9 +91,6 @@ const Dashboard = () => {
                         
                     </div>
                     <div className="SubBox4">
-                        <div className="chart-container">
-                            <Pie data={pieChartData} />
-                        </div>
                         <div className="chart-container">
                             <Pie data={pieChartData} />
                         </div>
@@ -176,8 +176,7 @@ function Cell({ submissionCount }) {
 function Months({index}) {
     return (
         <div className="timeline-months-month">
-           {Monthnames[index]}
-            
+            {Monthnames[index]}
         </div>
     );
 }
@@ -211,36 +210,33 @@ function Week({index}) {
     );
 }
 
-
-function Timeline( {days, activedays}) {
+function Timeline({ days, activedays }) {
     let cells = Array.from(new Array(days));
     let weeks = Array.from(new Array(7));
     let months = Array.from(new Array(12));
 
-
     return (
-        <div className="timeline">
-            <div className="timeline-months">
+        <div>
+        <div className="timeline-months">
                 {months.map((_, index) => <Months key={index} index={index} />)}
             </div>
-                <div className="timeline-body">
-                    <div className="timeline-weeks">
-                        {weeks.map((_, index) => <Week key={index} index={index} />)}
-                    </div>
-                    <div className="timeline-cells">
-                            {cells.map((_, index) => {
-                                const dayData = activedays.find(day => day.dayOfYear === index);
-                                const submissionCount = dayData ? dayData.submissionCount : 0;
-                                return <Cell key={index} submissionCount={submissionCount} />;
-                            })}
-                    </div>
-
-
+        <div className="timeline">
+            
+            <div className="timeline-body">
+                <div className="timeline-weeks">
+                    {weeks.map((_, index) => <Week key={index} index={index} />)}
                 </div>
-           
+                <div className="timeline-cells">
+                    {cells.map((_, index) => {
+                        const dayData = activedays.find(day => day.dayOfYear === index);
+                        const submissionCount = dayData ? dayData.submissionCount : 0;
+                        return <Cell key={index} submissionCount={submissionCount} />;
+                    })}
+                </div>
+            </div>
+        </div>
         </div>
     );
 }
-
-export default Dashboard;
+export default StatsDashboard;
 

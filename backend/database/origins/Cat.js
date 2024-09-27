@@ -9,8 +9,9 @@ async function addCategory(name, desc) {
     db = await connection(); // Await connection
     const res = await db.execute(sql, { v1: name, v2: desc }); // Await execute
     if (res) {
-      console.log("Category inserted successfully");
-      return res.rows;
+      console.log("Category inserted successfully", res);
+      await db.commit();
+      return res;
     }
   } catch (e) {
     console.log("Error from Cat.js (addCategory)");
@@ -50,7 +51,7 @@ async function deleteCategory(id) {
   }
 }
 async function findCat(id) {
-  return query(
+  return await query(
     `SELECT * FROM MCSC.CATEGORY WHERE CATEGORY_ID = :v1`,
     { v1: id },
     "Failed to find category",
@@ -66,6 +67,15 @@ async function showAllCat() {
     "Cat.js: Failed to fetch all categories",
     "showAllCat: All selected"
   ));
+}
+async function showAllCourses() {
+  //FIXME update here or in frontend
+  const sql = `SELECT * FROM MCSC.COURSES `;
+  return await queryWP(
+    sql,
+    "Cat.js: Failed to fetch all courses",
+    "showAllCourses: All courses"
+  );
 }
 async function showAllCat2() {
   // Fetch all categories (if needed separately)
@@ -145,7 +155,7 @@ async function showCatWithCourse(id, f = 1) {
                 FROM MCSC.Courses c, MCSC.Category cat, MCSC.USERS I
                 WHERE c.category = cat.category_id AND I.USER_ID = C.INSTRUCTOR 
                 AND cat.category_id = :v1 AND c.status = 'Published'`;
-    let cat = query(
+    let cat = await query(
       sql,
       { v1: id },
       `Failed to fetch for Category ${id} query from showCatWithCourse() in Cat.js`,
@@ -156,7 +166,7 @@ async function showCatWithCourse(id, f = 1) {
            COUNT(A1.RATING) AS TOTAL_RATING 
     FROM MCSC.RATINGANDREVIEWS A1 
     WHERE A1.CATEGORY_ID = :b1`;
-    const ratings = query(
+    const ratings = await query(
       sql2,
       { b1: id },
       `Failed to fetch ratings for the category ${id}`,
@@ -171,7 +181,7 @@ async function showCatWithCourse(id, f = 1) {
                 FROM MCSC.Courses c, MCSC.Category cat, MCSC.USERS I
                 WHERE c.category = cat.category_id AND I.USER_ID = C.INSTRUCTOR 
                 AND cat.category_id <> :v1 AND c.status = 'Published'`;
-    let cat = query(
+    let cat = await query(
       sql,
       { v1: id },
       `Failed to fetch for Category ${id} query from showCatWithCourse() in Cat.js`,
@@ -184,7 +194,7 @@ async function showCatWithCourse(id, f = 1) {
     WHERE A1.CATEGORY_ID <> :b1
     `;
 
-    const ratings = query(
+    const ratings = await query(
       sql2,
       { b1: id },
       `Failed to fetch ratings for the category except ${id}`,
@@ -465,4 +475,5 @@ module.exports = {
   getMostSellingCourses,
   getMostSellingCoursesPL,
   deleteCategory,
+  showAllCourses,
 };

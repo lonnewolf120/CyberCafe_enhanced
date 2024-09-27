@@ -37,15 +37,12 @@ import backgroundImg111 from "../assets/Images/random bg img/coding bg11.jpg";
 const randomImges = [
   backgroundImg1,
   backgroundImg2,
-  backgroundImg3,
-  backgroundImg4,
   backgroundImg5,
-  backgroundImg6,
+  backgroundImg1,
   backgroundImg7,
-  backgroundImg8,
-  backgroundImg9,
   backgroundImg10,
   backgroundImg111,
+  backgroundImg1,
 ];
 
 // hardcoded
@@ -120,7 +117,7 @@ const Home = () => {
             className="text-center text-3xl lg:text-4xl font-semibold mt-7  "
           >
             Empower Your Future with
-            <HighlightText text={"Coding Skills"} />
+            <HighlightText text={"Hacking Skills"} />
           </motion.div>
 
           <motion.div

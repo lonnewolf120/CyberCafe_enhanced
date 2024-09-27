@@ -1,0 +1,73 @@
+.Heatmapbox {
+    margin: 25px;
+    height: auto;
+    width: 92%;
+    border-radius: 8px;
+    background-color: #2b2b2b;
+    display: flex;
+    overflow: hidden; /* Prevent overflow */
+}
+
+.timeline {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensure it takes the full width of the container */
+}
+
+.timeline-months {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row; /* Change to row to make months go from left to right */
+    justify-content: space-between; /* Distribute months evenly */
+    width: 90%; /* Ensure it takes the full width of the container */
+}
+
+.timeline-months-month {
+    flex: 1; /* Allow each month to take equal space */
+    text-align: center; /* Center align the text */
+}
+
+.timeline-body {
+    display: flex;
+    flex-direction: row;
+    width: 100%; /* Ensure it takes the full width of the container */
+}
+
+.timeline-weeks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.timeline-cells {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 150px;
+    width: calc(100% - 40px); /* Adjust width to fit within the container */
+}
+
+.timeline-cell {
+    height: 15px;
+    width: 15px;
+    margin: 2px;
+    border-radius: 4px;
+    background-color: grey;
+}
+
+.timeline-weeks-week {
+    font-size: 15px;
+    height: 15px;
+    width: 30px;
+    margin: 2.5px;
+    border-radius: 4px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.timeline-cell:hover {
+    background-color: #ff0099;
+}

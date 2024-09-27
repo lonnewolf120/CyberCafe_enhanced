@@ -3,45 +3,45 @@ export const HomePageExplore = [
         tag: 'Free',
         courses : [
             {
-                heading : "Learn HTML",
-                description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
+                heading : "Introduction to Cybersecurity",
+                description : "This course introduces the fundamental concepts of cybersecurity, including threat landscapes, risk management, and basic security principles.",
                 level : 'Beginner',
-                lessionNumber : 6
+                lessionNumber : 16
             },
             {
-                heading : "Learn CSS",
-                description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Network Security",
+                description : "This course provides an introduction to network security, covering topics such as firewalls, intrusion detection systems, and secure network design.",
+                level : 'Intermediate',
+                lessionNumber : 21
             },
             {
-                heading : "Responsive Web design",
-                description : "This course teaches responsive web design techniques, allowing web pages to adapt to different devices and screen sizes",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Ethical Hacking",
+                description : "This course dives into ethical hacking techniques, teaching you how to identify and exploit vulnerabilities in systems and networks.",
+                level : 'Hard',
+                lessionNumber : 34
             },
         ]
     },
     {
-        tag: 'New to coding',
+        tag: 'New to cyberspace',
         courses : [
             {
-                heading : "HTML",
-                description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
+                heading : "Cybersecurity Basics",
+                description : "This course covers the basic concepts of cybersecurity, including understanding common threats and implementing basic security measures.",
                 level : 'Beginner',
-                lessionNumber : 6
+                lessionNumber : 8
             },
             {
-                heading : "CSS",
-                description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
+                heading : "Secure Coding Practices",
+                description : "This course explores secure coding practices to help you write code that is resistant to attacks and vulnerabilities.",
                 level : 'Beginner',
-                lessionNumber : 6
+                lessionNumber : 7
             },
             {
-                heading : "Responsive ",
-                description : "This course teaches responsive web design techniques, allowing web pages to adapt to different devices and screen sizes",
+                heading : "Introduction to Cryptography",
+                description : "This course teaches the basics of cryptography, including encryption, decryption, and cryptographic protocols.",
                 level : 'Beginner',
-                lessionNumber : 6
+                lessionNumber : 12
             },
         ]
     },
@@ -49,22 +49,22 @@ export const HomePageExplore = [
         tag: 'Most popular',
         courses : [
             {
-                heading : "Java",
-                description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Penetration Testing",
+                description : "This course covers the methodologies and tools used in penetration testing to assess the security of systems and networks.",
+                level : 'Intermediate',
+                lessionNumber : 21
             },
             {
-                heading : "Python",
-                description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Incident Response",
+                description : "This course explores the steps involved in responding to security incidents, including detection, analysis, and recovery.",
+                level : 'Intermediate',
+                lessionNumber : 9
             },
             {
-                heading : "SCSS",
-                description : "This course teaches responsive web design techniques, allowing web pages to adapt to different devices and screen sizes",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Security Operations",
+                description : "This course teaches the fundamentals of security operations, including monitoring, threat hunting, and incident management.",
+                level : 'Intermediate',
+                lessionNumber : 11
             },
         ]
     },
@@ -72,22 +72,22 @@ export const HomePageExplore = [
         tag: 'Skills paths',
         courses : [
             {
-                heading : "Flask",
-                description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Digital Forensics",
+                description : "This course covers the basics of digital forensics, including evidence collection, analysis, and reporting.",
+                level : 'Intermediate',
+                lessionNumber : 12
             },
             {
-                heading : "Django",
-                description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Malware Analysis",
+                description : "This course explores techniques for analyzing and understanding malware, including static and dynamic analysis methods.",
+                level : 'Intermediate',
+                lessionNumber : 13
             },
             {
-                heading : "Fast API",
-                description : "This course teaches responsive web design techniques, allowing web pages to adapt to different devices and screen sizes",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Threat Intelligence",
+                description : "This course teaches how to gather and analyze threat intelligence to better understand and defend against cyber threats.",
+                level : 'Intermediate',
+                lessionNumber : 16
             },
         ]
     },
@@ -95,22 +95,22 @@ export const HomePageExplore = [
         tag: 'Career paths',
         courses : [
             {
-                heading : "Next.js",
-                description : "This course covers the basic concepts of HTML including creating and structuring web pages, adding text, links, images, and more.",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Security Architecture",
+                description : "This course covers the principles of designing secure systems and networks, including security frameworks and best practices.",
+                level : 'Advanced',
+                lessionNumber : 20
             },
             {
-                heading : "Nuxt.js",
-                description : "This course explores advanced topics in HTML5 and CSS3, including animations, transitions, and layout techniques",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Cloud Security",
+                description : "This course explores the unique security challenges and solutions associated with cloud computing environments.",
+                level : 'Advanced',
+                lessionNumber : 31
             },
             {
-                heading : "Sanity",
-                description : "This course teaches responsive web design techniques, allowing web pages to adapt to different devices and screen sizes",
-                level : 'Beginner',
-                lessionNumber : 6
+                heading : "Compliance and Governance",
+                description : "This course teaches the importance of compliance and governance in cybersecurity, including relevant laws, regulations, and standards.",
+                level : 'Advanced',
+                lessionNumber : 11
             },
         ]
     },

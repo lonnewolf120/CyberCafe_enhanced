@@ -75,13 +75,14 @@ const Contests = () => {
 
     return (
         <div className="container mx-auto p-5">
-            {user.ACCOUNT_TYPE === 'Instructor' && (
+            {(user.ACCOUNT_TYPE === 'Instructor' ||user.ACCOUNT_TYPE === 'Admin') && (
                 <div className="flex justify-center">
                     
                     <ContestSearch className=""/>
                     <Link to={`/add-contest`}>
                         <Button className="add-contest-button m-5">Add Contest</Button>
                     </Link>
+                    
                 </div>
             )}
 

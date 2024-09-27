@@ -494,15 +494,25 @@ WHERE
 }
 
 async function getPubCourses() {
-  const sql = `SELECT A.course_name AS "COURSE_NAME", A.instructor, U.first_name AS "FIRST_NAME",
-   U.last_name AS "LAST_NAME", U.image, U.EMAIL, A.PRICE, A.THUMBNAIL, 
-  B.Rating, B.Review, COUNT(C.STUDENT_ID) AS "studentsEnrolled" FROM MCSC.COURSES A, 
+  const sql = 
+  `SELECT A.COURSE_ID, a.course_name, A.COURSE_DESCRIPTION, A.WHAT_YOU_WILL_LEARN, A.CATEGORY, A.TAG, A.INSTRUCTIONS,
+  A.instructor, U.first_name AS "FIRST_NAME",
+  U.last_name AS "LAST_NAME", U.image, U.EMAIL, A.PRICE, A.THUMBNAIL, 
+  ROUND(AVG(B.Rating), 3) AS "RATING", COUNT(C.STUDENT_ID) AS "studentsEnrolled", COUNT(C.STUDENT_ID) AS "SOLD" 
+
+  FROM MCSC.COURSES A, 
   MCSC.Users U, MCSC.RATINGANDREVIEWS B, MCSC.Course_StudentsEnrolled C 
-  WHERE A.STATUS = 'Published' AND A.COURSE_ID = B.COURSE_ID AND A.instructor = U.user_id 
-  AND C.COURSE_ID = A.COURSE_ID 
-  GROUP BY A.course_name, A.instructor, U.first_name, U.last_name, U.image, U.EMAIL ,A.PRICE, 
-  A.THUMBNAIL, B.Rating, B.Review 
-  ORDER BY A.course_name ASC`;
+  WHERE A.STATUS = 'Published' 
+  AND A.COURSE_ID = B.COURSE_ID(+) 
+  AND A.instructor (+) = U.user_id
+  AND C.COURSE_ID (+) = A.COURSE_ID 
+
+  group by A.COURSE_ID, a.course_name, A.COURSE_DESCRIPTION, A.SOLD, A.WHAT_YOU_WILL_LEARN, 
+  A.CATEGORY, A.TAG, A.INSTRUCTIONS, A.instructor, U.first_name, 
+  U.last_name, U.image, U.EMAIL, A.PRICE, A.THUMBNAIL 
+
+  ORDER BY A.SOLD DESC `;
+
   const res = await queryWP(
     sql,
     "Failed to fetch Published courses",

@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import CourseDetails from "./pages/CourseDetails";
 import Catalog from "./pages/Catalog";
+import CatalogHome from "./pages/CatalogHome";
 
 import Navbar from "./components/common/Navbar";
 
@@ -47,6 +48,7 @@ import Contests from "./pages/ctf/Contests.jsx";
 import Leaderboard from "./pages/ctf/leaderboard.jsx";
 import AddContestPage from "./pages/ctf/AddContestPage.jsx";
 import AddChallenge from "./pages/ctf/AddChallenge.jsx"
+import StatsDashboard from "./components/core/Dashboard/Stats/StatsDashboard.jsx";
 
 //for transition animation
 import { motion, AnimatePresence } from "framer-motion";  
@@ -145,6 +147,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/ABOUT" element={<About />} />
+          <Route path="/catalog/" element={<CatalogHome />} />
           <Route path="catalog/:catalogName" element={<Catalog />} />
           <Route path="courses/:COURSE_ID" element={<CourseDetails />} />
 
@@ -206,6 +209,7 @@ function App() {
             <Route path="dashboard/my-profile" element={<MyProfile />} />
             <Route path="dashboard/Settings" element={<Settings />} />
             <Route path="dashboard/Activity" element={<ActivityHeatmap />} />
+            <Route path="dashboard/Stats" element={<StatsDashboard />} />
 
             {/* Route only for Admin */}
             {/* create category, all students, all instructors */}

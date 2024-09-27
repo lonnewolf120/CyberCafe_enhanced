@@ -72,7 +72,10 @@ body {
     transform: rotate(1turn)
   }
 }
-
+/* Remove blue border around table headers and table data */
+table th, table td {
+  border: none;
+}
 
 .lable-style {
   @apply text-[14px] text-richblack-5;

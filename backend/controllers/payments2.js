@@ -1,5 +1,5 @@
-const Rajorpay = require('razorpay');
-const instance = require('../config/rajorpay');
+// const Rajorpay = require('razorpay');
+// const instance = require('../config/rajorpay');
 const crypto = require('crypto');
 const mailSender = require('../utils/mailSender');
 const { courseEnrollmentEmail } = require('../mail/templates/courseEnrollmentEmail');

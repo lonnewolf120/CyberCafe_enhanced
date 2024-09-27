@@ -13,19 +13,27 @@ import Img from './../../common/Img';
 
 
 function Course_Card({ course, Height }) {
-  // console.log("Course data (Course_Card.jsx):", course)
+  console.log("Course data (Course_Card.jsx):", course)
   // const avgReviewCount = GetAvgRating(course.ratingAndReviews)
   // console.log(course.ratingAndReviews)
   const [avgReviewCount, setAvgReviewCount] = useState(0)
   useEffect(() => {
     // const count = GetAvgRating(course.RATINGS)
     // setAvgReviewCount(course?.ratings.AVG_RATING)
+    let newRat = 0, cnt=0;
+    if(course?.ratings){ course?.ratings.map((r, ind)=>{
+        newRat += r.RATING;
+        cnt++;
+    })
+    newRat = newRat/cnt;
+    setAvgReviewCount(newRat);
+    }
   }, [course])
   return (
     <div className='hover:scale-[1.06] flex transition-all duration-200 z-50 '>
       <Link to={`/courses/${course.COURSE_ID}`}>
         <div className=" rounded-lg h-56 flex px-4 py-2">
-          
+          {/* {console.log("Course in Course_Card:")} */}
           <div className="rounded-lg p-4">
             <Img
               src={course?.THUMBNAIL}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { VscSignOut } from "react-icons/vsc"
+import { VscGraph } from "react-icons/vsc"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
@@ -85,6 +86,12 @@ export default function Sidebar() {
           <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700" />
 
           <div className="flex flex-col">
+            
+            <SidebarLink
+              link={{ name: "Contest Stats", path: "/dashboard/stats" }}
+              iconName={"VscGraph"}
+              setOpenSideMen={setOpenSideMenu}
+            />
             <SidebarLink
               link={{ name: "Settings", path: "/dashboard/settings" }}
               iconName={"VscSettingsGear"}

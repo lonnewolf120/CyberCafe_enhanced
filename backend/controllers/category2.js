@@ -1,5 +1,5 @@
 // const Category = require('../models/category')
-const {addCategory, showAllCat, showCatWithCourse,showCatWithCoursePL, getMostSellingCourses, deleteCategory, showCourseForCat, showAllCat2} = require("../database/origins/Cat.js")
+const {addCategory, showAllCat, showAllCourses, showCatWithCourse,showCatWithCoursePL, getMostSellingCourses, deleteCategory, showCourseForCat, showAllCat2} = require("../database/origins/Cat.js")
 
 
 // get Random Integer
@@ -171,6 +171,26 @@ exports.getCategoryPageDetails = async (req, res) => {
             success: false,
             message: "Internal server error",
             error: error.message,
+        })
+    }
+}
+
+exports.getAllCourses = async (req, res) =>{
+    try {
+        const courses = await showAllCourses();
+        console.log("ALL COURSES: ", courses)
+        res.status(200).json({
+            success: true,
+            data: courses,
+            message: 'All courses fetched successfully'
+        })
+    }
+    catch (error) {
+        console.log('Error while fetching all courses');
+        console.log(error);
+        res.status(500).json({
+            success: false,
+            message: 'Error while fetching all courses'
         })
     }
 }
