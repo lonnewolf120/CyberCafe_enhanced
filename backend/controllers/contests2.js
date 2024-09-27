@@ -237,12 +237,9 @@ exports.getSubmission = async (req, res) => {
     try {
         const db = await connection();
         const query = `
-        SELECT TO_CHAR(TO_DATE(submission_time, 'YYYY-MM-DD HH24:MI:SS'), 'YYYY-MM-DD') as submission_date,
-        COUNT(*) as submission_count
-        FROM MCSC.SUBMISSION
-        WHERE user_id = :userId
-        GROUP BY TO_CHAR(TO_DATE(submission_time, 'YYYY-MM-DD HH24:MI:SS'), 'YYYY-MM-DD')
-        ORDER BY submission_date
+        SELECT COUNT(*) AS SUBMISSION_COUNT, TO_CHAR(submission_time, 'DD-MM-YYYY') AS "SUBMISSION_DATE" 
+        FROM MCSC.SUBMISSION WHERE USER_ID = :userId 
+        GROUP BY TO_CHAR(submission_time, 'DD-MM-YYYY');
     `;
     
         const result = await db.execute(query, [userId]);

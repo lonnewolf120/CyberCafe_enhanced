@@ -99,7 +99,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
               Buy Now
             </button>
             {/*TODO: also replace the following code with this code after adding students enrolled into course[0]:*/} 
-            {(!user || !course?.includes(user?._id)) && (
+            {(!user || !course?.includes(user?.USER_ID)) && (
               <button onClick={handleAddToCart} className="blackButton outline-none">
                 Add to Cart
               </button>

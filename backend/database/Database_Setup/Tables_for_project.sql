@@ -9,6 +9,7 @@ CREATE TABLE MCSC.Users (
     CONTACT_NUMBER VARCHAR2(15),
     active CHAR(1) DEFAULT '0',
     approved CHAR(1) DEFAULT '0',
+    RATING NUMBER DEFAULT 300,
     --additional_details NUMBER,
     -- instead of having this as FK, we'll add user_id as fk to profile to get additional info
     token VARCHAR2(255),

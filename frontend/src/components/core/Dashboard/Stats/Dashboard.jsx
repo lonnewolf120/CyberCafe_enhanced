@@ -6,6 +6,7 @@ import { Pie, Line } from 'react-chartjs-2';
 import './Dashboard.css';
 import { Link } from 'react-router-dom';
 import { Button } from 'flowbite-react';
+import { useSelector } from "react-redux";
 
 import { pieChartData, lineChartData } from './data1.js';
 import { Chart as ChartJS, Tooltip, Legend, ArcElement, CategoryScale, LinearScale, LineElement, PointElement, Title } from 'chart.js';  
@@ -13,29 +14,20 @@ import { Chart as ChartJS, Tooltip, Legend, ArcElement, CategoryScale, LinearSca
 ChartJS.register(Tooltip, Legend, ArcElement, CategoryScale, LinearScale, LineElement, PointElement, Title);
 
 const Dashboard = () => {
-    const [username, setUsername] = useState(''); 
+    // const [username, setUsername] = useState(''); 
     const [actualName, setActualName] = useState(''); 
     const [activedays, setActivedays] = useState([]);
-    useEffect(() => {
-        axios.get('http://localhost:5000/Dashboard/username')
-            .then(response => {
-                setUsername(response.data.FIRST_NAME);
-                setActualName(response.data.LAST_NAME);
-            })
-            .catch(error => {
-                console.error("error fetching", error);
-            });
-    }, []);
-
+    const { user } = useSelector((state) => state.profile);
+    const { token } = useSelector((state) => state.auth);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/Dashboard/submissions/U001') 
+        axios.get(`http://localhost:5000/api/v1/contest/submissions/${user.USER_ID}`) 
             .then(response => {
                
-                const days_ = response.data;
+                const days_ = response?.data;
                 console.log("Submission data", days_);
 
-                const days = days_.map(submission => 
+                const days = days_?.map(submission => 
                     datetodayyear(submission.SUBMISSION_DATE , submission.SUBMISSION_COUNT)
                   ); 
                   
@@ -71,8 +63,8 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="u-name">
-                        <p>{username}</p>
-                        <p className='a-name'>{actualName}</p>
+                        <p>{user?.FIRST_NAME}</p>
+                        <p className='a-name'>{user?.FULLNAME}</p>
                     </div>
 
                     <div className="p-info">
@@ -83,7 +75,7 @@ const Dashboard = () => {
                         </div>
 
                         <div className="p-data">
-                            <p className="profile-data">20 </p>
+                            <p className="profile-data">{user?.RATING} </p>
                             <p className="profile-data">32 </p>
                             <p className='profile-data'>45 </p>
                         </div>

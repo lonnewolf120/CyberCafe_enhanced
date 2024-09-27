@@ -7,6 +7,7 @@ const {
   addContest,
   leaderboard,
   addChallenge,
+  getSubmission,
 } = require("../controllers/contests2.js");
 const router = express.Router();
 
@@ -23,6 +24,8 @@ router.post("/submit", auth, submit);
 router.get("/leaderboard/:cid", leaderboard);
 
 router.get("/all-contests", auth, allcontests);
+
+router.get("/submissions/:userId", auth, getSubmission);
 
 router.get("/:contestID/challenges", auth, challenges);
 
