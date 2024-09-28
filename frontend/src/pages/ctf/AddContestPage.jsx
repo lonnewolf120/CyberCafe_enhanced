@@ -9,7 +9,7 @@ const AddContestPage = () => {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [challenges, setChallenges] = useState([
-    { c_point: "", c_title: "", c_content: "", flag: "" },
+    { c_point: "", c_title: "", c_content: "", flag: "" , hintCost:0, hintContent:""},
   ]);
 
   const { token } = useSelector((state) => state.auth);
@@ -24,7 +24,7 @@ const AddContestPage = () => {
   const addChallenge = () => {
     setChallenges([
       ...challenges,
-      { c_point: "", c_title: "", c_content: "", flag: "" },
+      { c_point: "", c_title: "", c_content: "", flag: "", hintCost:0, hintContent:""},
     ]);
   };
 
@@ -123,6 +123,26 @@ const AddContestPage = () => {
                   type="text"
                   name="flag"
                   value={challenge.flag}
+                  onChange={(e) => handleChallengeChange(index, e)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Hint Content:</label>
+                <input
+                  type="text"
+                  name="hintContent"
+                  value={challenge.hintContent}
+                  onChange={(e) => handleChallengeChange(index, e)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Hint Cost:</label>
+                <input
+                  type="text"
+                  name="hintCost"
+                  value={challenge.hintCost}
                   onChange={(e) => handleChallengeChange(index, e)}
                   required
                 />

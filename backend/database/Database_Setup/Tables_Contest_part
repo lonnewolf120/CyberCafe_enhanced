@@ -140,12 +140,14 @@ END;
 /
 
 
-CREATE TABLE MCSC.HINT( 
-    cost VARCHAR2 (20),
-    content VARCHAR2 (20),
-    cid NUMBER ,
-    CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES MCSC.Challenges(cid)
-)
+CREATE SEQUENCE contest_id_sequence
+  START WITH 1001
+  MINVALUE 1001
+  MAXVALUE 9999999
+  NOCYCLE
+  CACHE 100
+  INCREMENT BY 1;
+
 
 
 

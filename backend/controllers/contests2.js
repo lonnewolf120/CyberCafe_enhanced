@@ -207,8 +207,8 @@ exports.addContest = async (req, res) => {
     const contestID = contestIDResult.rows[0].CONTESTID;
     console.log("Contest ID:", contestID);
 
-    const insertChallengesQuery = `INSERT INTO MCSC.CHALLENGES (C_POINT, C_TITLE, C_CONTENT,  FLAG, CONTESTID)
-                                     VALUES (:c_point, :c_title, :c_content,  :flag, :contestID)`;
+    const insertChallengesQuery = `INSERT INTO MCSC.CHALLENGES (C_POINT, C_TITLE, C_CONTENT,  FLAG, CONTESTID, HNT)
+                                     VALUES (:c_point, :c_title, :c_content,  :flag, :contestID, HINT(:hintCost, :hintContent))`;
 
     for (const challenge of challenges) {
       await db.execute(
@@ -267,8 +267,8 @@ exports.addChallenge = async (req, res) => {
   const { contestID, challenges } = req.body;
   console.log("The body: ", req.body);
 
-  const insertChallengesQuery = `INSERT INTO MCSC.CHALLENGES (C_POINT, C_TITLE, C_CONTENT,  FLAG, CONTESTID)
-  VALUES (:c_point, :c_title, :c_content,  :flag, :contestID)`;
+  const insertChallengesQuery = `INSERT INTO MCSC.CHALLENGES (C_POINT, C_TITLE, C_CONTENT,  FLAG, CONTESTID, HNT)
+  VALUES (:c_point, :c_title, :c_content,  :flag, :contestID, HINT(:hintCost, :hintContent))`;
 
   const db = await connection();
   try {

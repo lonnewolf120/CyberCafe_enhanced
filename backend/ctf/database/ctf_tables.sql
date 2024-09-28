@@ -83,13 +83,49 @@ CREATE TABLE MCSC.SUBMISSION(
     CONSTRAINT fk_submission_cid FOREIGN KEY (cid) REFERENCES MCSC.Challenges(cid)
 )
 
+-- Abstract Data type
 
-CREATE TABLE MCSC.HINT( 
-    cost VARCHAR2 (20),
-    content VARCHAR2 (20),
-    cid NUMBER ,
-    CONSTRAINT fk_cid FOREIGN KEY (cid) REFERENCES MCSC.Challenges(cid)
-)
+CREATE TYPE MCSC.HINT AS OBJECT
+(
+	 cost VARCHAR2 (20),
+   content VARCHAR2 (200)
+  
+);
+
+ALTER MCSC.TABLE CHALLENGES 
+ADD hnt MCSC.HINT;
+
+
+
+SELECT january, february,  march, april, may, june, july, august, 
+    september, october,  november,  december
+FROM MCSC.RATING
+WHERE user_id = :userId
+
+
+--rating for a month:-
+
+CREATE TABLE MCSC.Contest_Rating (
+    contest_id NUMBER,
+    user_id VARCHAR2(20),
+    rating NUMBER
+);
+
+
+SELECT 
+    CR.contest_id,
+    C.contestName,
+    CR.user_id,
+    CR.rating,
+    C.startTime,
+    C.endTime
+FROM 
+    MCSC.Contest_Rating CR
+JOIN 
+    MCSC.Contest C ON CR.contest_id = C.contestID
+WHERE 
+    EXTRACT(MONTH FROM C.startTime) = :month
+    AND EXTRACT(YEAR FROM C.startTime) = :year;
 
 
 

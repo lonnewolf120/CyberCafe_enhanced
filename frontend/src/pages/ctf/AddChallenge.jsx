@@ -10,7 +10,7 @@ const AddChallenge = () => {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [challenges, setChallenges] = useState([
-    { c_point: "", c_title: "", c_content: "", flag: "" },
+    { c_point: "", c_title: "", c_content: "", flag: "", hintCost:0, hintContent:"" },
   ]);
 
   const contestID = useParams().contestID;
@@ -26,7 +26,7 @@ const AddChallenge = () => {
   const addChallenge = () => {
     setChallenges([
       ...challenges,
-      { c_point: "", c_title: "", c_content: "", flag: "" },
+      { c_point: "", c_title: "", c_content: "", flag: "", hintCost:0, hintContent:"" },
     ]);
   };
 
@@ -123,6 +123,26 @@ const AddChallenge = () => {
                   type="text"
                   name="flag"
                   value={challenge.flag}
+                  onChange={(e) => handleChallengeChange(index, e)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Hint content:</label>
+                <input
+                  type="text"
+                  name="hintContent"
+                  value={challenge.hintContent}
+                  onChange={(e) => handleChallengeChange(index, e)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Hint cost:</label>
+                <input
+                  type="text"
+                  name="hintCost"
+                  value={challenge.hintCost}
                   onChange={(e) => handleChallengeChange(index, e)}
                   required
                 />

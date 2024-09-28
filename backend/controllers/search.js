@@ -10,7 +10,8 @@ exports.courseSearch = async (req, res) => {
         console.log("SEARCH QUERY: ", searchQuery);
         let links = [];
         // get all courses
-        let sql = `SELECT * FROM MCSC.COURSES WHERE COURSE_NAME LIKE '%' || :searchQuery || '%' OR COURSE_DESCRIPTION LIKE '%' || :searchQuery || '%'`;
+        let view = "CREATE VIEW MCSC.ALL_COURSES AS SELECT * FROM MCSC.COURSES" // this was run in database
+        let sql = `SELECT * FROM MCSC.ALL_COURSES WHERE COURSE_NAME LIKE '%' || :searchQuery || '%' OR COURSE_DESCRIPTION LIKE '%' || :searchQuery || '%'`;
         let result = await query(sql, { searchQuery: `%${searchQuery}%` }, `failed to get search result for query ${searchQuery}`, `got search result`);
         // getting the course ID we need to also include a url with /courses/:courseID in the links 
         for (let i = 0; i < result.length; i++) {
@@ -50,7 +51,8 @@ exports.contestSearch = async (req, res) => {
         console.log("SEARCH QUERY: ", searchQuery);
         let links = [];
         // get all courses
-        let sql = `SELECT * FROM MCSC.CONTEST WHERE CONTESTNAME LIKE '%' || :searchQuery || '%' OR CONTESTDESC LIKE '%' || :searchQuery || '%' OR CONTESTTYPE LIKE '%' || :searchQuery || '%'`;
+        let view = `CREATE VIEW MCSC.ALL_CONTESTS AS SELECT * FROM MCSC.CONTESTS`
+        let sql = `SELECT * FROM MCSC.ALL_CONTESTS WHERE CONTESTNAME LIKE '%' || :searchQuery || '%' OR CONTESTDESC LIKE '%' || :searchQuery || '%' OR CONTESTTYPE LIKE '%' || :searchQuery || '%'`;
         let result = await query(sql, { searchQuery: `%${searchQuery}%` }, `failed to get search result for query ${searchQuery}`, `got search result`);
         // getting the course ID we need to also include a url with /courses/:courseID in the links 
         for (let i = 0; i < result.length; i++) {
