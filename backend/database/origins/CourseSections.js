@@ -78,27 +78,6 @@ async function findCourseProgress(COURSE_ID, USER_ID){
         ELSE
             v_completion_ratio := (v_completed_videos / v_total_videos) * 100;
         END IF;
-    END;CREATE OR REPLACE PROCEDURE GET_PROGRESS
-    (COURSE_ID IN NUMBER, studentId IN VARCHAR2, v_completed_videos OUT NUMBER,
-     v_total_videos OUT NUMBER, v_completion_ratio OUT NUMBER)
-    AS
-    BEGIN
-        SELECT COUNT(P.completed_videos) AS count_completed_videos, 
-           COUNT(S.video_url) total_videos,
-        INTO v_completed_videos, v_total_videos
-        FROM MCSC.COURSEPROGRESS P, 
-            MCSC.SUBSECTION S 
-        WHERE P.COURSE_ID = v_course_id
-        AND P.USER_ID = v_user_id
-        AND S.COURSE_ID = P.COURSE_ID
-        GROUP BY P.completed_videos;
-
-        -- Calculate the completion ratio
-        IF v_total_videos = 0 THEN
-            v_completion_ratio := 0;
-        ELSE
-            v_completion_ratio := (v_completed_videos / v_total_videos) * 100;
-        END IF;
     END;
 
     `

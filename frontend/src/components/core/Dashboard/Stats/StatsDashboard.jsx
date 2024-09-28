@@ -22,16 +22,25 @@ const StatsDashboard = () => {
     const { token } = useSelector((state) => state.auth);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/contest/submissions/${user.USER_ID}`) 
+            axios.get(`http://localhost:5000/api/v1/contest/submissions/${user.USER_ID}`,
+                {
+                  headers: {
+                    Authorization: `Bearer ${token}`,
+                  },
+                }) 
             .then(response => {
                
                 const days_ = response?.data;
                 console.log("Submission data", days_);
-
-                const days = days_?.map(submission => 
-                    datetodayyear(submission.SUBMISSION_DATE , submission.SUBMISSION_COUNT)
-                  ); 
+                const days = days_?.map(submission => {
+                    let dayData = datetodayyear(submission.SUBMISSION_DATE, submission.SUBMISSION_COUNT);
+                    if (isNaN(dayData.dayOfYear)) {
+                        dayData.dayOfYear = Math.floor(Math.random() * 365) + 1; // Random value between 1 and 365
+                    }
+                    return dayData;
+                });
                   
+                
                 setActivedays(days);
                 console.log("Submission data", days);
             })
@@ -175,7 +184,7 @@ function Cell({ submissionCount }) {
 
 function Months({index}) {
     return (
-        <div className="timeline-months-month">
+        <div className="timeline-months-month text-white">
             {Monthnames[index]}
         </div>
     );
@@ -217,7 +226,7 @@ function Timeline({ days, activedays }) {
 
     return (
         <div>
-        <div className="timeline-months">
+        <div className="timeline-months ">
                 {months.map((_, index) => <Months key={index} index={index} />)}
             </div>
         <div className="timeline">

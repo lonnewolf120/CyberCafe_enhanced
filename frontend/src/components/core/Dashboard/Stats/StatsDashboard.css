@@ -1,7 +1,7 @@
 .Heatmapbox {
     margin: 25px;
     height: auto;
-    width: 92%;
+    width: 85%;
     border-radius: 8px;
     background-color: #2b2b2b;
     display: flex;
@@ -17,16 +17,17 @@
 
 .timeline-months {
     margin-left: 50px;
+    margin: 10px;
+    padding: 3px;
     display: flex;
     flex-direction: row; /* Change to row to make months go from left to right */
-    justify-content: space-between; /* Distribute months evenly */
-    width: 90%; /* Ensure it takes the full width of the container */
+    width: 100%; /* Ensure it takes the full width of the container */
 }
 
 .timeline-months-month {
     flex: 1; /* Allow each month to take equal space */
     text-align: center; /* Center align the text */
-}
+    }
 
 .timeline-body {
     display: flex;

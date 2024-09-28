@@ -61,11 +61,20 @@ function CourseDetails() {
   console.log("response (CourseDetails.js): ", response)
 
   // Calculating Avg Review count
-  const [avgReviewCount, setAvgReviewCount] = useState(0)
+  const [avgReviewCount, setAvgReviewCount] = useState(0);
   useEffect(() => {
-    const count = GetAvgRating(response?.data?.courseDetails[0].RATING)
-    setAvgReviewCount(count)
-  }, [response])
+    let count = 0, no = 0;
+    if (response?.ratings) {
+      response.ratings.forEach((R) => {
+        count += R.RATING;
+        no++;
+      });
+      count = no ? count / no : 0;
+    }
+    console.log("average rating: ", count);
+    setAvgReviewCount(count);
+  }, [response]);
+
   // console.log("avgReviewCount: ", avgReviewCount)
 
   // Collapse all
@@ -86,9 +95,14 @@ function CourseDetails() {
   const [totalNoOfLectures, setTotalNoOfLectures] = useState(0)
   useEffect(() => {
     let lectures = 0
-    response?.data?.courseDetails?.courseContent?.forEach((sec) => {
+    let totalDuration = 0
+    response?.sections?.forEach((sec) => {
       lectures += sec.subSection.length || 0
+      sec.subSection.forEach((subSec) => {
+        totalDuration += subSec.TIME_DURATION || 0
+      })
     })
+    response.data.totalDuration = totalDuration
     setTotalNoOfLectures(lectures)
   }, [response])
 
