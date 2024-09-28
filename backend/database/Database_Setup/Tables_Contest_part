@@ -1,3 +1,4 @@
+.
 CREATE TABLE MCSC.Contest (
     contestID NUMBER PRIMARY KEY NOT NULL,
     contestName VARCHAR2(50) NOT NULL,
@@ -138,6 +139,55 @@ BEGIN
     
 END;
 /
+
+--trigger to insert into leaderboard table whenver there is an entry in submission table
+CREATE OR REPLACE TRIGGER MCSC.INSERT_LEADERBOARD_ON_SUBMISSION
+AFTER INSERT ON MCSC.SUBMISSION
+FOR EACH ROW
+BEGIN
+    -- Check if the user already exists in the leaderboard for the contest
+    MERGE INTO MCSC.LEADERBOARD L
+    USING (
+        SELECT :NEW.contestID AS contest_id, 
+               :NEW.user_id AS user_id, 
+               :NEW.points AS points, 
+               :NEW.penalty AS penalty,
+               CASE WHEN :NEW.status = 'solved' THEN 1 ELSE 0 END AS total_solves
+        FROM dual
+    ) src
+    ON (L.contest_id = src.contest_id AND L.user_id = src.user_id)
+    WHEN MATCHED THEN
+        -- Update the existing entry: add points, penalties, and total_solves
+        UPDATE SET 
+            L.points = L.points + src.points,
+            L.penalty = L.penalty + src.penalty,
+            L.total_solves = L.total_solves + src.total_solves
+    WHEN NOT MATCHED THEN
+        -- Insert a new entry into the leaderboard
+        INSERT (L.contest_id, L.user_id, L.points, L.penalty, L.total_solves)
+        VALUES (src.contest_id, src.user_id, src.points, src.penalty, src.total_solves);
+
+END;
+/
+
+
+--trigger to insert into leaderboard table using submission table
+INSERT INTO MCSC.LEADERBOARD (contest_id, user_id, points, penalty, total_solves)
+SELECT 
+    S.contestID, 
+    S.user_id, 
+    SUM(S.points) AS total_points, 
+    SUM(S.penalty) AS total_penalty, 
+    COUNT(CASE WHEN S.status = 'solved' THEN 1 END) AS total_solves
+FROM 
+    MCSC.SUBMISSION S
+JOIN 
+    MCSC.USERS U ON S.user_id = U.user_id
+WHERE 
+    S.contestID = 32  -- Replace with actual contest ID when running the query
+GROUP BY 
+    S.contestID, S.user_id;
+
 
 
 CREATE SEQUENCE contest_id_sequence

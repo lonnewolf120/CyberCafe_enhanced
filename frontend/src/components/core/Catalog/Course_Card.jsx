@@ -20,14 +20,9 @@ function Course_Card({ course, Height }) {
   useEffect(() => {
     // const count = GetAvgRating(course.RATINGS)
     // setAvgReviewCount(course?.ratings.AVG_RATING)
-    let newRat = 0, cnt=0;
-    if(course?.ratings){ course?.ratings.map((r, ind)=>{
-        newRat += r.RATING;
-        cnt++;
-    })
-    newRat = newRat/cnt;
-    setAvgReviewCount(newRat);
-    }
+    console.log("rating: ", course?.AVG_RATING)
+    setAvgReviewCount(course?.AVG_RATING);
+    
   }, [course])
   return (
     <div className='hover:scale-[1.06] flex transition-all duration-200 z-50 '>
@@ -49,12 +44,13 @@ function Course_Card({ course, Height }) {
             </p>
             <Img
             src={course?.INSTRUCTOR_IMAGE}
-            alt={`profile-${course?.INSTRUCTOR_NAME}`}
+            alt={` `}
             className="aspect-square w-[24px] rounded-full object-cover"
-          />
+             />
             {/* <Avatar>{course?.INSTRUCTOR_IMAGE}</Avatar> */}
             <div className="flex items-center gap-2">
-              <span className="text-yellow-5">{avgReviewCount || 0}</span>
+              <span className="text-yellow-5">{avgReviewCount}</span>
+              
               {/* <ReactStars
                 count={5}
                 value={avgReviewCount || 0}

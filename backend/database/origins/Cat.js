@@ -118,13 +118,20 @@ async function showCourseForCat(name) {
     "A1"."SOLD"                "SOLD",
     "A1"."TAG"                 "TAG",
     "A1"."INSTRUCTIONS"        "INSTRUCTIONS",
-    "A1"."POINTS"              "POINTS"
+    "A1"."POINTS"              "POINTS",
+    AVG(R.RATING)              "AVG_RATING",
+    COUNT(R.COURSE_ID)         "TOTAL_RATING"       
 FROM
     "MCSC"."CATEGORY" "A2",
-    "MCSC"."COURSES"  "A1"
+    "MCSC"."COURSES"  "A1",
+    MCSC.RATINGANDREVIEWS R 
 WHERE
     "A2"."CATEGORY_ID" = "A1"."CATEGORY"
-    AND A2.NAME = :v1`;
+    AND A2.NAME = :v1 AND A1.COURSE_ID = R.COURSE_ID (+)
+group by "A2"."CATEGORY_ID", "A2"."NAME", "A2"."DESCRIPTION", "A2"."COURSES", "A1"."COURSE_ID", 
+"A1"."COURSE_NAME", "A1"."COURSE_DESCRIPTION", "A1"."INSTRUCTOR", "A1"."WHAT_YOU_WILL_LEARN", "A1"."PRICE", 
+"A1"."THUMBNAIL", "A1"."STATUS", "A1"."CREATED_AT", "A1"."SOLD", "A1"."TAG", 
+"A1"."INSTRUCTIONS", "A1"."POINTS"`;
   let db;
   try {
     db = await connection(); // Await connection
@@ -149,12 +156,17 @@ WHERE
 
 async function showCatWithCourse(id, f = 1) {
   if (f) {
-    const sql = `SELECT c.course_id AS "COURSE_ID", c.course_name AS "COURSE_NAME", c.THUMBNAIL, C.CATEGORY AS "CATEGORY_ID", 
-                c.course_description AS "COURSE_DESCRIPTION", c.PRICE, c.STATUS, c.CREATED_AT, c.TAG, c.INSTRUCTIONS, c.POINTS, c.WHAT_YOU_WILL_LEARN, c.SOLD,
-                i.first_name || ' ' || i.last_name AS "INSTRUCTOR_NAME", i.IMAGE AS "INSTRUCTOR_IMAGE"
-                FROM MCSC.Courses c, MCSC.Category cat, MCSC.USERS I
-                WHERE c.category = cat.category_id AND I.USER_ID = C.INSTRUCTOR 
-                AND cat.category_id = :v1 AND c.status = 'Published'`;
+    const sql = `
+    SELECT c.course_id AS "COURSE_ID", c.course_name AS "COURSE_NAME", c.THUMBNAIL, C.CATEGORY AS "CATEGORY_ID", 
+    c.course_description AS "COURSE_DESCRIPTION", c.PRICE, c.STATUS, c.CREATED_AT, c.TAG, c.INSTRUCTIONS, c.POINTS, c.WHAT_YOU_WILL_LEARN, c.SOLD,
+    i.first_name || ' ' || i.last_name AS "INSTRUCTOR_NAME", i.IMAGE AS "INSTRUCTOR_IMAGE",
+    ROUND(AVG(R.RATING),3) AS AVG_RATING, COUNT(R.COURSE_ID) AS TOTAL_RATING
+    FROM MCSC.Courses c, MCSC.Category cat, MCSC.USERS I, MCSC.RATINGANDREVIEWS R 
+    WHERE c.category = cat.category_id AND I.USER_ID = C.INSTRUCTOR 
+    AND cat.category_id = :v1 AND c.status = 'Published' AND C.COURSE_ID = R.COURSE_ID (+)
+    group by c.course_id, c.course_name, c.THUMBNAIL, C.CATEGORY, c.course_description, 
+    c.PRICE, c.STATUS, c.CREATED_AT, c.TAG, c.INSTRUCTIONS, 
+    c.POINTS, c.WHAT_YOU_WILL_LEARN, c.SOLD, i.first_name || ' ' || i.last_name, i.IMAGE`;
     let cat = await query(
       sql,
       { v1: id },
@@ -162,10 +174,9 @@ async function showCatWithCourse(id, f = 1) {
       "Category with Courses fetched"
     );
     const sql2 = `
-    SELECT AVG(A1.RATING) AS AVG_RATING, 
-           COUNT(A1.RATING) AS TOTAL_RATING 
-    FROM MCSC.RATINGANDREVIEWS A1 
-    WHERE A1.CATEGORY_ID = :b1`;
+    SELECT *
+    FROM MCSC.RATINGANDREVIEWS  
+    WHERE CATEGORY_ID = :b1`;
     const ratings = await query(
       sql2,
       { b1: id },
@@ -175,12 +186,17 @@ async function showCatWithCourse(id, f = 1) {
     cat.ratings = ratings;
     return cat;
   } else {
-    const sql = `SELECT c.course_id AS "COURSE_ID", c.course_name AS "COURSE_NAME", c.THUMBNAIL, C.CATEGORY AS "CATEGORY_ID", 
-                c.course_description AS "COURSE_DESCRIPTION", c.PRICE, c.STATUS, c.CREATED_AT, c.TAG, c.INSTRUCTIONS, c.POINTS, c.WHAT_YOU_WILL_LEARN, c.SOLD,
-                i.first_name || ' ' || i.last_name AS "INSTRUCTOR_NAME", i.IMAGE AS "INSTRUCTOR_IMAGE"
-                FROM MCSC.Courses c, MCSC.Category cat, MCSC.USERS I
-                WHERE c.category = cat.category_id AND I.USER_ID = C.INSTRUCTOR 
-                AND cat.category_id <> :v1 AND c.status = 'Published'`;
+    const sql = `
+    SELECT c.course_id AS "COURSE_ID", c.course_name AS "COURSE_NAME", c.THUMBNAIL, C.CATEGORY AS "CATEGORY_ID", 
+    c.course_description AS "COURSE_DESCRIPTION", c.PRICE, c.STATUS, c.CREATED_AT, c.TAG, c.INSTRUCTIONS, c.POINTS, c.WHAT_YOU_WILL_LEARN, c.SOLD,
+    i.first_name || ' ' || i.last_name AS "INSTRUCTOR_NAME", i.IMAGE AS "INSTRUCTOR_IMAGE", ROUND(AVG(R.RATING),3) AS AVG_RATING, COUNT(R.COURSE_ID) AS TOTAL_RATING
+    FROM MCSC.Courses c, MCSC.Category cat, MCSC.USERS I, MCSC.RATINGANDREVIEWS R 
+    WHERE c.category = cat.category_id AND I.USER_ID = C.INSTRUCTOR 
+    AND cat.category_id <> :v1 AND c.status = 'Published' AND C.COURSE_ID = R.COURSE_ID (+)
+    group by c.course_id, c.course_name, c.THUMBNAIL, C.CATEGORY, c.course_description, 
+    c.PRICE, c.STATUS, c.CREATED_AT, c.TAG, c.INSTRUCTIONS, 
+    c.POINTS, c.WHAT_YOU_WILL_LEARN, c.SOLD, i.first_name || ' ' || i.last_name, i.IMAGE
+    `;
     let cat = await query(
       sql,
       { v1: id },
@@ -188,10 +204,9 @@ async function showCatWithCourse(id, f = 1) {
       "Category with Courses fetched"
     );
     const sql2 = `
-    SELECT AVG(A1.RATING) AS AVG_RATING, 
-           COUNT(A1.RATING) AS TOTAL_RATING 
-    FROM MCSC.RATINGANDREVIEWS A1 
-    WHERE A1.CATEGORY_ID <> :b1
+    SELECT *
+    FROM MCSC.RATINGANDREVIEWS  
+    WHERE CATEGORY_ID <> :b1
     `;
 
     const ratings = await query(
@@ -353,18 +368,22 @@ async function getMostSellingCourses({ fetchAtmost = 5 }) {
     "Failed to fetch All Best selling courses",
     "Fetched most selling courses"
   );
-
+  let r = 0, cnt=0;
   course.map(async (c, ind) => {
     //Fetch ratings for the courses
-    sql = `SELECT R.rating, R.REVIEW, U.USER_ID, U.FIRST_NAME, U.LAST_NAME, U.ACCOUNT_TYPE  FROM MCSC.RATINGANDREVIEWS R, MCSC.USERS U WHERE course_id = :v1 AND U.USER_ID = R.USER_ID`;
+    sql = `SELECT R.RATING, R.REVIEW, U.USER_ID, U.FIRST_NAME, U.LAST_NAME, U.ACCOUNT_TYPE  FROM MCSC.RATINGANDREVIEWS R, MCSC.USERS U WHERE course_id = :v1 AND U.USER_ID = R.USER_ID`;
     const ratings = await query(
       sql,
       { v1: c.COURSE_ID },
       "Failed to fetch ratings for the course",
       "Ratings fetched successfully"
     );
+    r += ratings.RATING;
+    cnt++;
     course[ind] = { ...c, ratings };
   });
+  course["AVG_RATING"]= r/cnt;
+  course["TOTAL_RATING"] = cnt;
   return course;
 }
 

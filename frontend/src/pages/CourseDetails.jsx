@@ -63,18 +63,14 @@ function CourseDetails() {
   // Calculating Avg Review count
   const [avgReviewCount, setAvgReviewCount] = useState(0);
   useEffect(() => {
-    let count = 0, no = 0;
-    if (response?.ratings) {
-      response.ratings.forEach((R) => {
-        count += R.RATING;
-        no++;
-      });
-      count = no ? count / no : 0;
+    if (response && response.data && response.data.courseDetails[0].ratings) {
+      const ratings = response.data.courseDetails[0].ratings;
+      const totalRatings = ratings.length;
+      const sumRatings = ratings.reduce((sum, rating) => sum + rating.RATING, 0);
+      const avgRating = totalRatings > 0 ? sumRatings / totalRatings : 0;
+      setAvgReviewCount(avgRating);
     }
-    console.log("average rating: ", count);
-    setAvgReviewCount(count);
   }, [response]);
-
   // console.log("avgReviewCount: ", avgReviewCount)
 
   // Collapse all
@@ -95,14 +91,9 @@ function CourseDetails() {
   const [totalNoOfLectures, setTotalNoOfLectures] = useState(0)
   useEffect(() => {
     let lectures = 0
-    let totalDuration = 0
-    response?.sections?.forEach((sec) => {
+    response?.data?.courseDetails?.courseContent?.forEach((sec) => {
       lectures += sec.subSection.length || 0
-      sec.subSection.forEach((subSec) => {
-        totalDuration += subSec.TIME_DURATION || 0
-      })
     })
-    response.data.totalDuration = totalDuration
     setTotalNoOfLectures(lectures)
   }, [response])
 
@@ -144,7 +135,6 @@ function CourseDetails() {
     PRICE,
     WHAT_YOU_WILL_LEARN,
     courseContent,
-    RATING,
     REVIEW,
     INSTRUCTOR,
     FIRST_NAME,
@@ -222,7 +212,7 @@ function CourseDetails() {
               <div className="text-md flex flex-wrap items-center gap-2">
                 <span className="text-yellow-25">{avgReviewCount}</span>
                 <RatingStars Review_Count={avgReviewCount} Star_Size={24} />
-                <span>{`(${RATING} rating)`}</span>
+                <span>{`(${response?.data?.courseDetails[0]?.ratings?.length || "student"} rating)`}</span>
                 <span>{`${SOLD} students enrolled`}</span>
               </div>
               <p className="capitalize "> Created By <span className="font-semibold underline">{FIRST_NAME} {LAST_NAME}</span></p>
