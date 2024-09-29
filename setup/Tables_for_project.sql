@@ -134,7 +134,7 @@ CREATE TABLE MCSC.CourseProgress (
     CONSTRAINT fk_progress_sectionId FOREIGN KEY (section_id) REFERENCES MCSC.Section(section_id) ON DELETE CASCADE,
     CONSTRAINT fk_courseProgress_courseId FOREIGN KEY (course_id) REFERENCES MCSC.Courses(course_id) ON DELETE CASCADE,
     CONSTRAINT fk_courseProgress_userId FOREIGN KEY (user_id) REFERENCES MCSC.Users(user_id) ON DELETE CASCADE,
-    CONSTRAINT fk_progress_subsectionId FOREIGN KEY (subsection_id) REFERENCES MCSC.SubSection(subsection_id) ON DELETE CASCADE
+    CONSTRAINT fk_progress_SUBSECTION_ID FOREIGN KEY (subsection_id) REFERENCES MCSC.SubSection(subsection_id) ON DELETE CASCADE
 );
 
 -- Table for OTP

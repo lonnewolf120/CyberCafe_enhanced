@@ -582,12 +582,12 @@ exports.deleteCourse = async (req, res) => {
       const section = await Section.findById(sectionId);
       if (section) {
         const subSections = section.subSection;
-        for (const subSectionId of subSections) {
-          const subSection = await SubSection.findById(subSectionId);
+        for (const SUBSECTION_ID of subSections) {
+          const subSection = await SubSection.findById(SUBSECTION_ID);
           if (subSection) {
             await deleteResourceFromCloudinary(subSection.videoUrl); // delete course videos From Cloudinary
           }
-          await SubSection.findByIdAndDelete(subSectionId);
+          await SubSection.findByIdAndDelete(SUBSECTION_ID);
         }
       }
 

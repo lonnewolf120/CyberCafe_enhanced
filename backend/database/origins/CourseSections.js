@@ -37,16 +37,23 @@ async function deleteSection(sid){
     return await query(sql, {sid:sid},"Failed to add section", "Added section")
 }
 
-async function updateCourseProgress(COURSE_ID, USER_ID, subsection_id){
+async function updCourseProgress(COURSE_ID, USER_ID, subsection_id){
+    try{
+    const db = await connection();
     const sql = `
     UPDATE MCSC.COURSEPROGRESS
-    SET SUBSECTION_ID = :subsectionId,    
-    COMPLETED_VIDEOS = (SELECT VIDEO_URL FROM MCSC.SUBSECTION where SUBSECTION_ID = :subsectionId)
+    SET SUBSECTION_ID = :SUBSECTION_ID,    
+    COMPLETED_VIDEOS = (SELECT VIDEO_URL FROM MCSC.SUBSECTION where SUBSECTION_ID = :SUBSECTION_ID)
     WHERE COURSE_ID = :COURSE_ID AND 
-        USER_ID = :USER_ID;
+        USER_ID = :USER_ID
     `
-    const res = await query(sql, {subsectionId: subsection_id, COURSE_ID: COURSE_ID, USER_ID: USER_ID});
-    return res;
+    const res = await db.execute(sql, {SUBSECTION_ID: subsection_id, COURSE_ID: COURSE_ID, USER_ID: USER_ID});
+    await db.commit();
+    return res;}
+    catch(e){
+        console.log("Error in updating data", e.message);
+        return null;
+    }
 }
 
 async function addCourseProgress(COURSE_ID, USER_ID){
@@ -128,9 +135,9 @@ async function addSubsection(title, duration, desc, url, sid){
     const sql = `INSERT INTO MCSC.SUBSECTION (SECTION_ID, TITLE, TIME_DURATION, DESCRIPTION, VIDEO_URL) VALUES(:secid,:title, :dur, :des, :uri)`
     return await query(sql, {secid:sid,title:title, dur:duration, des:desc, uri:url})
 }
-async function findSubsection(subSectionId){
+async function findSubsection(SUBSECTION_ID){
     const sql = `SELECT * FROM MCSC.SUBSECTION WHERE SUBSECTION_ID = :subsId`
-    return await query(sql, {subsId: subSectionId}, "failed to add subsection", "added subsection");
+    return await query(sql, {subsId: SUBSECTION_ID}, "failed to add subsection", "added subsection");
 }
 async function updateSubsection(subsection){
     //TODO: testing needed
@@ -146,15 +153,15 @@ async function updateSubsection(subsection){
     "failed to add subsection", "added subsection"
 )
 }
-async function deleteSubsection(subsectionId, sectionId){
+async function deleteSubsection(SUBSECTION_ID, sectionId){
     const sql = `DELETE FROM MCSC.SUBSECTION WHERE SUBSECTION_ID = :SUBSID, SECTION_ID = :SECTIONID`
-    return await query(sql, {SUBSID: subsectionId, SECTIONID: sectionId}, "failed to delete subsection", "deleted subsection")
+    return await query(sql, {SUBSID: SUBSECTION_ID, SECTIONID: sectionId}, "failed to delete subsection", "deleted subsection")
 }
 
 module.exports ={
     isSubsectionValid,
     findCourseProgress,
-    updateCourseProgress,
+    updCourseProgress,
     addCourseProgress,
     addSection,
     updateSection,

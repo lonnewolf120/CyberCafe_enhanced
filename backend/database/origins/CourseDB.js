@@ -319,6 +319,7 @@ FROM MCSC.SUBSECTION WHERE COURSE_ID = :COURSE_ID`;
   return res;
 }
 
+
 async function getAllCourseDetails(COURSE_ID) {
   // Fetch course details
   let sql = ` SELECT
@@ -525,7 +526,7 @@ async function getPubCourses() {
 async function getCourseProgress(COURSE_ID, studentId) {
   //TODO: for subsection, check from array of subsection
   let sql = `SELECT 
-    COUNT(P.completed_videos) AS total_completed
+    COUNT(P.COURSE_ID) AS total_completed
 FROM 
     MCSC.COURSEPROGRESS P
 WHERE 
@@ -544,10 +545,8 @@ WHERE
   sql = `SELECT  
     COUNT(S.video_url) AS total_videos,
     SUM(S.TIME_DURATION) AS DURATION
-    
     FROM 
         MCSC.SUBSECTION S
-
     WHERE 
         S.COURSE_ID = :COURSE_ID
     `;
@@ -555,7 +554,7 @@ WHERE
     sql,
     { COURSE_ID: COURSE_ID },
     "Failed to fetch course progress",
-    "Fetched all course progress"
+    "Fetched total courses"
   );
 
   // console.log("Course progress (2/3): ", total_count)

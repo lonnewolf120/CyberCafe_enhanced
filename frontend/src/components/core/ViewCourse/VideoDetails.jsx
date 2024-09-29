@@ -17,7 +17,7 @@ import IconBtn from "../../common/IconBtn";
 import { HiMenuAlt1 } from "react-icons/hi";
 
 const VideoDetails = () => {
-  const { COURSE_ID, sectionId, subSectionId } = useParams();
+  const { COURSE_ID, sectionId, SUBSECTION_ID } = useParams();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,9 +42,9 @@ const VideoDetails = () => {
 
   useEffect(() => {
     (async () => {
-      // console.log("Course: ", COURSE_ID, "SECTION: ", sectionId, "SUBSECTION: ", subSectionId)
+      // console.log("Course: ", COURSE_ID, "SECTION: ", sectionId, "SUBSECTION: ", SUBSECTION_ID)
       if (!courseSectionData?.length) return;
-      if (!COURSE_ID && !sectionId && !subSectionId) {
+      if (!COURSE_ID && !sectionId && !SUBSECTION_ID) {
         navigate(`/dashboard/enrolled-courses`);
       } else {
         // console.log("courseSectionData", courseSectionData)
@@ -58,11 +58,11 @@ const VideoDetails = () => {
         // console.log("filteredData", filteredData)
         let filteredVideoData;
         filteredData?.subSection?.map((data, ind) => {
-          if (data.SUBSECTION_ID === Number(subSectionId)) {
+          if (data.SUBSECTION_ID === Number(SUBSECTION_ID)) {
             filteredVideoData = data;
             setcurrentSubSectionIndx(ind);
           }
-          // console.log("Subsection: ", Number(subSectionId), data.SUBSECTION_ID, (data.SUBSECTION_ID === Number(subSectionId)))
+          // console.log("Subsection: ", Number(SUBSECTION_ID), data.SUBSECTION_ID, (data.SUBSECTION_ID === Number(SUBSECTION_ID)))
         });
         // console.log("filteredVideoData = ", filteredVideoData)
         if (filteredVideoData) setVideoData(filteredVideoData);
@@ -102,21 +102,21 @@ const VideoDetails = () => {
     console.log("no of subsections", noOfSubsections);
 
     if (currentSubSectionIndx !== noOfSubsections - 1) {
-      const nextSubSectionId =
+      const nextSUBSECTION_ID =
         courseSectionData[currentSectionIndx]?.subSection[
           currentSubSectionIndx + 1
         ].SUBSECTION_ID;
 
       navigate(
-        `/view-course/${COURSE_ID}/section/${sectionId}/sub-section/${nextSubSectionId}`
+        `/view-course/${COURSE_ID}/section/${sectionId}/sub-section/${nextSUBSECTION_ID}`
       );
     } else {
       const nextSectionId =
         courseSectionData[currentSectionIndx + 1].SECTION_ID;
-      const nextSubSectionId =
+      const nextSUBSECTION_ID =
         courseSectionData[currentSectionIndx + 1].subSection[0].SUBSECTION_ID;
       navigate(
-        `/view-course/${COURSE_ID}/section/${nextSectionId}/sub-section/${nextSubSectionId}`
+        `/view-course/${COURSE_ID}/section/${nextSectionId}/sub-section/${nextSUBSECTION_ID}`
       );
     }
   };
@@ -140,24 +140,24 @@ const VideoDetails = () => {
   const goToPrevVideo = () => {
     // console.log(courseSectionData)
     if (currentSubSectionIndx !== 0) {
-      const prevSubSectionId =
+      const prevSUBSECTION_ID =
         courseSectionData[currentSectionIndx]?.subSection[
           currentSubSectionIndx - 1
         ].SUBSECTION_ID;
       navigate(
-        `/view-course/${COURSE_ID}/section/${sectionId}/sub-section/${prevSubSectionId}`
+        `/view-course/${COURSE_ID}/section/${sectionId}/sub-section/${prevSUBSECTION_ID}`
       );
     } else {
       const prevSectionId =
         courseSectionData[currentSectionIndx - 1].SECTION_ID;
       const prevSubSectionLength =
         courseSectionData[currentSectionIndx - 1].subSection?.length;
-      const prevSubSectionId =
+      const prevSUBSECTION_ID =
         courseSectionData[currentSectionIndx - 1].subSection[
           prevSubSectionLength - 1
         ].SUBSECTION_ID;
       navigate(
-        `/view-course/${COURSE_ID}/section/${prevSectionId}/sub-section/${prevSubSectionId}`
+        `/view-course/${COURSE_ID}/section/${prevSectionId}/sub-section/${prevSUBSECTION_ID}`
       );
     }
   };
@@ -166,11 +166,11 @@ const VideoDetails = () => {
   const handleLectureCompletion = async () => {
     setLoading(true);
     const res = await markLectureAsComplete(
-      { COURSE_ID: COURSE_ID, subsectionId: subSectionId },
+      { COURSE_ID: COURSE_ID, SUBSECTION_ID: SUBSECTION_ID },
       token
     );
     if (res) {
-      dispatch(updateCompletedLectures(subSectionId));
+      dispatch(updateCompletedLectures(SUBSECTION_ID));
     }
     setLoading(false);
   };
@@ -231,7 +231,7 @@ const VideoDetails = () => {
                 }}
                 className="full absolute inset-0 z-[100] grid h-full place-content-center font-inter"
               >
-                {!completedLectures.includes(subSectionId) && (
+                {!completedLectures.includes(SUBSECTION_ID) && (
                   <IconBtn
                     disabled={loading}
                     onclick={() => handleLectureCompletion()}

@@ -4,7 +4,7 @@ const { connection } = require("./database.js");
 const oracledb = require("oracledb");
 
 async function createAccount(USER_ID, BALANCE = 100) {
-  let sql = `INSERT INTO MCSC.ACCOUNT (USER_ID, BALANCE) VALUES (:USER_ID, :BALANCE);`;
+  let sql = `INSERT INTO MCSC.ACCOUNT (USER_ID, BALANCE) VALUES (:USER_ID, :BALANCE)`;
   let res = await query(sql, { USER_ID: USER_ID, BALANCE: BALANCE }, "", "");
   return res;
 }

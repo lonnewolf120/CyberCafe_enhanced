@@ -91,7 +91,7 @@ function CourseDetails() {
   const [totalNoOfLectures, setTotalNoOfLectures] = useState(0)
   useEffect(() => {
     let lectures = 0
-    response?.data?.courseDetails?.courseContent?.forEach((sec) => {
+    response?.data?.courseDetails[0]?.sections?.forEach((sec) => {
       lectures += sec.subSection.length || 0
     })
     setTotalNoOfLectures(lectures)
@@ -134,7 +134,7 @@ function CourseDetails() {
     THUMBNAIL,
     PRICE,
     WHAT_YOU_WILL_LEARN,
-    courseContent,
+    sections,
     REVIEW,
     INSTRUCTOR,
     FIRST_NAME,
@@ -282,7 +282,7 @@ function CourseDetails() {
               <div className="flex flex-wrap justify-between gap-2">
                 <div className="flex gap-2">
                   <span>
-                    {courseContent?.length} {`section(s)`}
+                    {sections?.length} {`section(s)`}
                   </span>
                   <span>
                     {totalNoOfLectures} {`lecture(s)`}
@@ -300,7 +300,7 @@ function CourseDetails() {
 
             {/* Course Details Accordion - section Subsection */}
             <div className="py-4 ">
-              {courseContent?.map((course, index) => (
+              {response?.data?.courseDetails?.map((course, index) => (
                 <CourseAccordionBar
                   course={course}
                   key={index}

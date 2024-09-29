@@ -52,10 +52,10 @@ exports.createSubSection = async (req, res) => {
 // ================ Update SubSection ================
 exports.updateSubSection = async (req, res) => {
     try {
-        const { sectionId, subSectionId, title, description } = req.body;
+        const { sectionId, SUBSECTION_ID, title, description } = req.body;
 
         // validation
-        if (!subSectionId) {
+        if (!SUBSECTION_ID) {
             return res.status(400).json({
                 success: false,
                 message: 'subSection ID is required to update'
@@ -68,7 +68,7 @@ exports.updateSubSection = async (req, res) => {
         //         message: "SubSection not found",
         //     })
         // }
-        let subSection={id: subSectionId}
+        let subSection={id: SUBSECTION_ID}
 
         // add data
         if (title) {
@@ -112,9 +112,9 @@ exports.updateSubSection = async (req, res) => {
 // ================ Delete SubSection ================
 exports.deleteSubSection = async (req, res) => {
     try {
-        const { subSectionId, sectionId } = req.body
+        const { SUBSECTION_ID, sectionId } = req.body
         // delete from DB
-        const subSection = await deleteSubsection(subSectionId, sectionId)
+        const subSection = await deleteSubsection(SUBSECTION_ID, sectionId)
 
         if (!subSection) {
             return res

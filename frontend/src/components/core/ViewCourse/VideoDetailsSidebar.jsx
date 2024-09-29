@@ -20,7 +20,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
   const navigate = useNavigate()
   const location = useLocation()
   const dispatch = useDispatch();
-  const { COURSE_ID, sectionId, subSectionId } = useParams()
+  const { COURSE_ID, sectionId, SUBSECTION_ID } = useParams()
   const {
     courseSectionData,
     courseEntireData,
@@ -35,10 +35,10 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
 
   }
 
-  // console.log("Course Section Data: ", courseSectionData)
-  // console.log("Course Entire Data: ", courseEntireData)
-  // console.log("Total lectures: ",     totalNoOfLectures )
-  // console.log("Completed lectures: ", completedLectures)
+  console.log("Course Section Data: ", courseSectionData)
+  console.log("Course Entire Data: ", courseEntireData)
+  console.log("Total lectures: ",     totalNoOfLectures )
+  console.log("Completed lectures: ", completedLectures)
   // set which section - subSection is selected 
   useEffect(() => {
     ; (() => {
@@ -49,15 +49,15 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
         })
       let currentSubSectionIndx;
       courseSectionData[currentSectionIndx]?.subSection?.map((data,ind) => {
-        if(data.SUBSECTION_ID === subSectionId) currentSubSectionIndx = ind;
+        if(data.SUBSECTION_ID === SUBSECTION_ID) currentSubSectionIndx = ind;
       })
-      const activeSubSectionId = courseSectionData[currentSectionIndx]?.subSection[currentSubSectionIndx]?.SUBSECTION_ID
+      const activeSUBSECTION_ID = courseSectionData[currentSectionIndx]?.subSection[currentSubSectionIndx]?.SUBSECTION_ID
       console.log("currentSectionIndx: ",currentSectionIndx)
       console.log("currentSubSectionIndx: ",currentSubSectionIndx)
-      console.log("activeSubSectionId: ",activeSubSectionId)
+      console.log("activeSUBSECTION_ID: ",activeSUBSECTION_ID)
       
       setActiveStatus(courseSectionData?.[currentSectionIndx]?.SECTION_ID)
-      setVideoBarActive(activeSubSectionId)
+      setVideoBarActive(activeSUBSECTION_ID)
     })()
   }, [])
 

@@ -50,7 +50,7 @@ export default function SubSectionModal({ modalData, setModalData, add = false, 
     const currentValues = getValues()
     const formData = new FormData()
     formData.append("sectionId", modalData.sectionId)
-    formData.append("subSectionId", modalData._id)
+    formData.append("SUBSECTION_ID", modalData._id)
     if (currentValues.lectureTitle !== modalData.title) {
       formData.append("title", currentValues.lectureTitle)
     }

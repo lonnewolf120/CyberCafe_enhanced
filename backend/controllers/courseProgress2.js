@@ -1,20 +1,21 @@
 const {
   getCourseProgress,
-  updateCourseProgress,
 } = require("../database/origins/CourseDB");
 const {
   isSubsectionValid,
   findCourseProgress,
+  updCourseProgress,addCourseProgress
 } = require("../database/origins/CourseSections");
 
 // ================ update Course Progress ================
 exports.updateCourseProgress = async (req, res) => {
-  const { COURSE_ID, subsectionId } = req.body;
+  const { COURSE_ID, SUBSECTION_ID } = req.body;
+  console.log("courseProgress.js: ", COURSE_ID, SUBSECTION_ID)
   const USER_ID = req.user.id;
 
   try {
     // Check if the subsection is valid
-    const subsection = await isSubsectionValid(subsectionId);
+    const subsection = await isSubsectionValid(SUBSECTION_ID);
     if (!subsection) {
       return res.status(404).json({ error: "Invalid subsection" });
     }
@@ -32,18 +33,18 @@ exports.updateCourseProgress = async (req, res) => {
     } else {            bn
       // If course progress exists, check if the subsection is already completed
       //TODO: check from array of subsection
-      if (courseProgress.SUBSECTION_ID === subsectionId ) {
+      if (courseProgress.SUBSECTION_ID === SUBSECTION_ID ) {
         return res.status(400).json({ error: "Subsection already completed" })
       }
 
       // Push the subsection into the completedVideos array
-      courseProgress.completedVideos.push(subsectionId)
+      courseProgress.completedVideos.push(SUBSECTION_ID)
     }
     */
-    let courseProgress = await updateCourseProgress(
+    let courseProgress = await updCourseProgress(
       COURSE_ID,
       USER_ID,
-      subsectionId
+      SUBSECTION_ID
     );
 
     if (!courseProgress) {
