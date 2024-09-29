@@ -108,8 +108,9 @@ WHERE A3.USER_ID = :USER_ID
     "Failed to find user",
     "user found"
   );
-  let res2 = await query(`SELECT A.CONTESTID AS HOSTEDCONTEST, A.HOST_ID FROM MCSC.HOST A WHERE A.USER_ID = :val`,  { val: res.rows[0].USER_ID }, `Failed to get host info`, `Host info fetched`);
-  res.rows[0].host_info = res2.rows;
+  let res2 = await query(`SELECT A.CONTESTID AS HOSTEDCONTEST, 
+    A.HOST_ID FROM MCSC.HOST A WHERE A.USER_ID = :val`,  { val: USER_ID }, `Failed to get host info`, `Host info fetched`);
+  if(res2.rows) res.rows[0].host_info = res2.rows;
   return res;
 }
 async function updateUserImage(imgurl, USER_ID) {

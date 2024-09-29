@@ -73,12 +73,8 @@ const ChallengesPage = () => {
         {challenges.map((challenge, index) => (
           <ChallengeCard
             key={index}
-            title={challenge.C_TITLE}
-            description={challenge.C_CONTENT}
-            real_flag={challenge.FLAG}
-            cid={challenge.CID}
-            user_id={user.USER_ID}
-            contestId={challenge.CONTESTID}
+            challenge={challenge}
+            user = {user}
           />
         ))}
       </div>

@@ -395,11 +395,11 @@ WHERE
       `FROM DATABASE: SUBSECTION for section ${sections[i].SECTION_ID}: `,
       res
     );
-    sections[i].subSection = res;
+    if(res) sections[i].subSection = res;
     console.log(`sections ${i}: `, sections[i]);
   }
-  courseDetails[0].ratings = rating;
-  courseDetails[0].sections = sections;
+  if(rating) courseDetails[0].ratings = rating;
+  if(sections) courseDetails[0].sections = sections;
 
   console.log("FROM DATABASE, COURSE ALL DETAILS: ", courseDetails);
   return courseDetails;

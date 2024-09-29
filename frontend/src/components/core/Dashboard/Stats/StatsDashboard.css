@@ -43,7 +43,7 @@
 
 .timeline-cells {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     height: 150px;
     width: calc(100% - 40px); /* Adjust width to fit within the container */

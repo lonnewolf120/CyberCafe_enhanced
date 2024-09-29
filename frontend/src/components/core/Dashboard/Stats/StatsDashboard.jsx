@@ -1,5 +1,7 @@
  import React, { useState, useEffect } from 'react';
 
+ import { Modal } from 'flowbite-react';
+ 
 
 import axios from 'axios';
 import { Pie, Line } from 'react-chartjs-2';
@@ -17,6 +19,7 @@ ChartJS.register(Tooltip, Legend, ArcElement, CategoryScale, LinearScale, LineEl
 const StatsDashboard = () => {
     // const [username, setUsername] = useState(''); 
     const [actualName, setActualName] = useState(''); 
+    const [resp, setResponseData] = useState([]);
     const [activedays, setActivedays] = useState([]);
     const { user } = useSelector((state) => state.profile);
     const { token } = useSelector((state) => state.auth);
@@ -29,36 +32,29 @@ const StatsDashboard = () => {
                   },
                 }) 
             .then(response => {
-               
+                setResponseData(response?.data);
                 const days_ = response?.data;
                 console.log("Submission data", days_);
-                const days = days_?.map(submission => {
-                    let dayData = datetodayyear(submission.SUBMISSION_DATE, submission.SUBMISSION_COUNT);
-                    if (isNaN(dayData.dayOfYear)) {
-                        dayData.dayOfYear = Math.floor(Math.random() * 365) + 1; // Random value between 1 and 365
-                    }
-                    return dayData;
+                let daysArr=[];
+                days_?.map(submission => {
+                    let day=0;
+                    day += parseInt(submission?.SUBMISSION_DATE.slice(0,2)) * parseInt(submission?.SUBMISSION_DATE.slice(3,5));
+                    
+                    daysArr.push({
+                        dayOfYear: day,
+                        submissionCount: submission?.SUBMISSION_COUNT,
+                        wholeDay: submission?.SUBMISSION_DATE
+                                        });
+
                 });
-                  
-                
-                setActivedays(days);
-                console.log("Submission data", days);
+                setActivedays(daysArr);
+
+                console.log("Submission data 2:", daysArr);
             })
             .catch(error => {
                 console.error("Error fetching submission data", error);
             });
     }, []);
-
-    function datetodayyear(datestring, submissionCount) {
-        if (!datestring) return null; 
-        const date = new Date(datestring);
-        const startOfYear = new Date(date.getFullYear(), 0, 0);
-        const diff = date - startOfYear;
-        const oneDay = 1000 * 60 * 60 * 24;
-        const dayOfYear = Math.floor(diff / oneDay);
-        return { dayOfYear, submissionCount };
-    }
-
 
  
 
@@ -111,7 +107,7 @@ const StatsDashboard = () => {
             </div>
 
             <div className="Heatmapbox">
-                <Timeline  days={364} activedays={activedays}/>
+                <Timeline  days={364} activedays={activedays} responseData={resp}/>
 
             </div>
 
@@ -120,46 +116,7 @@ const StatsDashboard = () => {
     );
 };
 
-
-function datetodayyear(datestring) {
-    if (!datestring) return null; 
-    const date = new Date(datestring);
-    const startOfYear = new Date(date.getFullYear(), 0, 0);
-    const diff = date - startOfYear;
-    const oneDay = 1000 * 60 * 60 * 24;
-    return Math.floor(diff / oneDay);
-  }
-  
-  const SUBMISSIONS = [
-    { SUBMISSION_DATE: '2024-07-06', SUBMISSION_COUNT: 4 },
-    { SUBMISSION_DATE: '2024-05-06', SUBMISSION_COUNT: 3 },
-    { SUBMISSION_DATE: '2024-06-06', SUBMISSION_COUNT: 3 },
-    { SUBMISSION_DATE: '2024-03-06', SUBMISSION_COUNT: 3 }
-  ];
-  
-  /* const activedays = submissionData.map(submission => 
-    datetodayyear(submission.SUBMISSION_DATE)
-  ); */
-  
-/*  console.log(activedays);  */
-  
-/* const activedays = SUBMISSIONS.map(submission => 
-    datetodayyear(submission.SUBMISSION_DATE)
-  );
-
-
-  console.log(activedays); */
-
-  
-
-function Cell({ submissionCount }) {
- /*    const cellStyle = {
-        backgroundColor: highlight ? 'green' : 'grey',
-    };
-
-    return (
-        <div className="timeline-cell" style={cellStyle}></div>
-    ); */
+function Cell({ ind, submissionCount }) {
 
     const getColor = (count) => {
         if (count === 0) {
@@ -218,34 +175,69 @@ function Week({index}) {
         <div className="timeline-weeks-week"> {Daynames[index]} </div>
     );
 }
+function Timeline({ days, activedays, responseData }) {
+    const [hoveredCell, setHoveredCell] = useState(null);
+    const [hovereddate, setHoverDate] = useState(null);
 
-function Timeline({ days, activedays }) {
     let cells = Array.from(new Array(days));
     let weeks = Array.from(new Array(7));
     let months = Array.from(new Array(12));
 
+    const handleMouseEnter = (index) => {
+        const dayData = activedays.find(day => day.dayOfYear === index);
+        if (dayData) {
+            setHoveredCell(dayData);
+            setHoverDate(dayData.wholeDay);
+        }
+
+        setTimeout(() => {
+            setHoveredCell(null);
+        }, 1000);
+     };
+
+    const handleMouseLeave = () => {
+        setHoveredCell(null);
+    };
+
     return (
         <div>
-        <div className="timeline-months ">
+            <div className="timeline-months">
                 {months.map((_, index) => <Months key={index} index={index} />)}
             </div>
-        <div className="timeline">
-            
-            <div className="timeline-body">
-                <div className="timeline-weeks">
-                    {weeks.map((_, index) => <Week key={index} index={index} />)}
+            <div className="timeline-body"></div>
+                <div className="timeline-body">
+                    <div className="timeline-weeks">
+                        {weeks.map((_, index) => <Week key={index} index={index} />)}
+                    </div>
+                    <div className="timeline-cells">
+                        {cells.map((_, index) => {
+                            const dayData = activedays.find(day => day.dayOfYear === index);
+                            const submissionCount = dayData ? dayData.submissionCount : 0;
+                            return (
+                                <button
+                                    key={index}
+                                    onClick={(e) => {e.preventDefault(); handleMouseEnter(index)}}
+                                >
+                                    <Cell ind={index} submissionCount={submissionCount} />
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
-                <div className="timeline-cells">
-                    {cells.map((_, index) => {
-                        const dayData = activedays.find(day => day.dayOfYear === index);
-                        const submissionCount = dayData ? dayData.submissionCount : 0;
-                        return <Cell key={index} submissionCount={submissionCount} />;
-                    })}
-                </div>
+                {hoveredCell && (
+                <Modal show={true} onClose={handleMouseLeave}>
+                    <Modal.Header>
+                        Submission Details
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>Submission Date: {hovereddate}</p>
+                        <p>Submission Count: {hoveredCell.submissionCount}</p>
+                    </Modal.Body>
+                </Modal>)}
             </div>
-        </div>
-        </div>
-    );
+            
+        );
+                
 }
 export default StatsDashboard;
 

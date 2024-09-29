@@ -73,7 +73,7 @@ exports.capturePayment = async (req, res) => {
     if(totalAmount === 0) {
         res.status(200).json({
             success: true,
-            message: payment,
+            message: "Free course added to cart",
         })
     }
     try {
@@ -95,8 +95,8 @@ exports.capturePayment = async (req, res) => {
         })
     }
     catch (error) {
-        console.log("ERROR from capturePayment: ",error);
-        return res.status(500).json({ success: false, mesage: "Could not Initiate Order", error: error });
+        console.log("ERROR from capturePayment: ",error.message);
+        return res.status(500).json({ success: false, mesage: "Could not Initiate Order", error: error.message });
     }
 
 }

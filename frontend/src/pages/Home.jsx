@@ -134,12 +134,12 @@ const Home = () => {
           </motion.div>
 
           <div className="flex flex-row gap-7 mt-8">
-            <CTAButton active={true} linkto={"/signup"}>
+            <CTAButton active={true} linkto={"/catalog"}>
               Learn More
             </CTAButton>
 
             <CTAButton active={false} linkto={"/login"}>
-              Book a Demo
+              Do contests
             </CTAButton>
           </div>
         </div>
@@ -162,7 +162,7 @@ const Home = () => {
               }
               ctabtn1={{
                 btnText: "try it yourself",
-                linkto: "/signup",
+                linkto: "/catalog",
                 active: true,
               }}
               ctabtn2={{
@@ -204,8 +204,8 @@ const Home = () => {
                 "Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."
               }
               ctabtn1={{
-                btnText: "Continue Lesson",
-                link: "/signup",
+                btnText: "Participate in CTF",
+                link: "/contests/all",
                 active: true,
               }}
               ctabtn2={{
@@ -255,7 +255,7 @@ const Home = () => {
             <div className="w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto">
               <div className="h-[150px]"></div>
               <div className="flex flex-row gap-7 text-white ">
-                <CTAButton active={true} linkto={"/signup"}>
+                <CTAButton active={true} linkto={"/catalog"}>
                   <div className="flex items-center gap-3">
                     Explore Full Catalog
                     <FaArrowRight />

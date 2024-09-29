@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Footer from "../components/common/Footer";
 import Loading from "../components/common/Loading";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function Catalog() {
   const [catalogPageData, setCatalogPageData] = useState(null);
@@ -41,21 +41,21 @@ function Catalog() {
       <div className="box-content bg-richblack-800 px-4 mt-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {catalogPageData && catalogPageData?.map((course, i) => (
-            <Link to={`/courses/${course.COURSE_ID}`}>
-            <div key={i} className="bg-richblack-700 p-4 rounded-lg shadow-lg overflow-hidden">
-              <img src={course?.THUMBNAIL} alt={course.COURSE_NAME} className="w-full h-32 object-cover rounded-t-lg" />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold line-clamp-2">{course?.COURSE_NAME}</h3>
-                <p className="text-sm text-richblack-200 line-clamp-3">{course?.COURSE_DESCRIPTION}</p>
-                <p className="text-sm text-richblack-200">Sold: {course?.SOLD}</p>
-                <p className="text-sm text-richblack-200">Rating: {course?.RATING}</p>
-                <div className="flex items-center mt-2">
-                  <img src={course?.IMAGE} alt={`${course?.FIRST_NAME} ${course?.LAST_NAME}`} className="w-8 h-8 rounded-full mr-2" />
-                  <p className="text-sm text-richblack-200">{course?.FIRST_NAME} {course?.LAST_NAME}</p>
+            <Link to={`/courses/${course.COURSE_ID}`} key={i}>
+              <div className="bg-richblack-700 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                <img src={course?.THUMBNAIL} alt={course.COURSE_NAME} className="w-full h-32 object-cover rounded-t-lg" />
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold line-clamp-2" style={{ color: `#${Math.floor(Math.random() * 16777215).toString(16)}` }}>{course?.COURSE_NAME}</h3>
+                  <p className="text-sm text-richblack-200 line-clamp-3">{course?.COURSE_DESCRIPTION}</p>
+                  <p className="text-sm text-richblack-200">Sold: {course?.SOLD}</p>
+                  <p className="text-sm text-richblack-200">Rating: {course?.RATING}</p>
+                  <div className="flex items-center mt-2">
+                    <img src={course?.IMAGE} alt={`${course?.FIRST_NAME} ${course?.LAST_NAME}`} className="w-8 h-8 rounded-full mr-2" />
+                    <p className="text-sm text-richblack-200">{course?.FIRST_NAME} {course?.LAST_NAME}</p>
+                  </div>
+                  <p className="text-lg font-semibold mt-2">${course?.PRICE}</p>
                 </div>
-                <p className="text-lg font-semibold mt-2">${course?.PRICE}</p>
               </div>
-            </div>
             </Link>
           ))}
         </div>

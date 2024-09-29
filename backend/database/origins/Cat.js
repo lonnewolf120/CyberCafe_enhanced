@@ -371,7 +371,8 @@ async function getMostSellingCourses({ fetchAtmost = 5 }) {
   let r = 0, cnt=0;
   course.map(async (c, ind) => {
     //Fetch ratings for the courses
-    sql = `SELECT R.RATING, R.REVIEW, U.USER_ID, U.FIRST_NAME, U.LAST_NAME, U.ACCOUNT_TYPE  FROM MCSC.RATINGANDREVIEWS R, MCSC.USERS U WHERE course_id = :v1 AND U.USER_ID = R.USER_ID`;
+    sql = `SELECT R.RATING, R.REVIEW, U.USER_ID, U.FIRST_NAME, U.LAST_NAME, 
+    U.ACCOUNT_TYPE  FROM MCSC.RATINGANDREVIEWS R, MCSC.USERS U WHERE course_id = :v1 AND U.USER_ID = R.USER_ID`;
     const ratings = await query(
       sql,
       { v1: c.COURSE_ID },
