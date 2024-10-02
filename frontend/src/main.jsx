@@ -8,8 +8,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import rootReducer from './reducer/index';
 import { Toaster } from 'react-hot-toast'
 
+import { TerminalContextProvider } from "react-terminal";
 
-    
 
 const store = configureStore({
   reducer: rootReducer
@@ -19,7 +19,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Provider store={store}>
       {/* <React.StrictMode> */}
-        <App />
+      
+  <TerminalContextProvider>
+    <App/>
+  </TerminalContextProvider>
+        {/* <App /> */}
         <Toaster />
       {/* </React.StrictMode> */}
     </Provider>

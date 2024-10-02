@@ -86,7 +86,7 @@ function Catalog() {
           <div className="mx-auto flex min-h-[300px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent ">
             <p className="text-sm text-richblack-300">
               {`Home / Catalog / `}
-              <span className="text-yellow-25">
+              <span className="text-caribbeangreen-25">
                 {course?.COURSE_NAME}
               </span>
             </p>
@@ -107,7 +107,7 @@ function Catalog() {
           <p
             className={`px-4 py-2 ${
               active === 1
-                ? "border-b border-b-yellow-25 text-yellow-25"
+                ? "border-b border-b-caribbeangreen-25 text-caribbeangreen-25"
                 : "text-richblack-50"
             } cursor-pointer`}
             onClick={() => setActive(1)}
@@ -117,7 +117,7 @@ function Catalog() {
           <p
             className={`px-4 py-2 ${
               active === 2
-                ? "border-b border-b-yellow-25 text-yellow-25"
+                ? "border-b border-b-caribbeangreen-25 text-caribbeangreen-25"
                 : "text-richblack-50"
             } cursor-pointer`}
             onClick={() => setActive(2)}

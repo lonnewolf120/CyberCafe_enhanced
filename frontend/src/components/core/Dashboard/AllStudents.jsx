@@ -87,7 +87,7 @@ const AllStudents = () => {
                         </>
                             // if No Data Available
                             :
-                            !allStudents ? <div className='text-5xl py-5 bg-yellow-800 text-white text-center'>No Data Available</div>
+                            !allStudents ? <div className='text-5xl py-5 bg-caribbeangreen-800 text-white text-center'>No Data Available</div>
                                 :
                                 allStudents.map((temp, i) =>
                                 (<div
@@ -140,7 +140,7 @@ const AllStudents = () => {
 
                                     {temp && temp.courses && temp.courses?.length ? (
                                         <Tr className="flex gap-x-10 px-6 pb-5">
-                                            <p className="text-yellow-50 ">All Enrolled Courses</p>
+                                            <p className="text-caribbeangreen-50 ">All Enrolled Courses</p>
                                             <div className='grid grid-cols-5 gap-y-5'>
                                                 {temp.courses.map((course) => (
                                                     <div className="text-white text-sm" key={course.COURSE_ID}>
@@ -247,7 +247,7 @@ const AllStudents = () => {
 
         //                         {temp && temp.courses && temp.courses.length ?
         //                             <tr className="flex gap-x-10 px-6 pb-5">
-        //                                 <p className="text-yellow-50 ">All Enrolled Courses</p>
+        //                                 <p className="text-caribbeangreen-50 ">All Enrolled Courses</p>
         //                                 <div className='grid grid-cols-5 gap-y-5'>
         //                                     {temp.courses.map((course) => (
         //                                         <div className="text-white text-sm" key={course.COURSE_ID}>

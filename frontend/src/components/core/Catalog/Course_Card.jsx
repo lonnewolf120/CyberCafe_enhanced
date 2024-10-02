@@ -49,7 +49,7 @@ function Course_Card({ course, Height }) {
              />
             {/* <Avatar>{course?.INSTRUCTOR_IMAGE}</Avatar> */}
             <div className="flex items-center gap-2">
-              <span className="text-yellow-5">{avgReviewCount}</span>
+              <span className="text-caribbeangreen-5">{avgReviewCount}</span>
               
               {/* <ReactStars
                 count={5}

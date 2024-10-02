@@ -68,14 +68,14 @@ const CreateCategory = () => {
             value={newCategory}
             placeholder="Enter new category name"
             onChange={(e) => setNewCategory(e.target.value)}
-            className="text-white pl-4 w-full h-10 bg-transparent border-2 border-yellow-500 focus:border-none outline-yellow-10 rounded-2xl"
+            className="text-white pl-4 w-full h-10 bg-transparent border-2 border-caribbeangreen-500 focus:border-none outline-caribbeangreen-10 rounded-2xl"
           />
           <input
             type='text'
             value={description}
             placeholder="Enter description of category"
             onChange={(e) => setDescription(e.target.value)}
-            className="text-white pl-4 w-full h-20 bg-transparent border-2 border-yellow-500 focus:border-none outline-yellow-10 rounded-2xl"
+            className="text-white pl-4 w-full h-20 bg-transparent border-2 border-caribbeangreen-500 focus:border-none outline-caribbeangreen-10 rounded-2xl"
           />
         </div>
 

@@ -192,7 +192,7 @@ function CourseDetails() {
 
             {/* Go back button */}
             <div className="mb-5 lg:mt-10 lg:mb-0 z-[100]  " onClick={() => navigate(-1)}>
-              <GiReturnArrow className="w-10 h-10 text-yellow-100 hover:text-yellow-50 cursor-pointer" />
+              <GiReturnArrow className="w-10 h-10 text-caribbeangreen-100 hover:text-caribbeangreen-50 cursor-pointer" />
             </div>
 
             {/* will appear only for small size */}
@@ -210,7 +210,7 @@ function CourseDetails() {
               <p className="text-4xl font-bold text-richblack-5 sm:text-[42px]">{COURSE_NAME}</p>
               <p className='text-richblack-200'>{COURSE_DESCRIPTION}</p>
               <div className="text-md flex flex-wrap items-center gap-2">
-                <span className="text-yellow-25">{avgReviewCount}</span>
+                <span className="text-caribbeangreen-25">{avgReviewCount}</span>
                 <RatingStars Review_Count={avgReviewCount} Star_Size={24} />
                 <span>{`(${response?.data?.courseDetails[0]?.ratings?.length || "student"} rating)`}</span>
                 <span>{`${SOLD} students enrolled`}</span>
@@ -228,7 +228,7 @@ function CourseDetails() {
             {/* will appear only for small size */}
             <div className="flex w-full flex-col gap-4 border-y border-y-richblack-500 py-4 lg:hidden">
               <p className="space-x-3 pb-4 text-3xl font-semibold text-richblack-5">Tk. {PRICE}</p>
-              <button className="yellowButton" onClick={handleBuyCourse}>Buy Now</button>
+              <button className="caribbeangreenButton" onClick={handleBuyCourse}>Buy Now</button>
               <button onClick={handleAddToCart} className="blackButton">Add to Cart</button>
             </div>
           </div>
@@ -267,7 +267,7 @@ function CourseDetails() {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {
                 TAG && (
-                  <p className="bg-yellow-50 p-[2px] text-black rounded-full text-center font-semibold" >
+                  <p className="bg-caribbeangreen-50 p-[2px] text-black rounded-full text-center font-semibold" >
                     {TAG}
                   </p>
                 )
@@ -290,7 +290,7 @@ function CourseDetails() {
                   <span>{response.data?.totalDuration} Total Time</span>
                 </div>
                 <button
-                  className="text-yellow-25"
+                  className="text-caribbeangreen-25"
                   onClick={() => setIsActive([])}
                 >
                   Collapse All Sections

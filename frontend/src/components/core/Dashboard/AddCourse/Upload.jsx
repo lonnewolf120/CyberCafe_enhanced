@@ -89,12 +89,12 @@ export default function Upload({ name, label, register, setValue, errors, video 
             {...getRootProps()}
           >
             <input {...getInputProps()} ref={inputRef} />
-            <div className="grid aspect-square w-14 place-items-center rounded-full bg-pure-greys-800">
-              <FiUploadCloud className="text-2xl text-yellow-50" />
+            <div className="grid aspect-square w-14 place-items-center rounded-full bg-grey-800">
+              <FiUploadCloud className="text-2xl text-caribbeangreen-50" />
             </div>
             <p className="mt-2 max-w-[200px] text-center text-sm text-richblack-200">
               Drag and drop an {!video ? "image" : "video"}, or click to{" "}
-              <span className="font-semibold text-yellow-50">Browse</span> a
+              <span className="font-semibold text-caribbeangreen-50">Browse</span> a
               file
             </p>
             <ul className="mt-10 flex list-disc justify-between space-x-12 text-center  text-xs text-richblack-200">

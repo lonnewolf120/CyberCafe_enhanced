@@ -50,6 +50,7 @@ import AddContestPage from "./pages/ctf/AddContestPage.jsx";
 import AddChallenge from "./pages/ctf/AddChallenge.jsx"
 import StatsDashboard from "./components/core/Dashboard/Stats/StatsDashboard.jsx";
 
+import Terminal from "./pages/Terminal"
 //for transition animation
 import { motion, AnimatePresence } from "framer-motion";  
 
@@ -285,6 +286,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Contests />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/emulator/terminal"
+            element={
+              <ProtectedRoute>
+                <Terminal />
               </ProtectedRoute>
             }
           />

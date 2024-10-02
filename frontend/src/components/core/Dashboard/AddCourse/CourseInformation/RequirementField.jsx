@@ -65,7 +65,7 @@ export default function RequirementsField({
         <button
           type="button"
           onClick={handleAddRequirement}
-          className="font-semibold text-yellow-50"
+          className="font-semibold text-caribbeangreen-50"
         >
           Add
         </button>
@@ -79,7 +79,7 @@ export default function RequirementsField({
               (
                 <button
                   type="button"
-                  className="ml-2 text-xs text-pure-greys-300 "
+                  className="ml-2 text-xs text-grey-300 "
                   onClick={() => handleRemoveRequirement(index)}
                 >
                   {/* clear  */}
@@ -94,7 +94,7 @@ export default function RequirementsField({
           <span>{requirementsList[0]}</span>
           <button
             type="button"
-            className="ml-2 text-xs text-pure-greys-300 "
+            className="ml-2 text-xs text-grey-300 "
             onClick={() => handleRemoveRequirement(index)}
           >
             {/* clear  */}

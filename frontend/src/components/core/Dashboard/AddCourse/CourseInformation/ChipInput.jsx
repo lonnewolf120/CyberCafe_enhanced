@@ -62,7 +62,7 @@ export default function ChipInput({ label, name, placeholder, register, errors, 
         {chips?.map((chip, index) => (
           <div
             key={index}
-            className="m-1 flex items-center rounded-full bg-yellow-400 px-2 py-1 text-sm text-richblack-5"
+            className="m-1 flex items-center rounded-full bg-caribbeangreen-400 px-2 py-1 text-sm text-richblack-5"
           >
             {chip}
 

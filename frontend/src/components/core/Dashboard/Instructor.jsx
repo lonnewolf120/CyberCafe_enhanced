@@ -74,7 +74,7 @@ export default function Instructor() {
           <div className="flex justify-between">
             <p className="text-lg font-bold text-richblack-5 pl-5">Your Courses</p>
             <Link to="/dashboard/my-courses">
-              <p className="text-xs font-semibold text-yellow-50 hover:underline pr-5">View All</p>
+              <p className="text-xs font-semibold text-caribbeangreen-50 hover:underline pr-5">View All</p>
             </Link>
           </div>
 
@@ -155,7 +155,7 @@ export default function Instructor() {
               <div className="flex items-center justify-between">
                 <p className="text-lg font-bold text-richblack-5">Your Courses</p>
                 <Link to="/dashboard/my-courses">
-                  <p className="text-xs font-semibold text-yellow-50 hover:underline">View All</p>
+                  <p className="text-xs font-semibold text-caribbeangreen-50 hover:underline">View All</p>
                 </Link>
               </div>
               {/* {console.log("My courses: ",courses)} */}
@@ -197,7 +197,7 @@ export default function Instructor() {
             </p>
 
             <Link to="/dashboard/add-course">
-              <p className="mt-1 text-center text-lg font-semibold text-yellow-50">
+              <p className="mt-1 text-center text-lg font-semibold text-caribbeangreen-50">
                 Create a course
               </p>
             </Link>

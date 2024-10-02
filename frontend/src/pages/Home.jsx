@@ -185,7 +185,7 @@ const Home = () => {
 //                             TKINTER_LIB = None
 //                         tk_version = str(tkinter.TkVersion)
 // `}
-              codeColor={"text-yellow-25"}
+              codeColor={"text-caribbeangreen-25"}
               backgroundGradient={"code-block1-grad"}
             />
           </div>
@@ -250,7 +250,7 @@ const Home = () => {
         </div>
 
         {/*Section 2  */}
-        <div className="bg-pure-greys-5 text-richblack-700 ">
+        <div className="bg-grey-5 text-richblack-700 ">
           <div className="homepage_bg h-[310px]">
             <div className="w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto">
               <div className="h-[150px]"></div>
@@ -301,7 +301,7 @@ const Home = () => {
           {/* Reviws from Other Learner */}
           <h1 className="text-center text-3xl lg:text-4xl font-semibold mt-8 flex justify-center items-center gap-x-3">
             Reviews from other learners{" "}
-            <MdOutlineRateReview className="text-yellow-25" />
+            <MdOutlineRateReview className="text-caribbeangreen-25" />
           </h1>
           <ReviewSlider />
         </div>

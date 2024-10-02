@@ -30,7 +30,7 @@ function ForgotPassword() {
           <div className="my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100">
             {!EMAILSent
               ? "Have no fear. We'll EMAIL you INSTRUCTIONS to reset your password. If you dont have access to your EMAIL we can try account recovery"
-              : <p>We have sent the reset EMAIL to <span className="text-yellow-200">{EMAIL}</span></p>}
+              : <p>We have sent the reset EMAIL to <span className="text-caribbeangreen-200">{EMAIL}</span></p>}
           </div>
 
           <form onSubmit={handleOnSubmit}>
@@ -56,7 +56,7 @@ function ForgotPassword() {
 
             <button
               type="submit"
-              className="mt-6 w-full rounded-[8px] bg-yellow-50 py-[12px] px-[12px] font-medium text-richblack-900"
+              className="mt-6 w-full rounded-[8px] bg-caribbeangreen-50 py-[12px] px-[12px] font-medium text-richblack-900"
             >
               {!EMAILSent ? "Sumbit" : "Resend Email"}
             </button>

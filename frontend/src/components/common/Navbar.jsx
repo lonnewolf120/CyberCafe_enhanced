@@ -51,7 +51,7 @@ const Navbar = () => {
     fetchSublinks();
   }, []);
 
-  // when user click Navbar link then it will hold yellow color
+  // when user click Navbar link then it will hold caribbeangreen color
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
   };
@@ -96,7 +96,7 @@ const Navbar = () => {
                 <div
                   className={`group relative flex cursor-pointer items-center gap-1 ${
                     matchRoute("/catalog/:catalogName")
-                      ? "bg-yellow-25 text-black rounded-xl p-1 px-3"
+                      ? "bg-caribbeangreen-25 text-black rounded-xl p-1 px-3"
                       : "text-richblack-25 rounded-xl p-1 px-3"
                   }`}
                 >
@@ -136,7 +136,7 @@ const Navbar = () => {
                   <p
                     className={`${
                       matchRoute(link?.path)
-                        ? "bg-yellow-25 text-black"
+                        ? "bg-caribbeangreen-25 text-black"
                         : "text-richblack-25"
                     } rounded-xl p-1 px-3 `}
                   >
@@ -156,7 +156,7 @@ const Navbar = () => {
               <AiOutlineShoppingCart className="text-[2.35rem] text-richblack-5 hover:bg-richblack-700 rounded-full p-2 duration-200" />
               {totalItems > 0 && (
                 <span className="absolute -bottom-2 -right-2 grid h-5 w-5 place-items-center overflow-hidden 
-                rounded-full bg-richblack-600 text-center text-xs font-bold text-yellow-100">
+                rounded-full bg-richblack-600 text-center text-xs font-bold text-caribbeangreen-100">
                   {totalItems}
                 </span>
               )}
@@ -164,12 +164,12 @@ const Navbar = () => {
           )}
           {token === null && (
             <Link to="/login">
-              {/* <button className='border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100 rounded-md focus:outline-8 outline-yellow-50'> */}
+              {/* <button className='border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100 rounded-md focus:outline-8 outline-caribbeangreen-50'> */}
               <button
                 className={` px-[12px] py-[8px] text-richblack-100 rounded-md 
                                  ${
                                    matchRoute("/login")
-                                     ? "border-[2.5px] border-yellow-50"
+                                     ? "border-[2.5px] border-caribbeangreen-50"
                                      : "border border-richblack-700 bg-richblack-800"
                                  } `}
               >
@@ -184,7 +184,7 @@ const Navbar = () => {
                 className={` px-[12px] py-[8px] text-richblack-100 rounded-md 
                                  ${
                                    matchRoute("/signup")
-                                     ? "border-[2.5px] border-yellow-50"
+                                     ? "border-[2.5px] border-caribbeangreen-50"
                                      : "border border-richblack-700 bg-richblack-800"
                                  } `}
               >

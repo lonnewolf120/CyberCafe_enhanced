@@ -47,7 +47,7 @@ export default function EditProfile() {
                 defaultValue={user?.FIRST_NAME}
               />
               {errors.FIRST_NAME && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
+                <span className="-mt-1 text-[12px] text-caribbeangreen-100">
                   Please enter your first name.
                 </span>
               )}
@@ -67,7 +67,7 @@ export default function EditProfile() {
                 defaultValue={user?.LAST_NAME}
               />
               {errors.LAST_NAME && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
+                <span className="-mt-1 text-[12px] text-caribbeangreen-100">
                   Please enter your last name.
                 </span>
               )}
@@ -97,7 +97,7 @@ export default function EditProfile() {
                 defaultValue={user?.DATE_OF_BIRTH}
               />
               {errors.DATE_OF_BIRTH && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
+                <span className="-mt-1 text-[12px] text-caribbeangreen-100">
                   {errors.DATE_OF_BIRTH.message}
                 </span>
               )}
@@ -124,7 +124,7 @@ export default function EditProfile() {
                 })}
               </select>
               {errors.GENDER && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
+                <span className="-mt-1 text-[12px] text-caribbeangreen-100">
                   Please enter your Gender.
                 </span>
               )}
@@ -153,7 +153,7 @@ export default function EditProfile() {
                 defaultValue={user?.CONTACT_NUMBER}
               />
               {errors.CONTACT_NUMBER && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
+                <span className="-mt-1 text-[12px] text-caribbeangreen-100">
                   {errors.CONTACT_NUMBER.message}
                 </span>
               )}
@@ -173,7 +173,7 @@ export default function EditProfile() {
                 defaultValue={user?.ABOUT}
               />
               {errors.ABOUT && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
+                <span className="-mt-1 text-[12px] text-caribbeangreen-100">
                   Please enter your About.
                 </span>
               )}

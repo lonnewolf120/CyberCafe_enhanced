@@ -26,7 +26,7 @@ const ContestCard = ({ title, contestID, starttime, endtime }) => {
     const formattedEndTime = formatDate(endtime);
 
     const randomColor = () => {
-        const colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple'];
+        const colors = ['red', 'blue', 'green', 'caribbeangreen', 'orange', 'purple'];
         const randomIndex = Math.floor(Math.random() * colors.length);
         return colors[randomIndex];
     };

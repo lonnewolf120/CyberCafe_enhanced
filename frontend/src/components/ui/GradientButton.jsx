@@ -22,8 +22,8 @@ export default function GrButtons({ variant, children }) {
         case 'TealToLime':
             gradientClass = 'from-teal-300 to-lime-300';
             break;
-        case 'RedToYellow':
-            gradientClass = 'from-red-200 via-red-300 to-yellow-200';
+        case 'RedTocaribbeangreen':
+            gradientClass = 'from-red-200 via-red-300 to-caribbeangreen-200';
             break;
         default:
             gradientClass = 'from-purple-600 to-blue-500';

@@ -86,7 +86,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
               }
             */}
             <button
-              className="yellowButton outline-none"
+              className="caribbeangreenButton outline-none"
               onClick={
                 handleBuyCourse
               }
@@ -129,7 +129,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
 
           <div className="text-center">
             <button
-              className="mx-auto flex items-center gap-2 py-6 text-yellow-100 "
+              className="mx-auto flex items-center gap-2 py-6 text-caribbeangreen-100 "
               onClick={handleShare}
             >
               <FaShareSquare size={15} /> Share

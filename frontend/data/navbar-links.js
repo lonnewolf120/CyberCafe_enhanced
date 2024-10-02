@@ -10,4 +10,8 @@ export const NavbarLinks = [
     title: "Contests",
     path: "/contests/all"
   },
+  {
+    title: "Emulators",
+    path: "/emulator/terminal"
+  }
 ];

@@ -100,7 +100,7 @@ function AllInstructors() {
             </>
               // if No Data Available
               :
-              !allInstructorDetails ? <div className='text-5xl py-5 bg-yellow-800 text-white text-center'>No Data Available</div>
+              !allInstructorDetails ? <div className='text-5xl py-5 bg-caribbeangreen-800 text-white text-center'>No Data Available</div>
                 :
                 allInstructorDetails?.map((instructor) => (
                   <div
@@ -152,7 +152,7 @@ function AllInstructors() {
 
                     {// {instrCourses && instrCourses?.length ? (
                     //   <Tr className="flex gap-x-10 px-6 pb-5">
-                    //     <p className="text-yellow-50 ">Built Courses</p>
+                    //     <p className="text-caribbeangreen-50 ">Built Courses</p>
                     //     <div className='grid grid-cols-5 gap-y-5'>
                     //       {allInstructorDetails.map((course) => (
                     //         (course.USER_ID === instructor.USER_ID)?(

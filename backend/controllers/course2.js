@@ -447,20 +447,20 @@ exports.editCourse = async (req, res) => {
       }
     }
 
+    
     // Update the updatedAt field
     // updateFields.push(`updatedAt = :updatedAt`);
     // bindVars.updatedAt = new Date();
 
     // Create the update SQL statement
     const updateSql = `UPDATE MCSC.Courses SET ${updateFields.join(", ")} WHERE course_id = :COURSE_ID`;
-
+    
     // Execute the update
     await db.execute(updateSql, bindVars);
 
     // Commit the transaction
     await db.commit();
-
-    // Fetch the updated course
+// Fetch the updated course
     const updatedCourseSql = `
       SELECT c.*, i.first_name || ' ' || i.last_name AS instructor_name, cat.name AS category_name
       FROM MCSC.Courses c
@@ -494,6 +494,72 @@ exports.editCourse = async (req, res) => {
       }
     }
   }
+}
+exports.fetchAfterEdit = async(req, res)=>{
+    const fn=`
+    CREATE OR REPLACE FUNCTION get_course_details(p_course_id IN MCSC.Courses.course_id%TYPE)
+RETURN SYS_REFCURSOR
+IS
+    -- Declare a variable to hold the cursor (REF CURSOR type)
+    course_cursor SYS_REFCURSOR;
+BEGIN
+    -- Open the cursor and execute the query
+    OPEN course_cursor FOR
+        SELECT c.course_id, c.course_name AS course_name,
+               i.fullname AS instructor_name,
+               cat.name AS category_name,
+               COUNT(r.rating) AS rating_count,
+               AVG(r.rating) AS average_rating
+          FROM MCSC.Courses c
+          JOIN MCSC.Users i ON c.instructor = i.user_id
+          JOIN MCSC.Category cat ON c.category = cat.category_id
+          LEFT JOIN MCSC.RatingAndReviews r ON c.course_id = r.course_id
+          WHERE c.course_id = p_course_id
+          GROUP BY c.course_id, c.course_name, i.fullname, cat.name;
+    
+    -- Return the cursor to the caller
+    RETURN course_cursor;
+END get_course_details;
+/
+
+    `
+    // PL/SQL block to call the function and retrieve the REF CURSOR
+    const plsql = `
+      DECLARE
+        v_course_cursor SYS_REFCURSOR;
+      BEGIN
+        -- Call the PL/SQL function and pass the course_id
+        v_course_cursor := get_course_details(:course_id);
+        -- Return the cursor result set
+        OPEN :cursor FOR SELECT * FROM TABLE(v_course_cursor);
+      END;
+    `;
+
+    // Create a bind variable for the course ID and the cursor
+    const binds = {
+      course_id: courseId,  // The course ID to filter on
+      cursor: { type: oracledb.CURSOR, dir: oracledb.BIND_OUT }  // Define cursor output
+    };
+
+    // Execute the PL/SQL block
+    const result = await connection.execute(plsql, binds, { outFormat: oracledb.OUT_FORMAT_OBJECT });
+
+    // Fetch the cursor data
+    const resultSet = result.outBinds.cursor;
+    let row;
+    const courseDetails = [];
+
+    // Loop through the cursor and fetch all rows
+    while ((row = await resultSet.getRow())) {
+      courseDetails.push(row);
+    }
+
+    // Close the cursor
+    await resultSet.close();
+
+    // Return the fetched course details
+    return res.json({courseDetails});
+
 }
   // ================ Get a list of Course for a given Instructor ================
 exports.getInstructorCourses = async (req, res) => {
